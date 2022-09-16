@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  plugins: [
+    // eslint-disable-next-line global-require
+    require('@tailwindcss/forms'), // import tailwind forms
+  ],
   theme: {
     fontSize: {
       xs: '0.75rem',
@@ -38,8 +42,26 @@ module.exports = {
           800: '#2c5282',
           900: '#2a4365',
         },
+        transparent: 'transparent',
+        'footer-background': '#002032',
+        'footer-icon-background': '#000F26',
+        'footer-link': '#FEFFFF',
+        'footer-copyright': '#E3E3E3',
+        'brand-purple': '#8F015F',
+        'brand-blue': '#3600CE',
+        'brand-green': '#00D689',
+        'brand-orange': '#FFA756',
+      },
+      spacing: {
+        13: '3.25rem',
+        15: '3.75rem', // 60px
+        128: '32rem',
+        136: '34rem',
+        144: '36rem',
+      },
+      screens: {
+        'sm-inv': { max: '585px' },
       },
     },
   },
-  plugins: [],
 };

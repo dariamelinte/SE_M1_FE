@@ -1,0 +1,20 @@
+.container {
+  @apply w-full flex items-center justify-center;
+}
+
+.loading {
+  @apply border-blue-500 border-t-blue-400 rounded-full animate-spin;
+  @apply dark:border-gray-800 dark:border-t-gray-400;
+}
+
+.large {
+  @apply h-12 w-12 border-[6px];
+}
+
+.default {
+  @apply h-10 w-10 border-[5px];
+}
+
+.small {
+  @apply h-8 w-8 border-4;
+}

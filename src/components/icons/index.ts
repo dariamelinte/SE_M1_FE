@@ -1,0 +1,15 @@
+export { default as AlgLogo } from './AlgLogo';
+export { default as Areas } from './Areas';
+export { default as AsiiCoder } from './AsiiCoder';
+export { default as BannerCover } from './BannerCover';
+export { default as BannerCoverBlur } from './BannerCoverBlur';
+export { default as BannerCoverDottedLine } from './BannerCoverDottedLine';
+export { default as Facebook } from './Facebook';
+export { default as GamedevLogo } from './GamedevLogo';
+export { default as Instagram } from './Instagram';
+export { default as Linkedin } from './Linkedin';
+export { default as LogoAsii } from './LogoAsii';
+export { default as LogoFii } from './LogoFii';
+export { default as LogoFiicode } from './LogoFiicode';
+export { default as MarketingLogo } from './MarketingLogo';
+export { default as WebLogo } from './WebLogo';

@@ -1,5 +1,5 @@
 {
-  "name": "next-js-boilerplate",
+  "name": "next-fiicode",
   "version": "2.1.1",
   "scripts": {
     "dev": "next dev",
@@ -9,20 +9,28 @@
     "export": "next export",
     "build-prod": "run-s clean build export",
     "clean": "rimraf .next out",
-    "lint": "next lint",
+    "lint": "next lint --fix",
     "check-types": "tsc --noEmit --pretty",
     "test": "jest",
     "cypress": "cypress open",
     "cypress:headless": "cypress run",
     "e2e": "start-server-and-test dev http://localhost:3000 cypress",
     "e2e:headless": "start-server-and-test dev http://localhost:3000 cypress:headless",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "svgr": "rm -rf src/components/icons && npx @svgr/cli --typescript --no-svgo -d src/components/icons src/assets/svg"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.2",
+    "@heroicons/react": "^2.0.11",
+    "@tailwindcss/forms": "^0.5.3",
+    "axios": "^0.27.2",
+    "classnames": "^2.3.2",
+    "formik": "^2.2.9",
     "next": "^12.3.0",
     "next-seo": "^5.5.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
