@@ -1,0 +1,27 @@
+.banner {
+    @apply w-full -mt-1;
+}
+
+.bannerBlurContainer {
+    @apply w-full py-2 flex items-center justify-center bg-slate-800;
+}
+
+.bannerDecorationContainer {
+    @apply w-full h-[2px] bg-center my-2;
+}
+
+.bannerSection {
+    @apply static md:relative md:left-[-25vw] flex flex-row;
+}
+
+.bannerSectionText {
+    @apply text-white font-bold text-xl pl-10;
+}
+
+.bannerSectionIcon {
+    @apply h-20 w-20 relative -top-6 rounded-full absolute flex justify-center items-center;
+}
+
+.bannerSectionIconContainer {
+    @apply relative h-0;
+}

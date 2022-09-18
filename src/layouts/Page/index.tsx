@@ -2,7 +2,8 @@ import Head from 'next/head';
 import type { PropsWithChildren } from 'react';
 import React from 'react';
 
-import { Footer, Loading, Navbar } from '@/components';
+import { Banner, Footer, Loading, Navbar } from '@/components';
+import type { BannersType } from '@/constants';
 
 const TITLE = 'FiiCode';
 
@@ -10,6 +11,7 @@ interface PageProps {
   title?: string;
   loading?: boolean;
   errorMessage?: string;
+  theme?: BannersType;
 }
 
 export function PageMeta({ children }: { children: React.ReactNode }) {
@@ -21,10 +23,12 @@ function Page({
   title = TITLE,
   loading,
   errorMessage,
+  theme,
 }: PropsWithChildren<PageProps>) {
   let content = (
     <>
       <Navbar />
+      {!!theme && <Banner theme={theme} />}
       {children}
       <Footer />
     </>
