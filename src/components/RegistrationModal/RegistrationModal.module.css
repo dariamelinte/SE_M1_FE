@@ -1,0 +1,35 @@
+.dialog {
+  @apply fixed inset-0 z-10 overflow-y-auto bg-black bg-opacity-20;
+}
+
+.container {
+  @apply min-h-screen px-4 text-center;
+}
+
+.modalContainer {
+  @apply inline-block w-full max-w-xl py-6 px-8 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl;
+}
+
+.title {
+  @apply text-base text-center font-medium leading-6 text-gray-900;
+}
+
+.sectionContainer {
+  @apply pt-4;
+}
+
+.sectionTitle {
+  @apply text-sm font-medium leading-6 text-gray-600 pb-2;
+}
+
+.sections {
+  @apply flex flex-row flex-wrap justify-between items-center mb-4;
+}
+
+.sectionButton {
+  @apply my-1 sm-inv:w-full;
+}
+
+.buttonContainer {
+  @apply flex justify-end mt-4;
+}

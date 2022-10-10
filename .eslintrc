@@ -58,7 +58,8 @@
           "error",
           { "argsIgnorePattern": "^_" }
         ],
-        "react/display-name": "off"
+        "react/display-name": "off",
+        "import/no-cycle": "warn"
       }
     },
     // Configuration for testing

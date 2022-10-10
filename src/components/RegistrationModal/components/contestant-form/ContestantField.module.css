@@ -1,0 +1,11 @@
+.inputRow {
+  @apply flex flex-wrap justify-center;
+}
+
+.icon {
+  @apply h-8 w-8 text-gray-700;
+}
+
+.plusButton {
+  @apply flex cursor-pointer items-center justify-center;
+}
