@@ -9,6 +9,7 @@ const SvgLogoFii = (props: SVGProps<SVGSVGElement>) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
+    role="img"
     {...props}
   >
     <rect width={50} height={50} fill="url(#pattern3)" />
@@ -30,5 +31,4 @@ const SvgLogoFii = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 );
-
 export default SvgLogoFii;

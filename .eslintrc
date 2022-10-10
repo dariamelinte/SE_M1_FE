@@ -57,7 +57,8 @@
         "unused-imports/no-unused-vars": [
           "error",
           { "argsIgnorePattern": "^_" }
-        ]
+        ],
+        "react/display-name": "off"
       }
     },
     // Configuration for testing

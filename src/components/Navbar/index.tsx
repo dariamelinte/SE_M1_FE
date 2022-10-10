@@ -21,7 +21,7 @@ export const Navbar: React.FC = () => {
         <div className="sm:hidden">
           <button
             onClick={onBurgerPress}
-            className="navbar-burger flex items-center text-white"
+            className="flex items-center text-white"
           >
             <svg
               className="block h-4 w-4 fill-current"
@@ -52,17 +52,14 @@ export const Navbar: React.FC = () => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <div className="navbar-menu absolute z-50 sm:hidden">
+        <div className="absolute z-50 sm:hidden">
           <div
             onClick={onBackDropPress}
-            className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"
+            className="fixed inset-0 bg-gray-800 opacity-25"
           ></div>
           <nav className="fixed inset-y-0 left-0 flex w-5/6 max-w-sm flex-col overflow-y-auto border-r bg-white p-6">
             <div className="mb-8 flex">
-              <button
-                onClick={onBackDropPress}
-                className="navbar-close ml-auto"
-              >
+              <button onClick={onBackDropPress} className="ml-auto">
                 <svg
                   className="h-6 w-6 cursor-pointer text-gray-400 hover:text-gray-500"
                   xmlns="http://www.w3.org/2000/svg"

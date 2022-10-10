@@ -9,6 +9,7 @@ const SvgBannerCoverDottedLine = (props: SVGProps<SVGSVGElement>) => (
     viewBox="0 0 1920 4"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    role="img"
     {...props}
   >
     <path
@@ -21,5 +22,4 @@ const SvgBannerCoverDottedLine = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default SvgBannerCoverDottedLine;

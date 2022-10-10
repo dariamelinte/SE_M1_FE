@@ -8,6 +8,7 @@ const SvgAreas = (props: SVGProps<SVGSVGElement>) => (
     viewBox="0 0 450 444"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    role="img"
     {...props}
   >
     <g clipPath="url(#clip0_22_29)">
@@ -232,5 +233,4 @@ const SvgAreas = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 );
-
 export default SvgAreas;

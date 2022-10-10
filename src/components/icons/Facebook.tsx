@@ -8,6 +8,7 @@ const SvgFacebook = (props: SVGProps<SVGSVGElement>) => (
     viewBox="0 0 49 49"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    role="img"
     {...props}
   >
     <path
@@ -16,5 +17,4 @@ const SvgFacebook = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default SvgFacebook;

@@ -12,4 +12,5 @@ export { default as LogoAsii } from './LogoAsii';
 export { default as LogoFii } from './LogoFii';
 export { default as LogoFiicode } from './LogoFiicode';
 export { default as MarketingLogo } from './MarketingLogo';
+export { default as Plus } from './Plus';
 export { default as WebLogo } from './WebLogo';

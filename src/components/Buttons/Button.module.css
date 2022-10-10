@@ -1,0 +1,92 @@
+.button,
+.button[type='button'],
+.button[type='reset'],
+.button[type='submit'] {
+  @apply inline-block py-1 px-6 border border-transparent rounded-xl text-base font-medium text-white hover:bg-opacity-75 focus:outline-none;
+  @apply disabled:bg-opacity-75;
+}
+
+.underlined-button,
+.underlined-button[type='button'],
+.underlined-button[type='reset'],
+.underlined-button[type='submit'] {
+  @apply inline-block py-1.5 underline tracking-wide text-gray-700 text-sm font-bold hover:opacity-75 focus:outline-none;
+  @apply disabled:bg-gray-300;
+}
+
+.hasIcon {
+  @apply flex items-center;
+}
+
+/* Themes */
+.web,
+.web[type='button'],
+.web[type='reset'],
+.web[type='submit'] {
+  @apply bg-brand-purple text-white;
+}
+
+.algorithmics,
+.algorithmics[type='button'],
+.algorithmics[type='reset'],
+.algorithmics[type='submit'] {
+  @apply bg-brand-blue text-white;
+}
+
+.marketing,
+.marketing[type='button'],
+.marketing[type='reset'],
+.marketing[type='submit'] {
+  @apply bg-brand-green text-gray-600;
+}
+
+.gamedev,
+.gamedev[type='button'],
+.gamedev[type='reset'],
+.gamedev[type='submit'] {
+  @apply bg-brand-orange text-white;
+}
+
+.default,
+.default[type='button'],
+.default[type='reset'],
+.default[type='submit'] {
+  @apply bg-gray-400 text-white;
+}
+
+.underlined-web,
+.underlined-web[type='button'],
+.underlined-web[type='reset'],
+.underlined-web[type='submit'] {
+  @apply text-brand-purple;
+}
+
+.underlined-algorithmics,
+.underlined-algorithmics[type='button'],
+.underlined-algorithmics[type='reset'],
+.underlined-algorithmics[type='submit'] {
+  @apply text-brand-blue;
+}
+
+.underlined-marketing,
+.underlined-marketing[type='button'],
+.underlined-marketing[type='reset'],
+.underlined-marketing[type='submit'] {
+  @apply text-brand-green;
+}
+
+.underlined-gamedev,
+.underlined-gamedev[type='button'],
+.underlined-gamedev[type='reset'],
+.underlined-gamedev[type='submit'] {
+  @apply text-brand-orange;
+}
+
+/* Sizes */
+.sm {
+  @apply py-1 px-3;
+}
+
+.text {
+  @apply p-0;
+}
