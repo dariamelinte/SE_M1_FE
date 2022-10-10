@@ -12,7 +12,6 @@ type BannerOverlayProps = {
 };
 
 const BannerOverlay: React.FC<BannerOverlayProps> = ({ theme }) => {
-  console.log({ BannerCoverBlurSVG });
   return (
     <div
       className={styles.bannerBlurContainer}

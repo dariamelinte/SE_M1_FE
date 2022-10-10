@@ -1,0 +1,79 @@
+.sectionPresentation {
+  @apply max-w-3xl;
+}
+
+.sectionRow {
+  @apply flex flex-col md:flex-row flex-wrap;
+}
+
+.sectionContainer {
+  @apply p-5 m-5 rounded-xl shadow-md flex-1 bg-white relative;
+}
+
+.sectionTitle {
+  @apply text-center font-bold uppercase tracking-wide text-lg pb-4;
+}
+
+.sectionDescription {
+  @apply px-6 pb-3 text-gray-500 font-light text-sm;
+}
+
+.plusContainer {
+  @apply w-full flex p-1 px-6 mt-3 cursor-pointer;
+}
+
+.plusContainerRight {
+  @apply  justify-end;
+}
+
+.plusIcon {
+  @apply h-8 w-8 rounded-full text-white ;
+}
+
+.sectionIconContainer {
+  @apply absolute top-5 ;
+}
+
+.sectionIconRight {
+  @apply right-5;
+}
+
+.sectionIcon {
+  @apply h-8 w-8;
+}
+
+.sectionTitle-web {
+  @apply text-brand-purple;
+}
+.sectionTitle-gamedev {
+  @apply text-brand-orange;
+}
+.sectionTitle-marketing {
+  @apply text-brand-green;
+}
+.sectionTitle-algorithmics {
+  @apply text-brand-blue;
+}
+
+
+.plusIcon-web {
+  @apply bg-brand-purple bg-opacity-80;
+}
+.plusIcon-gamedev {
+  @apply bg-brand-orange bg-opacity-80;
+}
+.plusIcon-marketing {
+  @apply bg-brand-green bg-opacity-80;
+}
+.plusIcon-algorithmics {
+  @apply bg-brand-blue bg-opacity-80;
+}
+
+.areasContainer {
+  @apply hidden;
+  @apply md:absolute md:flex items-center justify-center w-full h-full;
+}
+
+.areas {
+  @apply h-48 w-48 z-10;
+}

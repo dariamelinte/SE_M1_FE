@@ -8,6 +8,7 @@ const SvgLinkedin = (props: SVGProps<SVGSVGElement>) => (
     viewBox="0 0 34 29"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    role="img"
     {...props}
   >
     <path
@@ -16,5 +17,4 @@ const SvgLinkedin = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default SvgLinkedin;

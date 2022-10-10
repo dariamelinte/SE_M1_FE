@@ -1,0 +1,3 @@
+.GradientButton {
+    @apply flex justify-center items-center bg-gradient-to-r max-w-sm p-3 rounded-3xl from-[#B9154F] to-[#2F04AE] cursor-pointer m-2 px-14;
+}

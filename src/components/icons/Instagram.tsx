@@ -8,6 +8,7 @@ const SvgInstagram = (props: SVGProps<SVGSVGElement>) => (
     viewBox="0 0 36 36"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    role="img"
     {...props}
   >
     <g clipPath="url(#clip0_223_163)">
@@ -28,5 +29,4 @@ const SvgInstagram = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 );
-
 export default SvgInstagram;

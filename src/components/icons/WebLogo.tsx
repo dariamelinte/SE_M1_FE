@@ -8,6 +8,7 @@ const SvgWebLogo = (props: SVGProps<SVGSVGElement>) => (
     viewBox="0 0 76 71"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    role="img"
     {...props}
   >
     <g clipPath="url(#clip0_32_170)">
@@ -84,5 +85,4 @@ const SvgWebLogo = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 );
-
 export default SvgWebLogo;
