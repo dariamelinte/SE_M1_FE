@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { GradientButton } from '@/components/Buttons';
-import { Closed } from '@/components/Closed';
 
 import styles from './Texts.module.css';
 
@@ -20,7 +19,7 @@ const GameDevText: React.FC<GameDevTextProps> = ({ openModel }) => {
         formă de entertainment pe gustul lor. Tema de anul acesta, space
         adventure, vă va face să vizualizați o experiență de neuitat prin cod.
       </p>
-      <Closed />
+      {/* <Closed /> */}
       {/* <div className="flex items-center justify-center">
         <GradientButton onClick={openModel}>
           <div className="text-2xl font-bold text-white">Înscrie-te</div>
@@ -38,13 +37,16 @@ const GameDevText: React.FC<GameDevTextProps> = ({ openModel }) => {
         </a>
       </div> */}
       <h1 className={styles.areaHeading}>PREMIILE EDIȚIEI</h1>
-      <h2 className={styles.areaPrize}>Premiul I: 3750 RON</h2>
+      <h2 className={styles.areaPrize}>
+        Premiile ariei vor fi anuntate in saptamanile ce urmeaza.
+      </h2>
+      {/* <h2 className={styles.areaPrize}>Premiul I: 3750 RON</h2>
       <h2 className={styles.areaPrize}>Premiul II: 3000 RON</h2>
       <h2 className={styles.areaPrize}>Premiul III: 2250 RON</h2>
       <p className={styles.areaParagraph}>
         Pe lângă aceste premii, se adaugă și cadouri surpriză din partea
         sponsorilor.
-      </p>
+      </p> */}
       <br />
       <br />
       <h1 className={styles.areaHeading}>DESFĂȘURAREA ARIEI GAMEDEV </h1>

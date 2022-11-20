@@ -17,7 +17,7 @@ const CtfPage: React.FC = () => {
   return (
     <Page theme={Banners.ctf}>
       <div className="pt-10">
-        <Area type={4}>
+        <Area type={3}>
           <CtfText openModel={() => setOpen(true)} />
         </Area>
       </div>

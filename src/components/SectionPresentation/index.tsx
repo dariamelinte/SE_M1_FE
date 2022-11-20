@@ -49,7 +49,7 @@ const SectionPresentation: React.FC<SectionPresentationProps> = () => (
         <Section
           isRight
           title="Algoritmică"
-          description="Aria de Algoritmică este un concurs ce vizează cunoștințele de informatică ale elevilor de liceu, testând capacitatea lor de a rezolva probleme. Dacă îți este ușor să găsești soluții sau abordări pentru diferite probleme sau dacă ai o minte curioasă și perseverentă atunci această arie este cea mai potrivită pentru tine."
+          description="Aria de Algoritmică este un concurs ce vizează cunoștințele de informatică ale studenților și elevilor de liceu, testând capacitatea lor de a rezolva probleme. Dacă îți este ușor să găsești soluții sau abordări pentru diferite probleme sau dacă ai o minte curioasă și perseverentă atunci această arie este cea mai potrivită pentru tine."
           theme={Sections.algorithmics}
           onClick={() => router.push(`/algoritmica`)}
           icon={<AlgLogo className={styles.sectionIcon} />}

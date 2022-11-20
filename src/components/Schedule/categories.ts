@@ -16,9 +16,9 @@ export const categories: CategoryType[] = [
     News: [
       {
         id: 1,
-        title: 'Au început înscrierile!',
+        title: 'Perioada de înscriere',
         subtitle:
-          'Au început înscrierile pentru proba Algoritmică. Înscrierile pentru aceasta arie se vor încheia pe data de 13 mai.',
+          'Pe data de 28 noiembrie incep inscrierile pentru Aria de Algoritmica!',
         information: '',
       },
     ],
@@ -27,19 +27,19 @@ export const categories: CategoryType[] = [
         id: 1,
         title: 'Perioada de înscriere',
         subtitle:
-          'Înscrierile încep pe data de 1 martie și se termină pe 13 mai.',
+          'Înscrierile încep pe data de 28 noiembrie 2022 și se termină pe 20 februarie 2023.',
         information: '',
       },
       {
         id: 2,
-        title: 'Proba 1',
-        subtitle: 'Proba 1 va avea loc pe data de 14 mai.',
+        title: 'Prima Etapa',
+        subtitle: 'Prima etapa va avea loc pe 25 martie 2023.',
         information: '',
       },
       {
         id: 3,
-        title: 'Proba 2',
-        subtitle: 'Proba 2 va avea loc pe data de 15 mai.',
+        title: 'Etapa Finala',
+        subtitle: 'Etapa finala va avea loc in perioada 21-23 aprilie 2023.',
         information: '',
       },
     ],
@@ -49,9 +49,9 @@ export const categories: CategoryType[] = [
     News: [
       {
         id: 1,
-        title: 'Au început înscrierile!',
+        title: 'Perioada de înscriere',
         subtitle:
-          'Au început înscrierile pentru proba Web&Mobile. Înscrierile pentru aceasta arie se vor încheia pe data de 3 aprilie.',
+          'Pe data de 28 noiembrie incep inscrierile pentru Aria de Web&Mobile!',
         information: '',
       },
     ],
@@ -60,19 +60,21 @@ export const categories: CategoryType[] = [
         id: 1,
         title: 'Perioada de înscriere',
         subtitle:
-          'Înscrierile încep pe data de 1 martie și se termină pe 3 aprilie.',
+          'Înscrierile încep pe data de 28 noiembrie 2022 și se termină pe 20 februarie 2023.',
         information: '',
       },
       {
         id: 2,
         title: 'Etapa de calificare',
-        subtitle: 'Etapa de calificare are loc între 1 martie si 15 mai.',
+        subtitle:
+          'Etapa de calificare are loc între 21 februarie 2023 si 25 martie 2023.',
         information: '',
       },
       {
         id: 3,
         title: 'Etapa finală',
-        subtitle: 'Hackathonul etapei finale va avea loc pe data de 28 mai.',
+        subtitle:
+          'Hackathonul etapei finale va avea loc in perioada de 21-23 aprilie 2023.',
         information: '',
       },
     ],
@@ -82,9 +84,9 @@ export const categories: CategoryType[] = [
     News: [
       {
         id: 1,
-        title: 'Au început înscrierile!',
+        title: 'Perioada de înscriere',
         subtitle:
-          'Au început înscrierile pentru proba GameDev. Înscrierile pentru aceasta arie se vor încheia pe data de 3 aprilie.',
+          'Pe data de 28 noiembrie incep inscrierile pentru Aria de Game Development!',
         information: '',
       },
     ],
@@ -93,19 +95,21 @@ export const categories: CategoryType[] = [
         id: 1,
         title: 'Perioada de înscriere',
         subtitle:
-          'Înscrierile încep pe data de 1 martie și se termină pe 3 aprilie.',
+          'Înscrierile încep pe data de 28 noiembrie 2022 și se termină pe 20 februarie 2023.',
         information: '',
       },
       {
         id: 2,
         title: 'Etapa de calificare',
-        subtitle: 'Etapa de calificare are loc între 1 martie si 15 mai.',
+        subtitle:
+          'Etapa de calificare are loc între 21 februarie 2023 si 25 martie 2023.',
         information: '',
       },
       {
         id: 3,
         title: 'Etapa finală',
-        subtitle: 'Hackathonul etapei finale va avea loc pe data de 28 mai.',
+        subtitle:
+          'Hackathonul etapei finale va avea loc in perioada de 21-23 aprilie 2023.',
         information: '',
       },
     ],
@@ -115,9 +119,9 @@ export const categories: CategoryType[] = [
     News: [
       {
         id: 1,
-        title: 'Au început înscrierile!',
+        title: 'Perioada de înscriere',
         subtitle:
-          'Au început înscrierile pentru proba Capture the Flag. Înscrierile pentru aceasta arie se vor încheia pe data de 3 aprilie.',
+          'Pe data de 28 noiembrie incep inscrierile pentru Aria de Capture the Flag!',
         information: '',
       },
     ],
@@ -126,55 +130,20 @@ export const categories: CategoryType[] = [
         id: 1,
         title: 'Perioada de înscriere',
         subtitle:
-          'Înscrierile încep pe data de 1 martie și se termină pe 3 aprilie.',
+          'Înscrierile încep pe data de 28 noiembrie 2022 și se termină pe 20 februarie 2023.',
         information: '',
       },
       {
         id: 2,
-        title: 'Etapa de calificare',
-        subtitle: 'Etapa de calificare are loc între 1 martie si 15 mai.',
+        title: 'Prima Etapa',
+        subtitle: 'Prima etapa va avea loc pe 25 martie 2023.',
         information: '',
       },
       {
         id: 3,
-        title: 'Etapa finală',
-        subtitle: 'Hackathonul etapei finale va avea loc pe data de 28 mai.',
+        title: 'Etapa Finala',
+        subtitle: 'Etapa finala va avea loc in perioada 21-23 aprilie 2023.',
         information: '',
-      },
-    ],
-  },
-  // type 5
-  {
-    News: [
-      {
-        id: 1,
-        title: 'News 1 with one line of text',
-        subtitle: 'Simple info with 1 line about news 1.',
-        information:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      },
-      {
-        id: 2,
-        title: 'News 2 with one line of text',
-        subtitle: 'Simple info with 1 line about news 2.',
-        information:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      },
-    ],
-    Orar: [
-      {
-        id: 1,
-        title: 'Day 1 : one line of text',
-        subtitle: 'Simple info with 1 line about news 1.',
-        information:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      },
-      {
-        id: 2,
-        title: 'Day 2 : one line of text',
-        subtitle: 'Simple info with 1 line about news 2.',
-        information:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       },
     ],
   },
