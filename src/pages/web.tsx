@@ -17,7 +17,7 @@ const WebPage: React.FC = () => {
   return (
     <Page theme={Banners.web}>
       <div className="pt-10">
-        <Area type={2}>
+        <Area type={1}>
           <WebText openModel={() => setOpen(true)} />
         </Area>
       </div>

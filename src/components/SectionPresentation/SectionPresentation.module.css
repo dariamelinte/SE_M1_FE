@@ -39,7 +39,7 @@
 }
 
 .sectionIcon {
-  @apply h-8 w-8;
+  @apply h-8 w-8 fill-gray-700;
 }
 
 .sectionTitle-web {
@@ -48,7 +48,7 @@
 .sectionTitle-gamedev {
   @apply text-brand-orange;
 }
-.sectionTitle-marketing {
+.sectionTitle-ctf {
   @apply text-brand-green;
 }
 .sectionTitle-algorithmics {
@@ -62,7 +62,7 @@
 .plusIcon-gamedev {
   @apply bg-brand-orange bg-opacity-80;
 }
-.plusIcon-marketing {
+.plusIcon-ctf {
   @apply bg-brand-green bg-opacity-80;
 }
 .plusIcon-algorithmics {

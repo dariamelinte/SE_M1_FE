@@ -62,10 +62,10 @@ export const RegisterBody: React.FC<RegisterBodyType> = ({
                 title="Web"
               />
               <SectionField
-                section={Sections.marketing}
+                section={Sections.ctf}
                 onSetSection={onSetSection}
                 selectedSection={selectedSection}
-                title="Marketing"
+                title="Capture the Flag"
               />
               <SectionField
                 section={Sections.gamedev}

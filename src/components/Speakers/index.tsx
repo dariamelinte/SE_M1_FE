@@ -1,9 +1,9 @@
 import React from 'react';
 
 import {
-  communitySpeakers,
+  // communitySpeakers,
   diamondSpeakers,
-  mediaSpeakers,
+  // mediaSpeakers,
   platinumSpeakers,
 } from '@/constants/speakers';
 
@@ -26,8 +26,8 @@ const SpeakersPresentation: React.FC = () => {
             <Speaker key={id} {...speaker} />
           ))}
         </div>
-        <div className={styles.speakerTitle}>Sponsori Community</div>
-        <div className={styles.speakerRow}>
+        {/* <div className={styles.speakerTitle}>Sponsori Community</div> */}
+        {/* <div className={styles.speakerRow}>
           {communitySpeakers.map(({ id, ...speaker }) => (
             <Speaker key={id} {...speaker} />
           ))}
@@ -37,7 +37,7 @@ const SpeakersPresentation: React.FC = () => {
           {mediaSpeakers.map(({ id, ...speaker }) => (
             <Speaker key={id} {...speaker} />
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );

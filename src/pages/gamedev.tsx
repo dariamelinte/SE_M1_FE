@@ -16,7 +16,7 @@ const GamedevPage: React.FC = () => {
   return (
     <Page theme={Banners.gamedev}>
       <div className="pt-10">
-        <Area type={3}>
+        <Area type={2}>
           <GameDevText openModel={() => setOpen(true)} />
         </Area>
       </div>

@@ -21,7 +21,7 @@ export const navbarItems: NavBarItem[] = [
     url: '/gamedev',
   },
   {
-    text: 'Marketing',
-    url: '/marketing',
+    text: 'CTF',
+    url: '/ctf',
   },
 ];

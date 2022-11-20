@@ -17,7 +17,7 @@ const Algoritmica = () => {
   return (
     <Page theme={Banners.algorithmics}>
       <div className="pt-10">
-        <Area type={1}>
+        <Area type={0}>
           <AlgoText openModel={() => setOpen(true)} />
         </Area>
       </div>

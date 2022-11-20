@@ -33,10 +33,10 @@
   @apply bg-brand-blue text-white;
 }
 
-.marketing,
-.marketing[type='button'],
-.marketing[type='reset'],
-.marketing[type='submit'] {
+.ctf,
+.ctf[type='button'],
+.ctf[type='reset'],
+.ctf[type='submit'] {
   @apply bg-brand-green text-gray-600;
 }
 
@@ -68,10 +68,10 @@
   @apply text-brand-blue;
 }
 
-.underlined-marketing,
-.underlined-marketing[type='button'],
-.underlined-marketing[type='reset'],
-.underlined-marketing[type='submit'] {
+.underlined-ctf,
+.underlined-ctf[type='button'],
+.underlined-ctf[type='reset'],
+.underlined-ctf[type='submit'] {
   @apply text-brand-green;
 }
 

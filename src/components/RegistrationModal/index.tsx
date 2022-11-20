@@ -53,7 +53,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
       const selectedAreaPos = {
         web: 2,
         algorithmics: 1,
-        marketing: 4,
+        ctf: 4,
         gamedev: 3,
       };
 

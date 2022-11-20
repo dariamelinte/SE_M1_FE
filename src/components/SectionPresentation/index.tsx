@@ -4,8 +4,8 @@ import React from 'react';
 import {
   AlgLogo,
   Areas,
+  CtfLogo,
   GamedevLogo,
-  MarketingLogo,
   WebLogo,
 } from '@/components/icons';
 import { Sections } from '@/constants/sections';
@@ -23,11 +23,11 @@ const SectionPresentation: React.FC<SectionPresentationProps> = () => (
     <div className={styles.sectionPresentation}>
       <div className={styles.sectionRow}>
         <Section
-          title="Marketing"
-          description="DEVxMKT Challenge reprezintă proba unde spiritul de echipă, creativitatea și gândirea logică sunt provocate atât în ceea ce privește sfera aptitudinilor IT, cât și a cunoștințelor Business. Concurenților li se oferă astfel oportunitatea de a practica și a înțelege construcția unei campanii robuste de Marketing Automation."
-          theme={Sections.marketing}
-          onClick={() => router.push(`/marketing`)}
-          icon={<MarketingLogo className={styles.sectionIcon} />}
+          title="Capture the Flag"
+          description="Capture the Flag este o arie construită în jurul conceptului de cybersecurity, cu scopul de a încuraja participanții să-și extindă cunoștiințele despre securitate, dar și să-și dezvolte abilitățile de ethical hacking. Concurenții vor avea șansa să încerce să identifice punctele slabe ale aplicațiilor web sau ale sistemelor de operare, proba desfășurându-se în conformitate cu jocul cibernetic “Capture the Flag”."
+          theme={Sections.ctf}
+          onClick={() => router.push(`/ctf`)}
+          icon={<CtfLogo className={styles.sectionIcon} />}
         />
         <Section
           isRight
@@ -49,7 +49,7 @@ const SectionPresentation: React.FC<SectionPresentationProps> = () => (
         <Section
           isRight
           title="Algoritmică"
-          description="Aria de Algoritmică este un concurs ce vizează cunoștințele de informatică ale elevilor de liceu, testând capacitatea lor de a rezolva probleme. Dacă îți este ușor să găsești soluții sau abordări pentru diferite probleme sau dacă ai o minte curioasă și perseverentă atunci această arie este cea mai potrivită pentru tine."
+          description="Aria de Algoritmică este un concurs ce vizează cunoștințele de informatică ale studenților și elevilor de liceu, testând capacitatea lor de a rezolva probleme. Dacă îți este ușor să găsești soluții sau abordări pentru diferite probleme sau dacă ai o minte curioasă și perseverentă atunci această arie este cea mai potrivită pentru tine."
           theme={Sections.algorithmics}
           onClick={() => router.push(`/algoritmica`)}
           icon={<AlgLogo className={styles.sectionIcon} />}
