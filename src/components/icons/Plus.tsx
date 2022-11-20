@@ -9,7 +9,6 @@ const SvgPlus = (props: SVGProps<SVGSVGElement>) => (
     strokeWidth={1.5}
     stroke="currentColor"
     className="h-6 w-6"
-    role="img"
     {...props}
   >
     <path

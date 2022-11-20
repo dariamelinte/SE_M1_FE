@@ -12,10 +12,10 @@ const CoderText: React.FC = () => {
         competitiv.
       </div>
       <div className={styles.textParagraph}>
-        &emsp; &emsp; Ajuns la ediția a VII-a, FIICode oferă și anul acesta un
+        &emsp; &emsp; Ajuns la ediția a VIII-a, FIICode oferă și anul acesta un
         „challenge” pasionaților de informatică, aducând în prim plan cele trei
         categorii veterane, Algoritmică, Game Dev și Web&Mobile, și o arie în
-        premieră, Marketing.
+        premieră, Capture the Flag.
       </div>
       <div className={styles.textParagraph}>
         &emsp; &emsp; Concursul va pune din nou la încercare creativitatea

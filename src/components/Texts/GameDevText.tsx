@@ -21,12 +21,12 @@ const GameDevText: React.FC<GameDevTextProps> = ({ openModel }) => {
         adventure, vă va face să vizualizați o experiență de neuitat prin cod.
       </p>
       <Closed />
-      <div className="flex items-center justify-center">
+      {/* <div className="flex items-center justify-center">
         <GradientButton onClick={openModel}>
           <div className="text-2xl font-bold text-white">Înscrie-te</div>
         </GradientButton>
-      </div>
-      <div className="flex items-center justify-center pb-12">
+      </div> */}
+      {/* <div className="flex items-center justify-center pb-12">
         <a
           target={'_blank'}
           href={`https://fiicode-api.asii.ro/static/gamedev`}
@@ -36,7 +36,7 @@ const GameDevText: React.FC<GameDevTextProps> = ({ openModel }) => {
             <div className="text-2xl font-bold text-white">Tema Probei</div>
           </GradientButton>
         </a>
-      </div>
+      </div> */}
       <h1 className={styles.areaHeading}>PREMIILE EDIȚIEI</h1>
       <h2 className={styles.areaPrize}>Premiul I: 3750 RON</h2>
       <h2 className={styles.areaPrize}>Premiul II: 3000 RON</h2>

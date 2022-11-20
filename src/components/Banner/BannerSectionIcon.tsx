@@ -1,11 +1,6 @@
 import React from 'react';
 
-import {
-  AlgLogo,
-  GamedevLogo,
-  MarketingLogo,
-  WebLogo,
-} from '@/components/icons';
+import { AlgLogo, CtfLogo, GamedevLogo, WebLogo } from '@/components/icons';
 import type { BannersType } from '@/constants';
 import { Banners } from '@/constants';
 
@@ -23,7 +18,7 @@ const getBanner = (theme: string) => {
       component = (
         <WebLogo
           style={{ filter: `brightness(400%)`, transform: `scale(1.2)` }}
-          className="h-10 w-10"
+          className="h-10 w-10 fill-white"
         />
       );
       break;
@@ -31,15 +26,15 @@ const getBanner = (theme: string) => {
       component = (
         <GamedevLogo
           style={{ filter: `brightness(400%)`, transform: `scale(1.2)` }}
-          className="h-10 w-10"
+          className="h-10 w-10 fill-white"
         />
       );
       break;
-    case Banners.marketing:
+    case Banners.ctf:
       component = (
-        <MarketingLogo
+        <CtfLogo
           style={{ filter: `brightness(400%)`, transform: `scale(1.2)` }}
-          className="h-10 w-10"
+          className="h-10 w-10 fill-white"
         />
       );
       break;
@@ -47,7 +42,7 @@ const getBanner = (theme: string) => {
       component = (
         <AlgLogo
           style={{ filter: `brightness(400%)`, transform: `scale(1.2)` }}
-          className="h-10 w-10"
+          className="h-10 w-10 fill-white"
         />
       );
       break;

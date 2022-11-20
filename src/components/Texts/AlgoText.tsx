@@ -20,11 +20,11 @@ const AlgoText: React.FC<AlgoTextProps> = ({ openModel }) => {
         minte curioasă și perseverentă atunci această arie este cea mai
         potrivită pentru tine.
       </p>
-      <div className="flex items-center justify-center pb-12">
+      {/* <div className="flex items-center justify-center pb-12">
         <GradientButton onClick={openModel}>
           <div className="text-2xl font-bold text-white">Înscrie-te</div>
         </GradientButton>
-      </div>
+      </div> */}
       <h1 className={styles.areaHeading}>PREMIILE EDIȚIEI</h1>
       <h2 className={styles.areaPrize}>Premiul I: 2500 RON</h2>
       <h2 className={styles.areaPrize}>Premiul II: 2000 RON</h2>

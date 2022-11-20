@@ -117,7 +117,7 @@ export const categories: CategoryType[] = [
         id: 1,
         title: 'Au început înscrierile!',
         subtitle:
-          'Au început înscrierile pentru proba Marketing. Înscrierile pentru aceasta arie se vor încheia pe data de 3 aprilie.',
+          'Au început înscrierile pentru proba Capture the Flag. Înscrierile pentru aceasta arie se vor încheia pe data de 3 aprilie.',
         information: '',
       },
     ],

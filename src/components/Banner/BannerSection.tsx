@@ -20,8 +20,8 @@ const getBanner = (theme: string) => {
     case Banners.gamedev:
       banner = 'GameDev';
       break;
-    case Banners.marketing:
-      banner = 'Marketing';
+    case Banners.ctf:
+      banner = 'Capture the Flag';
       break;
     case Banners.algorithmics:
       banner = 'Algoritmică';

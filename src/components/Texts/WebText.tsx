@@ -21,12 +21,12 @@ const WebText: React.FC<WebTextProps> = ({ openModel }) => {
         atât în etapa de calificare cât și în hackathonul etapei finale.
       </p>
       <Closed />
-      <div className="flex items-center justify-center">
+      {/* <div className="flex items-center justify-center">
         <GradientButton onClick={openModel}>
           <div className="text-2xl font-bold text-white">Înscrie-te</div>
         </GradientButton>
-      </div>
-      <div className="flex items-center justify-center pb-12">
+      </div> */}
+      {/* <div className="flex items-center justify-center pb-12">
         <a
           target={'_blank'}
           href={`https://fiicode-api.asii.ro/static/webdev`}
@@ -36,7 +36,7 @@ const WebText: React.FC<WebTextProps> = ({ openModel }) => {
             <div className="text-2xl font-bold text-white">Tema Probei</div>
           </GradientButton>
         </a>
-      </div>
+      </div> */}
       <h1 className={styles.areaHeading}>PREMIILE EDIȚIEI</h1>
       <h2 className={styles.areaPrize}>Premiul I: 3750 RON</h2>
       <h2 className={styles.areaPrize}>Premiul II: 3000 RON</h2>

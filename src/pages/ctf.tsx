@@ -4,25 +4,25 @@ import {
   useRegistrationModal,
 } from '@/components/RegistrationModal';
 import SpeakersPresentation from '@/components/Speakers';
-import { MarketingText } from '@/components/Texts';
+import { CtfText } from '@/components/Texts';
 import { Banners, Sections } from '@/constants';
 import { withScrollTop } from '@/hooks/withScrollTop';
 import { Page } from '@/layouts';
 
-const MarketingPage: React.FC = () => {
+const CtfPage: React.FC = () => {
   const { open, setOpen, onRequestClose } = useRegistrationModal({
     onRegister: () => console.log('register ...'),
   });
 
   return (
-    <Page theme={Banners.marketing}>
+    <Page theme={Banners.ctf}>
       <div className="pt-10">
         <Area type={4}>
-          <MarketingText openModel={() => setOpen(true)} />
+          <CtfText openModel={() => setOpen(true)} />
         </Area>
       </div>
       <RegistrationModal
-        initialSection={Sections.marketing}
+        initialSection={Sections.ctf}
         isOpen={open}
         onCloseModal={onRequestClose}
       />
@@ -31,4 +31,4 @@ const MarketingPage: React.FC = () => {
   );
 };
 
-export default withScrollTop(MarketingPage);
+export default withScrollTop(CtfPage);

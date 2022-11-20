@@ -19,7 +19,7 @@
 }
 
 .speakerInfo {
-    @apply flex flex-col;
+    @apply flex flex-col pt-4;
 }
 
 .speakerName {

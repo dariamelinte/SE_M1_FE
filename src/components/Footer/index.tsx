@@ -57,8 +57,8 @@ export const Footer: React.FC = () => {
               <a href={'/algoritmica'} className="no-underline hover:underline">
                 Algoritmică
               </a>
-              <a href={'/marketing'} className="no-underline hover:underline">
-                Marketing
+              <a href={'/ctf'} className="no-underline hover:underline">
+                Capture the Flag
               </a>
               <a href={'/gamedev'} className="no-underline hover:underline">
                 GameDev

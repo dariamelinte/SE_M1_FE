@@ -1,7 +1,7 @@
 export enum Sections {
   web = 'web',
   algorithmics = 'algorithmics',
-  marketing = 'marketing',
+  ctf = 'ctf',
   gamedev = 'gamedev',
 }
 

@@ -7,7 +7,7 @@ type SpeakerProps = {
   speakerName: string;
   iconTitle: string;
   description: string;
-  websiteLink: string;
+  websiteLink?: string;
   icon: string;
 };
 
@@ -35,15 +35,17 @@ const Speaker: React.FC<SpeakerProps> = ({
       <div className={styles.speakerInfo}>
         <div className={styles.speakerName}>{speakerName}</div>
         <div className={styles.description}>{description}</div>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href={`//${websiteLink}`}
-          className={styles.website}
-        >
-          {/* <Linkedin /> */}
-          <div className={styles.websiteLink}>Website</div>
-        </a>
+        {!!websiteLink && (
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={`//${websiteLink}`}
+            className={styles.website}
+          >
+            {/* <Linkedin /> */}
+            <div className={styles.websiteLink}>Website</div>
+          </a>
+        )}
       </div>
     </div>
   );
