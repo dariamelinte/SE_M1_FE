@@ -41,7 +41,7 @@ const SectionPresentation: React.FC<SectionPresentationProps> = () => (
       <div className={styles.sectionRow}>
         <Section
           title="GameDev"
-          description="Game Dev este aria care își încurajează participanții să fie cât mai creativi și să își expună ideile originale sub forma unui joc. Scopul acestei arii este de a încuraja participanții să livreze o formă de entertainment pe gustul lor. Tema de anul acesta, space adventure, vă va face să vizualizați o experiență de neuitat prin cod."
+          description="Game Dev este aria care își încurajează participanții să fie cât mai creativi și să își expună ideile originale sub forma unui joc. Scopul acestei arii este de a încuraja participanții să livreze o formă de entertainment pe gustul lor."
           theme={Sections.gamedev}
           onClick={() => router.push('/gamedev')}
           icon={<GamedevLogo className={styles.sectionIcon} />}
