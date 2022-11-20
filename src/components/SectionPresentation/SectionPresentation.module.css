@@ -8,6 +8,7 @@
 
 .sectionContainer {
   @apply p-5 m-5 rounded-xl shadow-md flex-1 bg-white relative;
+  @apply flex flex-col;
 }
 
 .sectionTitle {
@@ -16,6 +17,7 @@
 
 .sectionDescription {
   @apply px-6 pb-3 text-gray-500 font-light text-sm;
+  @apply flex-1;
 }
 
 .plusContainer {
