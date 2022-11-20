@@ -54,7 +54,56 @@ const CtfText: React.FC<CtfTextProps> = ({ openModel }) => {
       <h1 className={styles.areaHeading}>
         DESFĂȘURAREA ARIEI CAPTURE THE FLAG
       </h1>
-      <p className={styles.areaParagraph}>&emsp; &emsp; DE COMPLETAT</p>
+      <p className={styles.areaParagraph}>
+        &emsp; &emsp;Capture The Flag este un concurs cu o varietate de probe de{' '}
+        securitate cibernetică. Acestea au o dificultate care variază de la ușor{' '}
+        la greu, diferența fiind valorificată prin numărul de puncte pe care{' '}
+        participanții îl primesc pentru rezolvarea acestora.
+      </p>
+      <p className={styles.areaParagraph}>
+        &emsp; &emsp;Un challenge va fi considerat rezolvat odată cu găsirea{' '}
+        unui flag ce are un format specific și introducerea acestuia în locul{' '}
+        destinat de pe platformă. Prima persoană sau echipă care reușește să{' '}
+        găsească flagul primește cele mai multe puncte (First blood), urmând ca{' '}
+        punctajul să scadă treptat, pe măsură ce mai mulți participanți rezolvă{' '}
+        provocarea. Durata concursului poate varia de la 24 până la 72 de ore.
+      </p>
+      <p className={styles.areaParagraph}>
+        &emsp; &emsp;Concursul va cuprinde diferite categorii:
+      </p>
+      <ul className={styles.areaParagraph}>
+        <li className="list-inside list-disc">
+          Reverse engineering (participanții vor primi un fișier deja compilat{' '}
+          pentru a-l exploata)
+        </li>
+        <li className="list-inside list-disc">
+          Binary Exploitation/PWN (participanții vor primi un fișier binar{' '}
+          alături de codul său sursă și vor trebui să-i găsească{' '}
+          vulnerabilitatea pentru a obține control asupra sistemului pe care{' '}
+          rulează)
+        </li>
+        <li className="list-inside list-disc">
+          Forensics (participanții vor primi o analiză asupra traficului și vor{' '}
+          trebui să găsească activitatea malițioasă care s-a produs)
+        </li>
+        <li className="list-inside list-disc">
+          Steganography (participanții vor primi un fișier media (imagine,{' '}
+          audio, video) și vor trebui să descopere mesajul secret ascuns în acel{' '}
+          fișier)
+        </li>
+        <li className="list-inside list-disc">
+          MISC (challenge-urile vor aparține de diverse categorii, cea{' '}
+          principală fiind programarea)
+        </li>
+        <li className="list-inside list-disc">
+          Cryptography (challenge-urile vor avea ca scop spargerea schemelor{' '}
+          criptografice care nu sunt implementate adecvat)
+        </li>
+        <li className="list-inside list-disc">
+          Web (participanții vor trebui să identifice și să exploateze{' '}
+          vulnerabilitățile aplicațiilor web)
+        </li>
+      </ul>
       <div className="flex items-center justify-center">
         <a
           target={'_blank'}
