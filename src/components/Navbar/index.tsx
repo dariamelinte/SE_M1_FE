@@ -1,12 +1,59 @@
 import { Transition } from '@headlessui/react';
 import Link from 'next/link';
 import React from 'react';
+import { useAuth } from 'react-oidc-context';
 
 import { navbarItems } from './navbar';
 import styles from './Navbar.module.css';
 
 export const Navbar: React.FC = () => {
+  const auth = useAuth();
   const [isNavOpened, setNavState] = React.useState(false);
+  const [authError, setAuthError] = React.useState(null);
+  const [authUser, setAuthUser] = React.useState<any>(null);
+
+  const login = async () => {
+    await auth
+      .signinPopup()
+      .then((user) => {
+        setAuthUser(user);
+      })
+      .catch((error) => {
+        setAuthError(error);
+      });
+  };
+
+  const logout = async () => {
+    try {
+      await auth.signoutPopup();
+    } catch (e) {
+      setAuthError(null);
+      setAuthUser(null);
+    }
+  };
+
+  React.useEffect(() => {
+    const basedOnAuth = async () => {
+      if (auth.error) {
+        console.error(`You are logged out. ${auth.error}`);
+        await auth.signoutPopup();
+      }
+    };
+
+    if (authError !== null) {
+      console.error(`Authentication error. ${authError}`);
+      setAuthError(null);
+    } else {
+      basedOnAuth();
+    }
+  }, [authError, auth.error]);
+
+  React.useEffect(() => {
+    if (auth.isAuthenticated) {
+      setAuthUser(auth.user);
+      console.log(`you are logged in.`, authUser);
+    }
+  }, [auth.user]);
 
   const onBackDropPress = () => {
     setNavState(false);
@@ -41,6 +88,21 @@ export const Navbar: React.FC = () => {
               </Link>
             </li>
           ))}
+          (
+          {authUser === null ? (
+            <li>
+              <p className={styles.navLink} onClick={login}>
+                Login
+              </p>
+            </li>
+          ) : (
+            <li>
+              <p className={styles.navLink} onClick={logout}>
+                Buna {authUser.profile.name} Logout
+              </p>
+            </li>
+          )}
+          )
         </ul>
       </nav>
       <Transition
@@ -85,6 +147,17 @@ export const Navbar: React.FC = () => {
                     </Link>
                   </li>
                 ))}
+                <li className="mb-1">
+                  {authUser === null ? (
+                    <p className={styles.navBurgerLink} onClick={login}>
+                      Login
+                    </p>
+                  ) : (
+                    <p className={styles.navBurgerLink} onClick={logout}>
+                      Logout
+                    </p>
+                  )}
+                </li>
               </ul>
             </div>
           </nav>
