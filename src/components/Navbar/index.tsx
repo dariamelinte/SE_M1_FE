@@ -41,6 +41,7 @@ export const Navbar: React.FC = () => {
 
   React.useEffect(() => {
     if (auth.isAuthenticated) {
+      console.log(auth.user?.access_token);
       loadUser(auth.user || null);
     } else {
       logoutUser(null);

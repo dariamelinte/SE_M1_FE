@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { GradientButton } from '@/components/Buttons';
+import useStore from '@/stores/participant';
 
 import styles from './Texts.module.css';
 
@@ -9,6 +10,7 @@ type CtfTextProps = {
 };
 
 const CtfText: React.FC<CtfTextProps> = ({ openModel }) => {
+  const isAuthenticated = useStore((state) => state.isAuthenticated);
   return (
     <>
       <h1 className={styles.areaHeading}>DESPRE ARIA CAPTURE THE FLAG</h1>
@@ -22,11 +24,13 @@ const CtfText: React.FC<CtfTextProps> = ({ openModel }) => {
         “Capture the Flag”.
       </p>
       {/* <Closed /> */}
-      {/* <div className="flex items-center justify-center">
-        <GradientButton onClick={openModel}>
-          <div className="text-2xl font-bold text-white">Înscrie-te</div>
-        </GradientButton>
-      </div> */}
+      <div className="flex items-center justify-center">
+        {isAuthenticated && (
+          <GradientButton onClick={openModel}>
+            <div className="text-2xl font-bold text-white">Înscrie-te</div>
+          </GradientButton>
+        )}
+      </div>
       {/* <div className="flex items-center justify-center pb-12">
         <a
           target={'_blank'}
