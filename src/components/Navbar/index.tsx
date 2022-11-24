@@ -1,7 +1,9 @@
 import { Transition } from '@headlessui/react';
 import Link from 'next/link';
 import React from 'react';
-import { useAuth } from 'react-oidc-context';
+import { hasAuthParams, useAuth } from 'react-oidc-context';
+
+import useStore from '@/stores/participant';
 
 import { navbarItems } from './navbar';
 import styles from './Navbar.module.css';
@@ -9,51 +11,41 @@ import styles from './Navbar.module.css';
 export const Navbar: React.FC = () => {
   const auth = useAuth();
   const [isNavOpened, setNavState] = React.useState(false);
-  const [authError, setAuthError] = React.useState(null);
-  const [authUser, setAuthUser] = React.useState<any>(null);
 
-  const login = async () => {
-    await auth
-      .signinPopup()
-      .then((user) => {
-        setAuthUser(user);
-      })
-      .catch((error) => {
-        setAuthError(error);
-      });
-  };
+  const authUser = useStore((state) => state.profile);
+  const justLoggedOut = useStore((state) => state.justLoggedOut);
+  const isAuthenticated = useStore((state) => state.isAuthenticated);
+  const loadUser = useStore((state) => state.loadUser);
 
-  const logout = async () => {
-    try {
-      await auth.signoutPopup();
-    } catch (e) {
-      setAuthError(null);
-      setAuthUser(null);
-    }
-  };
+  const authenticateUser = useStore((state) => state.authenticateUser);
+  const logoutUser = useStore((state) => state.logoutUser);
 
   React.useEffect(() => {
-    const basedOnAuth = async () => {
-      if (auth.error) {
-        console.error(`You are logged out. ${auth.error}`);
-        await auth.signoutPopup();
-      }
-    };
-
-    if (authError !== null) {
-      console.error(`Authentication error. ${authError}`);
-      setAuthError(null);
-    } else {
-      basedOnAuth();
+    if (
+      !hasAuthParams() &&
+      !auth.isAuthenticated &&
+      !auth.activeNavigator &&
+      !auth.isLoading &&
+      !justLoggedOut
+    ) {
+      auth.signinRedirect().then(() => {
+        loadUser(auth.user || null);
+      });
     }
-  }, [authError, auth.error]);
+  }, [
+    auth.isAuthenticated,
+    auth.activeNavigator,
+    auth.isLoading,
+    auth.signinRedirect,
+  ]);
 
   React.useEffect(() => {
     if (auth.isAuthenticated) {
-      setAuthUser(auth.user);
-      console.log(`you are logged in.`, authUser);
+      loadUser(auth.user || null);
+    } else {
+      logoutUser(null);
     }
-  }, [auth.user]);
+  }, [auth.isAuthenticated, auth.user]);
 
   const onBackDropPress = () => {
     setNavState(false);
@@ -88,21 +80,31 @@ export const Navbar: React.FC = () => {
               </Link>
             </li>
           ))}
-          (
-          {authUser === null ? (
+          {isAuthenticated === false ? (
             <li>
-              <p className={styles.navLink} onClick={login}>
+              <p
+                className={styles.navLink}
+                onClick={(e) => {
+                  e.preventDefault();
+                  authenticateUser(auth);
+                }}
+              >
                 Login
               </p>
             </li>
           ) : (
             <li>
-              <p className={styles.navLink} onClick={logout}>
-                Buna {authUser.profile.name} Logout
+              <p
+                className={styles.navLink}
+                onClick={(e) => {
+                  e.preventDefault();
+                  logoutUser(auth);
+                }}
+              >
+                Buna {authUser?.given_name} Logout
               </p>
             </li>
           )}
-          )
         </ul>
       </nav>
       <Transition
@@ -148,12 +150,24 @@ export const Navbar: React.FC = () => {
                   </li>
                 ))}
                 <li className="mb-1">
-                  {authUser === null ? (
-                    <p className={styles.navBurgerLink} onClick={login}>
+                  {isAuthenticated === false ? (
+                    <p
+                      className={styles.navBurgerLink}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        authenticateUser(auth);
+                      }}
+                    >
                       Login
                     </p>
                   ) : (
-                    <p className={styles.navBurgerLink} onClick={logout}>
+                    <p
+                      className={styles.navBurgerLink}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        logoutUser(auth);
+                      }}
+                    >
                       Logout
                     </p>
                   )}

@@ -15,7 +15,7 @@ const oidConfig = {
   redirect_uri: 'http://localhost:3000/',
   metadataUrl:
     'https://admin-auth-kc.asii.ro/realms/fiicode/.well-known/openid-configuration',
-  onSignInCallback: replaceState,
+  onSigninCallback: replaceState,
   loadUserInfo: true,
 };
 
