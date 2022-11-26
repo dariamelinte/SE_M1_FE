@@ -33,8 +33,7 @@
     "react-dom": "^18.2.0",
     "react-oidc-context": "^2.2.0",
     "yup": "^0.32.11",
-    "zustand": "^4.1.4",
-    "yarn": "^1.22.19"
+    "zustand": "^4.1.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
