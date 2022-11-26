@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { GradientButton } from '@/components/Buttons';
+import useStore from '@/stores/participant';
 
 import styles from './Texts.module.css';
 
@@ -9,6 +10,7 @@ type AlgoTextProps = {
 };
 
 const AlgoText: React.FC<AlgoTextProps> = ({ openModel }) => {
+  const isAuthenticated = useStore((state) => state.isAuthenticated);
   return (
     <>
       <h1 className={styles.areaHeading}>DESPRE ARIA ALGORITMICĂ</h1>
@@ -20,11 +22,13 @@ const AlgoText: React.FC<AlgoTextProps> = ({ openModel }) => {
         minte curioasă și perseverentă atunci această arie este cea mai
         potrivită pentru tine.
       </p>
-      {/* <div className="flex items-center justify-center pb-12">
-        <GradientButton onClick={openModel}>
-          <div className="text-2xl font-bold text-white">Înscrie-te</div>
-        </GradientButton>
-      </div> */}
+      <div className="flex items-center justify-center pb-12">
+        {isAuthenticated && (
+          <GradientButton onClick={openModel}>
+            <div className="text-2xl font-bold text-white">Înscrie-te</div>
+          </GradientButton>
+        )}
+      </div>
       <h1 className={styles.areaHeading}>PREMIILE EDIȚIEI</h1>
       <h2 className={styles.areaPrize}>
         Premiile ariei vor fi anuntate in saptamanile ce urmeaza.

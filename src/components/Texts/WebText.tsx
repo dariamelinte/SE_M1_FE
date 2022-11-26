@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { GradientButton } from '@/components/Buttons';
+import useStore from '@/stores/participant';
 
 import styles from './Texts.module.css';
 
@@ -9,6 +10,7 @@ type WebTextProps = {
 };
 
 const WebText: React.FC<WebTextProps> = ({ openModel }) => {
+  const isAuthenticated = useStore((state) => state.isAuthenticated);
   return (
     <>
       <h1 className={styles.areaHeading}>DESPRE ARIA WEB&amp;MOBILE </h1>
@@ -20,11 +22,13 @@ const WebText: React.FC<WebTextProps> = ({ openModel }) => {
         atât în etapa de calificare cât și în hackathonul etapei finale.
       </p>
       {/* <Closed /> */}
-      {/* <div className="flex items-center justify-center">
-        <GradientButton onClick={openModel}>
-          <div className="text-2xl font-bold text-white">Înscrie-te</div>
-        </GradientButton>
-      </div> */}
+      <div className="flex items-center justify-center">
+        {isAuthenticated && (
+          <GradientButton onClick={openModel}>
+            <div className="text-2xl font-bold text-white">Înscrie-te</div>
+          </GradientButton>
+        )}
+      </div>
       {/* <div className="flex items-center justify-center pb-12">
         <a
           target={'_blank'}
