@@ -1,4 +1,3 @@
-import { Dialog, Transition } from '@headlessui/react';
 import axios from 'axios';
 import React, { useCallback, useState } from 'react';
 
@@ -10,9 +9,7 @@ import type {
   AlgFormValues,
   BaseFormValues,
 } from './components/contestant-form';
-import { DiscordCodeBody } from './DiscordCodeBody';
 import { RegisterBody } from './RegisterBody';
-import styles from './RegistrationModal.module.css';
 
 type RegistrationModalProps = {
   initialSection: SectionsType;
@@ -40,11 +37,10 @@ export type Data = {
 };
 
 export const RegistrationModal: React.FC<RegistrationModalProps> = ({
-  isOpen,
-  onCloseModal,
   initialSection,
 }) => {
-  const [discordCode, setDiscordCode] = useState<string | null>(null);
+  const [discordCode, setDiscordCode] = useState<string>('');
+  console.log({ discordCode });
   const onRegister = async (
     values: BaseFormValues | AlgFormValues,
     selectedSection: SectionsType
@@ -117,63 +113,10 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
       console.log(err);
     }
   };
-
-  const onFinalClose = () => {
-    onCloseModal();
-    setDiscordCode(null);
-  };
-
   return (
-    <Transition appear show={isOpen} as={React.Fragment}>
-      <Dialog as="div" className={styles.dialog} onClose={onCloseModal}>
-        <div className={styles.container}>
-          <Transition.Child
-            as={React.Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <Dialog.Overlay className="fixed inset-0" />
-          </Transition.Child>
-
-          {/* This element is to trick the browser into centering the modal contents. */}
-          <span
-            className="inline-block h-screen align-middle"
-            aria-hidden="true"
-          >
-            &#8203;
-          </span>
-          {/* Actual body of the modal */}
-          <Transition.Child
-            as={React.Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0 scale-95"
-            enterTo="opacity-100 scale-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100 scale-100"
-            leaveTo="opacity-0 scale-95"
-          >
-            <div className={styles.modalContainer}>
-              {discordCode ? (
-                <DiscordCodeBody
-                  discordCode={discordCode}
-                  onClickClose={onFinalClose}
-                />
-              ) : (
-                <RegisterBody
-                  initialSection={initialSection}
-                  onClickClose={onCloseModal}
-                  onRegister={onRegister}
-                />
-              )}
-            </div>
-          </Transition.Child>
-        </div>
-      </Dialog>
-    </Transition>
+    <div>
+      <RegisterBody initialSection={initialSection} onRegister={onRegister} />
+    </div>
   );
 };
 
