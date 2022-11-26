@@ -2,30 +2,29 @@ import type { User as OIDCUser } from 'oidc-client-ts';
 import type { AuthContextProps } from 'react-oidc-context';
 import create from 'zustand';
 
-import type { StoreParticipant, UserProfile } from '@/types/participantStore';
+import type { Profile } from '@/components/CompleteProfile/profile-form-base';
+import { INITIAL_PROFILE } from '@/components/CompleteProfile/profile-form-base';
+import type { StoreParticipant } from '@/types/participantStore';
 
 const useStore = create<StoreParticipant>((set, get) => ({
   access_token_type: 'Bearer',
   access_token: '',
-  profile: {
-    email: '',
-    family_name: '',
-    given_name: '',
-  },
+  profile: INITIAL_PROFILE,
   isAuthenticated: false,
   justLoggedOut: false,
 
   setAccessToken: (access_token: string) => set({ access_token }),
-  setUserProfile: (profile: UserProfile | null) => set({ profile }),
+  setUserProfile: (profile: Profile | null) => set({ profile }),
 
   loadUser: (user: OIDCUser | null) => {
     if (user === null) return;
     set({ access_token: user.access_token });
     const userProfile = user?.profile;
-    const profile = {
+    const profile: Profile = {
+      ...INITIAL_PROFILE,
       email: userProfile?.email || '',
-      family_name: userProfile?.family_name || '',
-      given_name: userProfile?.given_name || '',
+      lastName: userProfile?.family_name || '',
+      firstName: userProfile?.given_name || '',
     };
     set({ profile });
     set({ isAuthenticated: true });
@@ -54,11 +53,7 @@ const useStore = create<StoreParticipant>((set, get) => ({
       set({ isAuthenticated: false });
       set({ access_token: '' });
       set({
-        profile: {
-          given_name: '',
-          family_name: '',
-          email: '',
-        },
+        profile: INITIAL_PROFILE,
       });
       set({ justLoggedOut: true });
     }

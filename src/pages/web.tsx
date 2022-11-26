@@ -1,16 +1,13 @@
 import { Area } from '@/components/Area';
-import {
-  RegistrationModal,
-  useRegistrationModal,
-} from '@/components/RegistrationModal';
+import { useRegistrationModal } from '@/components/RegistrationModal';
 import SpeakersPresentation from '@/components/Speakers';
 import { WebText } from '@/components/Texts';
-import { Banners, Sections } from '@/constants';
+import { Banners } from '@/constants';
 import { withScrollTop } from '@/hooks/withScrollTop';
 import { Page } from '@/layouts';
 
 const WebPage: React.FC = () => {
-  const { open, setOpen, onRequestClose } = useRegistrationModal({
+  const { setOpen } = useRegistrationModal({
     onRegister: () => console.log('register ...'),
   });
 
@@ -21,11 +18,6 @@ const WebPage: React.FC = () => {
           <WebText openModel={() => setOpen(true)} />
         </Area>
       </div>
-      <RegistrationModal
-        initialSection={Sections.web}
-        isOpen={open}
-        onCloseModal={onRequestClose}
-      />
       <SpeakersPresentation />
     </Page>
   );

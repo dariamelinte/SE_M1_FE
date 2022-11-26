@@ -15,7 +15,7 @@
 }
 
 .sectionContainer {
-  @apply pt-4;
+  @apply flex bg-[#FBFCFF] flex-col max-w-6xl rounded-3xl shadow-md p-10 m-5;
 }
 
 .sectionTitle {

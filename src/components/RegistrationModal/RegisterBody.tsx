@@ -43,61 +43,63 @@ export const RegisterBody: React.FC<RegisterBodyType> = ({
           {english ? 'Register form' : 'Formular de inscriere'}
         </div>
       )}
+      <div className="center">
+        <div className={styles.sectionContainer}>
+          <div className={styles.sectionTitle}>
+            {english
+              ? 'The area for which the registration is made'
+              : 'Aria pentru care se face inscrierea'}
+            :
+          </div>
 
-      <div className={styles.sectionContainer}>
-        <div className={styles.sectionTitle}>
-          {english
-            ? 'The area for which the registration is made'
-            : 'Aria pentru care se face inscrierea'}
-          :
+          <div className={styles.sections}>
+            {!english && (
+              <>
+                <SectionField
+                  section={Sections.web}
+                  selectedSection={selectedSection}
+                  onSetSection={onSetSection}
+                  title="Web"
+                />
+                <SectionField
+                  section={Sections.ctf}
+                  onSetSection={onSetSection}
+                  selectedSection={selectedSection}
+                  title="Capture the Flag"
+                />
+                <SectionField
+                  section={Sections.gamedev}
+                  onSetSection={onSetSection}
+                  selectedSection={selectedSection}
+                  title="GameDev"
+                />
+              </>
+            )}
+            <SectionField
+              section={Sections.algorithmics}
+              onSetSection={onSetSection}
+              selectedSection={selectedSection}
+              title={english ? 'Algorithmics' : 'Algoritmică'}
+              className={cx({ 'w-full': english })}
+            />
+          </div>
+          <div>
+            {selectedSection === Sections.algorithmics ? (
+              <AlgForm
+                selectedSection={selectedSection}
+                onClickClose={onClickClose}
+                onRegister={onRegister}
+                english={english}
+              />
+            ) : (
+              <BaseForm
+                selectedSection={selectedSection}
+                onClickClose={onClickClose}
+                onRegister={onRegister}
+              />
+            )}
+          </div>
         </div>
-
-        <div className={styles.sections}>
-          {!english && (
-            <>
-              <SectionField
-                section={Sections.web}
-                selectedSection={selectedSection}
-                onSetSection={onSetSection}
-                title="Web"
-              />
-              <SectionField
-                section={Sections.ctf}
-                onSetSection={onSetSection}
-                selectedSection={selectedSection}
-                title="Capture the Flag"
-              />
-              <SectionField
-                section={Sections.gamedev}
-                onSetSection={onSetSection}
-                selectedSection={selectedSection}
-                title="GameDev"
-              />
-            </>
-          )}
-          <SectionField
-            section={Sections.algorithmics}
-            onSetSection={onSetSection}
-            selectedSection={selectedSection}
-            title={english ? 'Algorithmics' : 'Algoritmică'}
-            className={cx({ 'w-full': english })}
-          />
-        </div>
-
-        {selectedSection === Sections.algorithmics ? (
-          <AlgForm
-            selectedSection={selectedSection}
-            onClickClose={onClickClose}
-            onRegister={onRegister}
-            english={english}
-          />
-        ) : (
-          <BaseForm
-            selectedSection={selectedSection}
-            onClickClose={onClickClose}
-            onRegister={onRegister}
-          />
-        )}
       </div>
     </>
   );

@@ -99,7 +99,7 @@ export const Navbar: React.FC = () => {
               <li>
                 <Link href="/profil">
                   <p className={cx(styles.navLink, 'w-max')}>
-                    Buna {authUser?.given_name}
+                    Buna {authUser?.firstName}
                   </p>
                 </Link>
               </li>
@@ -177,7 +177,7 @@ export const Navbar: React.FC = () => {
                     <li className="mb-1">
                       <Link href="/profil">
                         <p className={cx(styles.navBurgerLink, 'w-max')}>
-                          Buna {authUser?.given_name}
+                          Buna {authUser?.firstName}
                         </p>
                       </Link>
                     </li>
