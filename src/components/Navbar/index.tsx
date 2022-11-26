@@ -1,4 +1,5 @@
 import { Transition } from '@headlessui/react';
+import cx from 'classnames';
 import Link from 'next/link';
 import React from 'react';
 import { hasAuthParams, useAuth } from 'react-oidc-context';
@@ -94,17 +95,26 @@ export const Navbar: React.FC = () => {
               </p>
             </li>
           ) : (
-            <li>
-              <p
-                className={styles.navLink}
-                onClick={(e) => {
-                  e.preventDefault();
-                  logoutUser(auth);
-                }}
-              >
-                Buna {authUser?.given_name} Logout
-              </p>
-            </li>
+            <>
+              <li>
+                <Link href="/profil">
+                  <p className={cx(styles.navLink, 'w-max')}>
+                    Buna {authUser?.given_name}
+                  </p>
+                </Link>
+              </li>
+              <li>
+                <p
+                  className={styles.navLink}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    logoutUser(auth);
+                  }}
+                >
+                  Logout
+                </p>
+              </li>
+            </>
           )}
         </ul>
       </nav>
@@ -150,8 +160,8 @@ export const Navbar: React.FC = () => {
                     </Link>
                   </li>
                 ))}
-                <li className="mb-1">
-                  {isAuthenticated === false ? (
+                {isAuthenticated === false ? (
+                  <li className="mb-1">
                     <p
                       className={styles.navBurgerLink}
                       onClick={(e) => {
@@ -161,18 +171,29 @@ export const Navbar: React.FC = () => {
                     >
                       Login
                     </p>
-                  ) : (
-                    <p
-                      className={styles.navBurgerLink}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        logoutUser(auth);
-                      }}
-                    >
-                      Logout
-                    </p>
-                  )}
-                </li>
+                  </li>
+                ) : (
+                  <>
+                    <li className="mb-1">
+                      <Link href="/profil">
+                        <p className={cx(styles.navBurgerLink, 'w-max')}>
+                          Buna {authUser?.given_name}
+                        </p>
+                      </Link>
+                    </li>
+                    <li className="mb-1">
+                      <p
+                        className={styles.navBurgerLink}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          logoutUser(auth);
+                        }}
+                      >
+                        Logout
+                      </p>
+                    </li>
+                  </>
+                )}
               </ul>
             </div>
           </nav>
