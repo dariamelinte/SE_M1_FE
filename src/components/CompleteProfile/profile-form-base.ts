@@ -5,7 +5,7 @@ import type { Profile } from '@/types/profile';
 export { Profile };
 
 export const INITIAL_PROFILE: Profile = {
-  id: '',
+  identifier: '',
   firstName: '',
   lastName: '',
   email: '',

@@ -23,7 +23,6 @@ const useStore = create<StoreParticipant>((set, get) => ({
     const profile: Profile = {
       ...INITIAL_PROFILE,
       // TODO:  remove it
-      id: 'somerandomgeneratedstring',
       email: userProfile?.email || '',
       lastName: userProfile?.family_name || '',
       firstName: userProfile?.given_name || '',

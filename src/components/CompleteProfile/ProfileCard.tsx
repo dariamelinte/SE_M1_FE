@@ -1,6 +1,8 @@
 import cx from 'classnames';
 import React from 'react';
 
+import { Loading } from '@/components/Loading';
+import useGetProfile from '@/hooks/useGetProfile';
 import useStore from '@/stores/participant';
 
 import styles from './Profile.module.css';
@@ -11,12 +13,19 @@ const autocompleter = (value?: string | null) =>
   value || 'Field-ul nu este completat';
 
 const ProfileCard: React.FC<ProfileCardProps> = () => {
+  const { loading } = useGetProfile();
   const profile = useStore((state) => state.profile);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className={styles.card}>
       <div className={cx(styles.separator, 'rounded bg-red-200 px-8')}>
-        <p className="text-xl font-semibold text-red-500">{profile?.id}</p>
+        <p className="text-xl font-semibold text-red-500">
+          {profile?.identifier}
+        </p>
         <p className={styles.text}>
           (*) ID folosit pentru inscrieri la diferite arii
         </p>
@@ -43,7 +52,7 @@ const ProfileCard: React.FC<ProfileCardProps> = () => {
       </div>
       <div className={styles.separator}>
         <p className={styles.textBold}>
-          Username csacademy (* se completeaza de cei care vor sa se inscrie la{' '}
+          Username csacademy (* se completeaza de cei care vor sa se inscrie la
           proba de algoritmica)
         </p>
         <p className={styles.text}>{autocompleter(profile?.csacademy)}</p>

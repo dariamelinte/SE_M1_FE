@@ -34,13 +34,13 @@ const ParticipantIdsForm: React.FC<ParticipantIdsFormProps> = ({
   );
   const profile = useStore((state) => state.profile);
 
-  if (!profile?.id) {
+  if (!profile?.identifier) {
     return <div>not ok</div>;
   }
 
   const INITIAL_TEAM: ParticipantsFormType = {
     leaderIndex: 0,
-    participantIds: [profile?.id],
+    participantIds: [profile?.identifier],
   };
 
   return (
@@ -55,7 +55,7 @@ const ParticipantIdsForm: React.FC<ParticipantIdsFormProps> = ({
     >
       {({ isValid, values, setFieldValue }) => {
         if (!isTeamSection && values.participantIds.length > 1) {
-          setFieldValue('participantIds', [profile?.id]);
+          setFieldValue('participantIds', [profile?.identifier]);
         }
 
         return (
@@ -70,7 +70,7 @@ const ParticipantIdsForm: React.FC<ParticipantIdsFormProps> = ({
                       index={index}
                       name={`participantIds[${index}]`}
                       isThemselves={
-                        profile?.id === values.participantIds[index]
+                        profile?.identifier === values.participantIds[index]
                       }
                       isUnique={values.participantIds.length === 1}
                       isTeamSection={isTeamSection}
