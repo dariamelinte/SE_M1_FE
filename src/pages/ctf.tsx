@@ -1,13 +1,16 @@
 import { Area } from '@/components/Area';
-import { useRegistrationModal } from '@/components/RegistrationModal';
+import {
+  RegistrationModal,
+  useRegistrationModal,
+} from '@/components/RegistrationModal';
 import SpeakersPresentation from '@/components/Speakers';
 import { CtfText } from '@/components/Texts';
-import { Banners } from '@/constants';
+import { Banners, Sections } from '@/constants';
 import { withScrollTop } from '@/hooks/withScrollTop';
 import { Page } from '@/layouts';
 
 const CtfPage: React.FC = () => {
-  const { setOpen } = useRegistrationModal({
+  const { setOpen, open, onRequestClose } = useRegistrationModal({
     onRegister: () => console.log('register ...'),
   });
 
@@ -19,6 +22,12 @@ const CtfPage: React.FC = () => {
         </Area>
       </div>
       <SpeakersPresentation />
+
+      <RegistrationModal
+        initialSection={Sections.ctf}
+        isOpen={open}
+        onCloseModal={onRequestClose}
+      />
     </Page>
   );
 };

@@ -1,3 +1,4 @@
+import cx from 'classnames';
 import React from 'react';
 
 import useStore from '@/stores/participant';
@@ -14,6 +15,12 @@ const ProfileCard: React.FC<ProfileCardProps> = () => {
 
   return (
     <div className={styles.card}>
+      <div className={cx(styles.separator, 'rounded bg-red-200 px-8')}>
+        <p className="text-xl font-semibold text-red-500">{profile?.id}</p>
+        <p className={styles.text}>
+          (*) ID folosit pentru inscrieri la diferite arii
+        </p>
+      </div>
       <div className={styles.separator}>
         <p className={styles.textBold}>Email</p>
         <p className={styles.text}>{autocompleter(profile?.email)}</p>
