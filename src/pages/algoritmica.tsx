@@ -1,13 +1,16 @@
 import { Area } from '@/components/Area';
-import { useRegistrationModal } from '@/components/RegistrationModal';
+import {
+  RegistrationModal,
+  useRegistrationModal,
+} from '@/components/RegistrationModal';
 import SpeakersPresentation from '@/components/Speakers';
 import { AlgoText } from '@/components/Texts';
-import { Banners } from '@/constants';
+import { Banners, Sections } from '@/constants';
 import { withScrollTop } from '@/hooks/withScrollTop';
 import { Page } from '@/layouts';
 
 const Algoritmica = () => {
-  const { setOpen } = useRegistrationModal({
+  const { setOpen, onRequestClose, open } = useRegistrationModal({
     onRegister: () => console.log('register ...'),
   });
 
@@ -19,6 +22,12 @@ const Algoritmica = () => {
         </Area>
       </div>
       <SpeakersPresentation />
+
+      <RegistrationModal
+        initialSection={Sections.algorithmics}
+        isOpen={open}
+        onCloseModal={onRequestClose}
+      />
     </Page>
   );
 };

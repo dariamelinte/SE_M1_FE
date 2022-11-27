@@ -1,13 +1,16 @@
 import { Area } from '@/components/Area';
-import { useRegistrationModal } from '@/components/RegistrationModal';
+import {
+  RegistrationModal,
+  useRegistrationModal,
+} from '@/components/RegistrationModal';
 import SpeakersPresentation from '@/components/Speakers';
 import { GameDevText } from '@/components/Texts';
-import { Banners } from '@/constants';
+import { Banners, Sections } from '@/constants';
 import { withScrollTop } from '@/hooks/withScrollTop';
 import { Page } from '@/layouts';
 
 const GamedevPage: React.FC = () => {
-  const { setOpen } = useRegistrationModal({
+  const { setOpen, open, onRequestClose } = useRegistrationModal({
     onRegister: () => console.log('register ...'),
   });
   return (
@@ -18,6 +21,12 @@ const GamedevPage: React.FC = () => {
         </Area>
       </div>
       <SpeakersPresentation />
+
+      <RegistrationModal
+        initialSection={Sections.gamedev}
+        isOpen={open}
+        onCloseModal={onRequestClose}
+      />
     </Page>
   );
 };
