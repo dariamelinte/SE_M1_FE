@@ -23,11 +23,11 @@
 }
 
 .sections {
-  @apply flex flex-row flex-wrap justify-between items-center mb-4;
+  @apply mb-4;
 }
 
 .sectionButton {
-  @apply my-1 sm-inv:w-full;
+  @apply w-full;
 }
 
 .buttonContainer {

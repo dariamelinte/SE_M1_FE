@@ -26,7 +26,7 @@ const Index = () => {
         <div className="flex items-center justify-center">
           <a href="https://discord.gg/8XVSvTFubQ">
             <GradientButton>
-              <div className="text-2xl font-bold text-white">Discord</div>
+              <div className="text-xl font-bold text-white">Discord</div>
             </GradientButton>
           </a>
         </div>
@@ -35,7 +35,7 @@ const Index = () => {
 
         {/* <div className="mb-3 flex items-center  justify-center">
           <GradientButton onClick={() => setOpen(true)}>
-            <div className="text-2xl font-bold text-white">Înscrie-te</div>
+            <div className="text-xl font-bold text-white">Înscrie-te</div>
           </GradientButton>
         </div> */}
       </div>
