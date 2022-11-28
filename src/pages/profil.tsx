@@ -7,9 +7,11 @@ import ProfileForm from '@/components/CompleteProfile/ProfileForm';
 import { Banners } from '@/constants';
 import { withScrollTop } from '@/hooks/withScrollTop';
 import { Page } from '@/layouts';
+import useStore from '@/stores/participant';
 
 const WebPage: React.FC = () => {
   const [editProfile, setEditProfile] = useState(false);
+  const profile = useStore((store) => store.profile);
 
   const auth = useAuth();
 
@@ -30,7 +32,7 @@ const WebPage: React.FC = () => {
   return (
     <Page theme={Banners.profil}>
       <div className="relative flex flex-col items-center justify-center py-4">
-        {editProfile ? (
+        {editProfile || !profile?.identifier ? (
           <ProfileForm onClickClose={() => setEditProfile(false)} />
         ) : (
           <>

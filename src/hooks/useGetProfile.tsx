@@ -14,6 +14,7 @@ export type DepartmentsType = {
 const useGetProfile = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<Profile>(INITIAL_PROFILE);
+  const profile = useStore((state) => state.profile);
   const setUserProfile = useStore((state) => state.setUserProfile);
 
   useEffect(() => {
@@ -22,7 +23,13 @@ const useGetProfile = () => {
       try {
         const { data: response } = await getProfile();
         setData(response);
-        setUserProfile(data);
+        setUserProfile({
+          ...response,
+          identifier: profile?.identifier || response.identifier,
+          firstName: profile?.firstName || response.firstName,
+          lastName: profile?.lastName || response.lastName,
+          email: profile?.email || response.email,
+        });
       } catch (error: any) {
         toast.error(error?.message || ERROR_MESSAGES.default);
       }
