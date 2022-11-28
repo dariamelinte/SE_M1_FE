@@ -48,7 +48,7 @@ const CtfText: React.FC<CtfTextProps> = ({ openModel }) => {
             <div className="text-2xl font-bold text-white">Înscrie-te</div>
           </GradientButton>
         )}
-        {profile?.sections?.algo && (
+        {profile?.sections?.ctf && (
           <GradientButton>
             <div className="text-center text-2xl font-bold text-white">
               V-ati inscris deja la aceasta arie

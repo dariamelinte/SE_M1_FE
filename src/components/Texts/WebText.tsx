@@ -41,7 +41,7 @@ const WebText: React.FC<WebTextProps> = ({ openModel }) => {
             </div>
           </GradientButton>
         )}
-        {isAuthenticated && !profile?.sections?.algo && (
+        {isAuthenticated && !profile?.sections?.web && (
           <GradientButton onClick={openModel}>
             <div className="text-2xl font-bold text-white">Înscrie-te</div>
           </GradientButton>
