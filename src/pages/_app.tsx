@@ -1,7 +1,9 @@
+import 'react-toastify/dist/ReactToastify.css';
 import '../styles/global.css';
 
 import type { AppProps } from 'next/app';
 import { AuthProvider } from 'react-oidc-context';
+import { ToastContainer } from 'react-toastify';
 
 const replaceState = (_user: any | void): void => {
   window.history.replaceState({}, document.title, window.location.pathname);
@@ -22,6 +24,7 @@ const oidConfig = {
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <AuthProvider {...oidConfig}>
     <Component {...pageProps} />
+    <ToastContainer />
   </AuthProvider>
 );
 
