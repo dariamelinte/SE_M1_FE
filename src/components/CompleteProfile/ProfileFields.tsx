@@ -12,7 +12,7 @@ import styles from './Profile.module.css';
 type ProfileFieldsProps = {};
 
 export const ProfileFields: React.FC<ProfileFieldsProps> = () => {
-  const { handleReset } = useFormikContext<Profile>();
+  const { handleReset, values } = useFormikContext<Profile>();
 
   const tShirtOptions = [
     {
@@ -38,7 +38,7 @@ export const ProfileFields: React.FC<ProfileFieldsProps> = () => {
       </div>
       <div className={styles.inputRow}>
         <InputField
-          name={`phoneNumber`}
+          name={`phone`}
           placeholder={'Telefon'}
           className="mr-2 mb-2 flex-1"
         />
@@ -58,6 +58,7 @@ export const ProfileFields: React.FC<ProfileFieldsProps> = () => {
         <SelectField
           options={tShirtOptions}
           name={`shirtSize`}
+          value={values.shirtSize}
           placeholder={'Marime tricou'}
           className="mb-2 flex-1"
         />

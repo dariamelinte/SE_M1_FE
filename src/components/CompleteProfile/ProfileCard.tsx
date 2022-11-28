@@ -44,7 +44,7 @@ const ProfileCard: React.FC<ProfileCardProps> = () => {
       </div>
       <div className={styles.separator}>
         <p className={styles.textBold}>Numar de telefon</p>
-        <p className={styles.text}>{autocompleter(profile?.phoneNumber)}</p>
+        <p className={styles.text}>{autocompleter(profile?.phone)}</p>
       </div>
       <div className={styles.separator}>
         <p className={styles.textBold}>Marime Tricou</p>

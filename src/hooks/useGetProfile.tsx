@@ -35,14 +35,15 @@ const useGetProfile = () => {
       setLoading(true);
       try {
         const { data: response } = await getProfile(accessToken);
-        console.log(response);
-        setData(response);
+        console.log(response.data);
+        setData(response.data);
         setUserProfile({
-          ...response,
-          identifier: profile?.identifier || response.identifier,
-          firstName: profile?.firstName || response.firstName,
-          lastName: profile?.lastName || response.lastName,
-          email: profile?.email || response.email,
+          ...response.data,
+          phone: profile?.phone || response.data.phone,
+          identifier: profile?.identifier || response.data.identifier,
+          firstName: profile?.firstName || response.data.firstName,
+          lastName: profile?.lastName || response.data.lastName,
+          email: profile?.email || response.data.email,
         });
       } catch (error: any) {
         toast.error(error?.message || ERROR_MESSAGES.default);

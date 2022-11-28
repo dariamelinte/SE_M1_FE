@@ -14,6 +14,8 @@ const WebPage: React.FC = () => {
   const profile = useStore((store) => store.profile);
   const auth = useAuth();
 
+  console.log({ profile, editProfile });
+
   if (!auth.isAuthenticated) {
     return (
       <Page theme={Banners.profil}>

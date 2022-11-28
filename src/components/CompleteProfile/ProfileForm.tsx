@@ -41,10 +41,18 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ onClickClose }) => {
       validationSchema={profileValidationSchema}
       onSubmit={async (values) => {
         try {
-          // eslint-disable-next-line
-          const { identifier, ...restOfValues } = values;
           const { data: updateProfileData } = await updateProfile(
-            restOfValues,
+            {
+              lastName: values.lastName,
+              firstName: values.firstName,
+              phone: values.phone,
+              shirtSize: values.shirtSize,
+              state: values.state,
+              city: values.city,
+              professor: values.professor,
+              csacademy: values.csacademy,
+              institute: values.institute,
+            },
             accessToken
           );
 
