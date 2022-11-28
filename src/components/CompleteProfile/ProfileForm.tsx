@@ -1,7 +1,9 @@
 import { Form, Formik } from 'formik';
 import React from 'react';
+import { toast } from 'react-toastify';
 
 import { Button } from '@/components/Buttons';
+import ERROR_MESSAGES from '@/helpers/error-messages';
 import useGetProfile from '@/hooks/useGetProfile';
 import { updateProfile } from '@/services/api';
 import useStore from '@/stores/participant';
@@ -41,8 +43,8 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ onClickClose }) => {
           const { data: updateProfileData } = await updateProfile(restOfValues);
 
           console.log({ updateProfileData });
-        } catch (err) {
-          console.log(err);
+        } catch (error: any) {
+          toast.error(error?.message || ERROR_MESSAGES.default);
         } finally {
           onClickClose();
         }
