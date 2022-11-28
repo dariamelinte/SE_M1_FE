@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { useAuth } from 'react-oidc-context';
 
@@ -36,19 +37,28 @@ const WebText: React.FC<WebTextProps> = ({ openModel }) => {
               authenticateUser(auth);
             }}
           >
-            <div className="text-center text-2xl font-bold text-white">
+            <div className="text-center text-xl font-bold text-white">
               Va rugam sa va autentificati pentru a va putea inscrie
             </div>
           </GradientButton>
         )}
+        {isAuthenticated && !profile?.identifier && (
+          <GradientButton>
+            <Link href="/profil">
+              <div className="text-center text-xl font-bold text-white">
+                Va rugam sa va completati profilul pentru a va putea inscrie
+              </div>
+            </Link>
+          </GradientButton>
+        )}
         {isAuthenticated && !profile?.sections?.web && (
           <GradientButton onClick={openModel}>
-            <div className="text-2xl font-bold text-white">Înscrie-te</div>
+            <div className="text-xl font-bold text-white">Înscrie-te</div>
           </GradientButton>
         )}
         {profile?.sections?.web && (
           <GradientButton>
-            <div className="text-center text-2xl font-bold text-white">
+            <div className="text-center text-xl font-bold text-white">
               V-ati inscris deja la aceasta arie
             </div>
           </GradientButton>
@@ -61,7 +71,7 @@ const WebText: React.FC<WebTextProps> = ({ openModel }) => {
           rel="noreferrer"
         >
           <GradientButton>
-            <div className="text-2xl font-bold text-white">Tema Probei</div>
+            <div className="text-xl font-bold text-white">Tema Probei</div>
           </GradientButton>
         </a>
       </div> */}
@@ -107,7 +117,7 @@ const WebText: React.FC<WebTextProps> = ({ openModel }) => {
           rel="noreferrer"
         >
           <GradientButton onClick={openModel}>
-            <div className="text-2xl font-bold text-white">Discord</div>
+            <div className="text-xl font-bold text-white">Discord</div>
           </GradientButton>
         </a>
       </div>
