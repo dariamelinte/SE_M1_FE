@@ -23,6 +23,8 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ onClickClose }) => {
   const accessToken = useStore((state) => state.access_token);
   const { loading, data } = useGetProfile();
 
+  console.log({ data });
+
   if (loading) {
     return <Loading />;
   }

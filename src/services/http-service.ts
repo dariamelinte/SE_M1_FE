@@ -4,12 +4,12 @@ import axios from 'axios';
 import { API_URL } from '@/types/contestant';
 
 const createApiConfig = () => {
-  // const accessToken: string = useStore<string>((state) => state.access_token);
   const axiosConfig: AxiosRequestConfig = {
     baseURL: API_URL,
     headers: {
       'Cache-Control': 'no-cache',
-      // Authorization: `Bearer ${accessToken}`,
+      'Access-Control-Allow-Origin': '*',
+      'X-Powered-By': 'Express',
     },
   };
   return axiosConfig;

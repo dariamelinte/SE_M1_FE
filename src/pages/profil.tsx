@@ -12,7 +12,6 @@ import useStore from '@/stores/participant';
 const WebPage: React.FC = () => {
   const [editProfile, setEditProfile] = useState(false);
   const profile = useStore((store) => store.profile);
-
   const auth = useAuth();
 
   if (!auth.isAuthenticated) {

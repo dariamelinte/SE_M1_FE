@@ -13,16 +13,29 @@ export type DepartmentsType = {
 
 const useGetProfile = () => {
   const [loading, setLoading] = useState(true);
+  const [loadingToken, setLoadingToken] = useState(true);
   const [data, setData] = useState<Profile>(INITIAL_PROFILE);
   const profile = useStore((state) => state.profile);
   const accessToken = useStore((state) => state.access_token);
   const setUserProfile = useStore((state) => state.setUserProfile);
+
+  // console.log("[USE GET PROFILE]", { accessToken });
+  useEffect(() => {
+    if (!accessToken && loadingToken === false) {
+      setLoadingToken(true);
+    }
+
+    if (accessToken && loadingToken === true) {
+      setLoadingToken(false);
+    }
+  }, [accessToken, loading]);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
         const { data: response } = await getProfile(accessToken);
+        console.log(response);
         setData(response);
         setUserProfile({
           ...response,
@@ -37,8 +50,10 @@ const useGetProfile = () => {
       setLoading(false);
     };
 
-    fetchData();
-  }, []);
+    if (!loadingToken) {
+      fetchData();
+    }
+  }, [loadingToken]);
 
   return { loading, data };
 };
