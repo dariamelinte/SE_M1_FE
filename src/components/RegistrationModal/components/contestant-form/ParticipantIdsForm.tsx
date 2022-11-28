@@ -1,10 +1,15 @@
 import { FieldArray, Form, Formik } from 'formik';
 import React, { useMemo } from 'react';
+import { toast } from 'react-toastify';
 
 import { Button } from '@/components/Buttons';
 import { Plus as PlusIcon } from '@/components/icons';
+import { Loading } from '@/components/Loading';
 import type { SectionsType } from '@/constants';
-import { Sections } from '@/constants';
+import { Sections, SectionsIds } from '@/constants';
+import ERROR_MESSAGES from '@/helpers/error-messages';
+import useGetProfile from '@/hooks/useGetProfile';
+import { register } from '@/services/api/register';
 import useStore from '@/stores/participant';
 
 import { ContestantField } from './ContestantField';
@@ -15,16 +20,11 @@ import styles from './Form.module.css';
 type ParticipantIdsFormProps = {
   selectedSection: SectionsType;
   onClickClose: () => void;
-  onRegister: (
-    values: ParticipantsFormType,
-    selectedSection: SectionsType
-  ) => void;
 };
 
 const ParticipantIdsForm: React.FC<ParticipantIdsFormProps> = ({
   selectedSection,
   onClickClose,
-  onRegister,
 }) => {
   const isTeamSection = useMemo(
     () =>
@@ -32,10 +32,12 @@ const ParticipantIdsForm: React.FC<ParticipantIdsFormProps> = ({
       selectedSection !== Sections.ctf,
     [selectedSection]
   );
+  const { loading } = useGetProfile();
   const profile = useStore((state) => state.profile);
+  const accessToken = useStore((state) => state.access_token);
 
-  if (!profile?.identifier) {
-    return <div>not ok</div>;
+  if (loading || !profile?.identifier) {
+    return <Loading />;
   }
 
   const INITIAL_TEAM: ParticipantsFormType = {
@@ -47,10 +49,23 @@ const ParticipantIdsForm: React.FC<ParticipantIdsFormProps> = ({
     <Formik<ParticipantsFormType>
       initialValues={INITIAL_TEAM}
       validationSchema={validationSchema}
-      onSubmit={(values) => {
-        console.log({ values });
-        onRegister(values, selectedSection);
-        onClickClose();
+      onSubmit={async (values) => {
+        try {
+          await register(
+            {
+              id: SectionsIds[selectedSection] + 1,
+              leaderId: values.participantIds[
+                values.leaderIndex || 0
+              ] as string,
+              members: values.participantIds,
+            },
+            accessToken
+          );
+        } catch (error: any) {
+          toast.error(error?.message || ERROR_MESSAGES.default);
+        } finally {
+          onClickClose();
+        }
       }}
     >
       {({ isValid, values, setFieldValue }) => {

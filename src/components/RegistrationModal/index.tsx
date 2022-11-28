@@ -3,7 +3,6 @@ import React, { useCallback, useState } from 'react';
 
 import type { SectionsType } from '@/constants/sections';
 
-import type { ParticipantsFormType } from './components';
 import { RegisterBody } from './RegisterBody';
 import styles from './RegistrationModal.module.css';
 
@@ -18,13 +17,6 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
   onCloseModal,
   isOpen,
 }) => {
-  const onRegister = (
-    values: ParticipantsFormType,
-    selectedSection: SectionsType
-  ) => {
-    console.log({ values, selectedSection });
-  };
-
   return (
     <Transition appear show={isOpen} as={React.Fragment}>
       <Dialog as="div" className={styles.dialog} onClose={onCloseModal}>
@@ -61,7 +53,6 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
             <div className={styles.modalContainer}>
               <RegisterBody
                 initialSection={initialSection}
-                onRegister={onRegister}
                 onClickClose={onCloseModal}
               />
             </div>

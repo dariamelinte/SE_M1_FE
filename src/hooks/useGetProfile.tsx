@@ -11,13 +11,15 @@ export type DepartmentsType = {
   [key: string]: string;
 };
 
-const useGetProfile = () => {
+const useGetProfile = (refetchParams: any[] = []) => {
   const [loading, setLoading] = useState(true);
   const [loadingToken, setLoadingToken] = useState(true);
   const [data, setData] = useState<Profile>(INITIAL_PROFILE);
   const profile = useStore((state) => state.profile);
   const accessToken = useStore((state) => state.access_token);
   const setUserProfile = useStore((state) => state.setUserProfile);
+
+  console.log(refetchParams);
 
   // console.log("[USE GET PROFILE]", { accessToken });
   useEffect(() => {
@@ -28,7 +30,7 @@ const useGetProfile = () => {
     if (accessToken && loadingToken === true) {
       setLoadingToken(false);
     }
-  }, [accessToken, loading]);
+  }, [accessToken, loading, ...refetchParams]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -54,7 +56,7 @@ const useGetProfile = () => {
     if (!loadingToken) {
       fetchData();
     }
-  }, [loadingToken]);
+  }, [loadingToken, ...refetchParams]);
 
   return { loading, data };
 };

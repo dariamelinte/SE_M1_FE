@@ -4,11 +4,9 @@ import { toast } from 'react-toastify';
 
 import { Button } from '@/components/Buttons';
 import ERROR_MESSAGES from '@/helpers/error-messages';
-import useGetProfile from '@/hooks/useGetProfile';
 import { updateProfile } from '@/services/api';
 import useStore from '@/stores/participant';
 
-import { Loading } from '../Loading';
 import styles from './Profile.module.css';
 import type { Profile } from './profile-form-base';
 import { profileValidationSchema } from './profile-form-base';
@@ -16,18 +14,12 @@ import { ProfileFields } from './ProfileFields';
 
 export type ProfileFormProps = {
   onClickClose: () => void;
+  data: Profile;
 };
 
-const ProfileForm: React.FC<ProfileFormProps> = ({ onClickClose }) => {
+const ProfileForm: React.FC<ProfileFormProps> = ({ onClickClose, data }) => {
   const profile = useStore((state) => state.profile);
   const accessToken = useStore((state) => state.access_token);
-  const { loading, data } = useGetProfile();
-
-  console.log({ data });
-
-  if (loading) {
-    return <Loading />;
-  }
 
   return (
     <Formik<Profile>
@@ -41,7 +33,7 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ onClickClose }) => {
       validationSchema={profileValidationSchema}
       onSubmit={async (values) => {
         try {
-          const { data: updateProfileData } = await updateProfile(
+          await updateProfile(
             {
               lastName: values.lastName,
               firstName: values.firstName,
@@ -55,8 +47,6 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ onClickClose }) => {
             },
             accessToken
           );
-
-          console.log({ updateProfileData });
         } catch (error: any) {
           toast.error(error?.message || ERROR_MESSAGES.default);
         } finally {

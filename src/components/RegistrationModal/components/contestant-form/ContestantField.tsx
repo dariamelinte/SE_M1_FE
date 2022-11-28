@@ -30,12 +30,19 @@ export const ContestantField: React.FC<ContestantFieldProps> = ({
   return (
     <div className="-w-full py-3">
       <div className={styles.inputRow}>
-        <InputField
-          name={`${name}`}
-          disabled={isThemselves}
-          placeholder="ID Utilizator"
-          className="mr-2 mb-2 flex-1"
-        />
+        <div className="w-full">
+          {isThemselves && (
+            <p className="mb-2 text-sm font-bold capitalize tracking-wide text-gray-700">
+              ID Propriu
+            </p>
+          )}
+          <InputField
+            name={`${name}`}
+            disabled={isThemselves}
+            placeholder="ID Utilizator"
+            className="mr-2 mb-2 flex-1"
+          />
+        </div>
         {isTeamSection && (
           <Checkbox
             name="isLeader"

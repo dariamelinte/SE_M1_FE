@@ -10,6 +10,12 @@ export type Profile = {
   state: string;
   city: string;
   professor?: string;
+  sections?: {
+    algo?: string;
+    ctf?: string;
+    web?: string;
+    game?: string;
+  };
 };
 
 export type GetProfile = {

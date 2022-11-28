@@ -4,22 +4,16 @@ import React, { useState } from 'react';
 import type { SectionsType } from '@/constants/sections';
 import { Sections } from '@/constants/sections';
 
-import type { ParticipantsFormType } from './components';
 import { ParticipantIdsForm, SectionField } from './components';
 import styles from './RegistrationModal.module.css';
 
 type RegisterBodyType = {
   initialSection: SectionsType;
   onClickClose: () => void;
-  onRegister: (
-    values: ParticipantsFormType,
-    selectedSection: SectionsType
-  ) => void;
 };
 
 export const RegisterBody: React.FC<RegisterBodyType> = ({
   onClickClose,
-  onRegister,
   initialSection,
 }) => {
   const [selectedSection, setSelectedSection] =
@@ -69,7 +63,6 @@ export const RegisterBody: React.FC<RegisterBodyType> = ({
           <ParticipantIdsForm
             selectedSection={selectedSection}
             onClickClose={onClickClose}
-            onRegister={onRegister}
           />
         </div>
       </div>

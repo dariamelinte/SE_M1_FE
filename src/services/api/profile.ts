@@ -1,12 +1,12 @@
 import type { AxiosPromise } from 'axios';
 
 import { httpService } from '@/services';
-import type { GetProfile, Profile } from '@/types/profile';
+import type { GetProfile, PostProfile } from '@/types/profile';
 
 export const updateProfile = (
   data: any,
   accessToken: string
-): AxiosPromise<Profile> => {
+): AxiosPromise<PostProfile> => {
   console.log({ accessToken, data });
   return httpService.post('/users/update', data, {
     headers: {
