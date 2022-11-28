@@ -4,25 +4,19 @@ import React from 'react';
 import { Button } from '@/components/Buttons';
 import { InputField, SelectField } from '@/components/Form';
 import { tShirtSizes } from '@/constants/tshirt-sizes';
+import type { Profile } from '@/types/profile';
 import arrayToOptions from '@/utils/arrayToOptions';
 
-import type { AlgFormValues } from '.';
-import styles from './ContestantField.module.css';
+import styles from './Profile.module.css';
 
-type AlgContestantFieldProps = {
-  name: string;
-  english?: boolean;
-};
+type ProfileFieldsProps = {};
 
-export const AlgContestantField: React.FC<AlgContestantFieldProps> = ({
-  name,
-  english,
-}) => {
-  const { handleReset } = useFormikContext<AlgFormValues>();
+export const ProfileFields: React.FC<ProfileFieldsProps> = () => {
+  const { handleReset, values } = useFormikContext<Profile>();
 
   const tShirtOptions = [
     {
-      name: english ? 'Choose a t-shirt size' : 'Alegeti o marime de tricou',
+      name: 'Alegeti o marime de tricou',
       value: '',
     },
     ...arrayToOptions(tShirtSizes),
@@ -32,55 +26,62 @@ export const AlgContestantField: React.FC<AlgContestantFieldProps> = ({
     <div className="py-3">
       <div className={styles.inputRow}>
         <InputField
-          name={`${name}.lastName`}
-          placeholder={english ? 'Last name' : 'Nume'}
+          name={`lastName`}
+          placeholder={'Nume de familie'}
           className="mr-2 mb-2 flex-1"
         />
         <InputField
-          name={`${name}.firstName`}
-          placeholder={english ? 'First name' : 'Prenume'}
+          name={`firstName`}
+          placeholder={'Prenume'}
           className="mb-2 flex-1"
         />
       </div>
       <div className={styles.inputRow}>
         <InputField
-          name={`${name}.phoneNumber`}
-          placeholder={english ? 'Phone number' : 'Telefon'}
+          name={`phone`}
+          placeholder={'Telefon'}
           className="mr-2 mb-2 flex-1"
         />
         <InputField
-          name={`${name}.email`}
+          name={`email`}
           placeholder="Email"
+          disabled
           className="mb-2 flex-1"
         />
       </div>
       <div className={styles.inputRow}>
         <InputField
-          name={`${name}.csacademy`}
+          name={`csacademy`}
           placeholder="Username CSAcademy"
           className="mr-2 mb-2 flex-1"
         />
         <SelectField
           options={tShirtOptions}
-          name={`${name}.shirtSize`}
-          placeholder={english ? 'T-shirt size' : 'Marime tricou'}
+          name={`shirtSize`}
+          value={values.shirtSize}
+          placeholder={'Marime tricou'}
           className="mb-2 flex-1"
         />
       </div>
       <InputField
-        name={`${name}.highschool`}
-        placeholder={english ? 'High School/College' : 'Liceu/Facultate'}
+        name={`institute`}
+        placeholder={'Liceu / Facultate'}
+        className="mb-2 flex-1"
+      />
+      <InputField
+        name={`professor`}
+        placeholder={'Profesor coordonator'}
         className="mb-2 flex-1"
       />
       <div className={styles.inputRow}>
         <InputField
-          name={`${name}.state`}
-          placeholder={english ? 'State' : 'Judet'}
+          name={`state`}
+          placeholder={'Judet'}
           className="mr-2 mb-2 flex-1"
         />
         <InputField
-          name={`${name}.city`}
-          placeholder={english ? 'City' : 'Localitate'}
+          name={`city`}
+          placeholder={'Localitate'}
           className="mb-2 flex-1"
         />
       </div>

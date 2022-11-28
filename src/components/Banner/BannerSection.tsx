@@ -26,6 +26,9 @@ const getBanner = (theme: string) => {
     case Banners.algorithmics:
       banner = 'Algoritmică';
       break;
+    case Banners.profil:
+      banner = 'Profil participant';
+      break;
     default:
       break;
   }

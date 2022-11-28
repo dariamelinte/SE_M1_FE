@@ -1,6 +1,9 @@
 import React from 'react';
+import { useAuth } from 'react-oidc-context';
 
 import { GradientButton } from '@/components/Buttons';
+import useGetProfile from '@/hooks/useGetProfile';
+import useStore from '@/stores/participant';
 
 import styles from './Texts.module.css';
 
@@ -9,6 +12,12 @@ type CtfTextProps = {
 };
 
 const CtfText: React.FC<CtfTextProps> = ({ openModel }) => {
+  const auth = useAuth();
+  const isAuthenticated = useStore((state) => state.isAuthenticated);
+  useGetProfile();
+  const profile = useStore((state) => state.profile);
+  const authenticateUser = useStore((state) => state.authenticateUser);
+
   return (
     <>
       <h1 className={styles.areaHeading}>DESPRE ARIA CAPTURE THE FLAG</h1>
@@ -22,11 +31,31 @@ const CtfText: React.FC<CtfTextProps> = ({ openModel }) => {
         “Capture the Flag”.
       </p>
       {/* <Closed /> */}
-      {/* <div className="flex items-center justify-center">
-        <GradientButton onClick={openModel}>
-          <div className="text-2xl font-bold text-white">Înscrie-te</div>
-        </GradientButton>
-      </div> */}
+      <div className="flex items-center justify-center">
+        {!isAuthenticated && (
+          <GradientButton
+            onClick={() => {
+              authenticateUser(auth);
+            }}
+          >
+            <div className="text-center text-2xl font-bold text-white">
+              Va rugam sa va autentificati pentru a va putea inscrie
+            </div>
+          </GradientButton>
+        )}
+        {isAuthenticated && !profile?.sections?.algo && (
+          <GradientButton onClick={openModel}>
+            <div className="text-2xl font-bold text-white">Înscrie-te</div>
+          </GradientButton>
+        )}
+        {profile?.sections?.algo && (
+          <GradientButton>
+            <div className="text-center text-2xl font-bold text-white">
+              V-ati inscris deja la aceasta arie
+            </div>
+          </GradientButton>
+        )}
+      </div>
       {/* <div className="flex items-center justify-center pb-12">
         <a
           target={'_blank'}

@@ -19,3 +19,9 @@ a:hover {
 .content ul {
   @apply my-6;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+  color: green;
+}

@@ -10,7 +10,7 @@ import { withScrollTop } from '@/hooks/withScrollTop';
 import { Page } from '@/layouts';
 
 const CtfPage: React.FC = () => {
-  const { open, setOpen, onRequestClose } = useRegistrationModal({
+  const { setOpen, open, onRequestClose } = useRegistrationModal({
     onRegister: () => console.log('register ...'),
   });
 
@@ -21,12 +21,13 @@ const CtfPage: React.FC = () => {
           <CtfText openModel={() => setOpen(true)} />
         </Area>
       </div>
+      <SpeakersPresentation />
+
       <RegistrationModal
         initialSection={Sections.ctf}
         isOpen={open}
         onCloseModal={onRequestClose}
       />
-      <SpeakersPresentation />
     </Page>
   );
 };

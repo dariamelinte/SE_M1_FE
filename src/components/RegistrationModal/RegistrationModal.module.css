@@ -15,7 +15,7 @@
 }
 
 .sectionContainer {
-  @apply pt-4;
+  @apply flex flex-col my-5;
 }
 
 .sectionTitle {

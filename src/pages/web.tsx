@@ -10,7 +10,7 @@ import { withScrollTop } from '@/hooks/withScrollTop';
 import { Page } from '@/layouts';
 
 const WebPage: React.FC = () => {
-  const { open, setOpen, onRequestClose } = useRegistrationModal({
+  const { setOpen, open, onRequestClose } = useRegistrationModal({
     onRegister: () => console.log('register ...'),
   });
 
@@ -21,12 +21,13 @@ const WebPage: React.FC = () => {
           <WebText openModel={() => setOpen(true)} />
         </Area>
       </div>
+      <SpeakersPresentation />
+
       <RegistrationModal
         initialSection={Sections.web}
         isOpen={open}
         onCloseModal={onRequestClose}
       />
-      <SpeakersPresentation />
     </Page>
   );
 };

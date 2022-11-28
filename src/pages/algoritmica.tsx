@@ -10,7 +10,7 @@ import { withScrollTop } from '@/hooks/withScrollTop';
 import { Page } from '@/layouts';
 
 const Algoritmica = () => {
-  const { open, setOpen, onRequestClose } = useRegistrationModal({
+  const { setOpen, onRequestClose, open } = useRegistrationModal({
     onRegister: () => console.log('register ...'),
   });
 
@@ -21,12 +21,13 @@ const Algoritmica = () => {
           <AlgoText openModel={() => setOpen(true)} />
         </Area>
       </div>
+      <SpeakersPresentation />
+
       <RegistrationModal
         initialSection={Sections.algorithmics}
         isOpen={open}
         onCloseModal={onRequestClose}
       />
-      <SpeakersPresentation />
     </Page>
   );
 };
