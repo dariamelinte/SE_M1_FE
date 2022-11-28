@@ -48,16 +48,16 @@ export const RegisterBody: React.FC<RegisterBodyType> = ({
               title="Web"
             />
             <SectionField
-              section={Sections.ctf}
-              onSetSection={onSetSection}
-              selectedSection={selectedSection}
-              title="CTF"
-            />
-            <SectionField
               section={Sections.gamedev}
               onSetSection={onSetSection}
               selectedSection={selectedSection}
               title="GameDev"
+            />
+            <SectionField
+              section={Sections.ctf}
+              onSetSection={onSetSection}
+              selectedSection={selectedSection}
+              title="CTF"
             />
           </div>
           <ParticipantIdsForm

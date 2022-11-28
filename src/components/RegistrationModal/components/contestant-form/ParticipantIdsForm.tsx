@@ -32,9 +32,9 @@ const ParticipantIdsForm: React.FC<ParticipantIdsFormProps> = ({
       selectedSection !== Sections.ctf,
     [selectedSection]
   );
-  const { loading } = useGetProfile();
-  const profile = useStore((state) => state.profile);
   const accessToken = useStore((state) => state.access_token);
+  const profile = useStore((state) => state.profile);
+  const { loading } = useGetProfile([accessToken]);
 
   if (loading || !profile?.identifier) {
     return <Loading />;

@@ -49,7 +49,7 @@ const AlgoText: React.FC<AlgoTextProps> = ({ openModel }) => {
         {profile?.sections?.algo && (
           <GradientButton>
             <div className="text-center text-2xl font-bold text-white">
-              V-ati inscris deja la aceasta proba
+              V-ati inscris deja la aceasta arie
             </div>
           </GradientButton>
         )}
