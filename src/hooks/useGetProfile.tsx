@@ -15,13 +15,14 @@ const useGetProfile = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<Profile>(INITIAL_PROFILE);
   const profile = useStore((state) => state.profile);
+  const accessToken = useStore((state) => state.access_token);
   const setUserProfile = useStore((state) => state.setUserProfile);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const { data: response } = await getProfile();
+        const { data: response } = await getProfile(accessToken);
         setData(response);
         setUserProfile({
           ...response,
