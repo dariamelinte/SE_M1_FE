@@ -18,6 +18,7 @@ export type ProfileFormProps = {
 
 const ProfileForm: React.FC<ProfileFormProps> = ({ onClickClose }) => {
   const profile = useStore((state) => state.profile);
+  const accessToken = useStore((state) => state.access_token);
   const { loading, data } = useGetProfile();
 
   if (loading) {
@@ -38,7 +39,10 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ onClickClose }) => {
         try {
           // eslint-disable-next-line
           const { identifier, ...restOfValues } = values;
-          const { data: updateProfileData } = await updateProfile(restOfValues);
+          const { data: updateProfileData } = await updateProfile(
+            restOfValues,
+            accessToken
+          );
 
           console.log({ updateProfileData });
         } catch (err) {
