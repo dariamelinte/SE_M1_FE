@@ -48,9 +48,7 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ onClickClose, data }) => {
             accessToken
           );
         } catch (error: any) {
-          if (!error?.message?.contains('404')) {
-            toast.error(error?.message || ERROR_MESSAGES.default);
-          }
+          toast.error(error?.message || ERROR_MESSAGES.default);
         } finally {
           onClickClose();
         }

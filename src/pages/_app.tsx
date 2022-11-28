@@ -8,7 +8,7 @@ import { ToastContainer } from 'react-toastify';
 const replaceState = (_user: any | void): void => {
   window.history.replaceState({}, document.title, window.location.pathname);
   // eslint-disable-next-line no-console
-  console.log(_user);
+  // console.log(_user);
 };
 
 const oidConfig = {

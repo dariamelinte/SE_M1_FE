@@ -19,7 +19,7 @@ const useGetProfile = (refetchParams: any[] = []) => {
   const accessToken = useStore((state) => state.access_token);
   const setUserProfile = useStore((state) => state.setUserProfile);
 
-  console.log(refetchParams);
+  // console.log(refetchParams);
 
   // console.log("[USE GET PROFILE]", { accessToken });
   useEffect(() => {
@@ -37,7 +37,7 @@ const useGetProfile = (refetchParams: any[] = []) => {
       setLoading(true);
       try {
         const { data: response } = await getProfile(accessToken);
-        console.log(response.data);
+        // console.log(response.data);
         setData(response.data);
         setUserProfile({
           ...response.data,
@@ -48,9 +48,7 @@ const useGetProfile = (refetchParams: any[] = []) => {
           email: profile?.email || response.data.email,
         });
       } catch (error: any) {
-        if (!error?.message?.contains('404')) {
-          toast.error(error?.message || ERROR_MESSAGES.default);
-        }
+        toast.error(error?.message || ERROR_MESSAGES.default);
       }
       setLoading(false);
     };
