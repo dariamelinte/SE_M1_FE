@@ -1,26 +1,55 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from 'react-oidc-context';
 
-import { Button } from '@/components/Buttons';
+import { Button, GradientButton } from '@/components/Buttons';
 import ProfileCard from '@/components/CompleteProfile/ProfileCard';
 import ProfileForm from '@/components/CompleteProfile/ProfileForm';
+import { Loading } from '@/components/Loading';
 import { Banners } from '@/constants';
+import useGetProfile from '@/hooks/useGetProfile';
 import { withScrollTop } from '@/hooks/withScrollTop';
 import { Page } from '@/layouts';
+import useStore from '@/stores/participant';
 
-const WebPage: React.FC = () => {
+const Profile: React.FC = () => {
   const [editProfile, setEditProfile] = useState(false);
-
+  const { loading, data } = useGetProfile([editProfile]);
+  const profile = useStore((store) => store.profile);
   const auth = useAuth();
+  const authenticateUser = useStore((state) => state.authenticateUser);
+
+  useEffect(() => {
+    if (auth.isAuthenticated && !profile?.identifier && !loading) {
+      setEditProfile(true);
+    }
+  }, [profile?.identifier, setEditProfile, auth.isAuthenticated, loading]);
+
+  if (loading && auth.isAuthenticated) {
+    return (
+      <Page theme={Banners.profil}>
+        <div className="relative flex flex-col items-center justify-center py-4">
+          <div className="my-8 flex flex-col rounded-xl bg-gray-200 py-4 px-8 shadow">
+            <Loading />
+          </div>
+        </div>
+      </Page>
+    );
+  }
 
   if (!auth.isAuthenticated) {
     return (
       <Page theme={Banners.profil}>
         <div className="relative flex flex-col items-center justify-center py-4">
           <div className="my-8 flex flex-col rounded-xl bg-gray-200 py-4 px-8 shadow">
-            <p className="mb-4 text-center text-xl font-semibold text-red-500">
-              Va rugam sa va autentificati inainte de a accesa profilul dvs.
-            </p>
+            <GradientButton
+              onClick={() => {
+                authenticateUser(auth);
+              }}
+            >
+              <div className="text-center text-2xl font-bold text-white">
+                Va rugam sa va autentificati pentru a va putea inscrie
+              </div>
+            </GradientButton>
           </div>
         </div>
       </Page>
@@ -31,7 +60,12 @@ const WebPage: React.FC = () => {
     <Page theme={Banners.profil}>
       <div className="relative flex flex-col items-center justify-center py-4">
         {editProfile ? (
-          <ProfileForm onClickClose={() => setEditProfile(false)} />
+          <ProfileForm
+            data={data}
+            onClickClose={() => {
+              setEditProfile(false);
+            }}
+          />
         ) : (
           <>
             <ProfileCard />
@@ -49,4 +83,4 @@ const WebPage: React.FC = () => {
   );
 };
 
-export default withScrollTop(WebPage);
+export default withScrollTop(Profile);

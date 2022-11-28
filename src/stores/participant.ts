@@ -1,9 +1,11 @@
 import type { User as OIDCUser } from 'oidc-client-ts';
 import type { AuthContextProps } from 'react-oidc-context';
+import { toast } from 'react-toastify';
 import create from 'zustand';
 
 import type { Profile } from '@/components/CompleteProfile/profile-form-base';
 import { INITIAL_PROFILE } from '@/components/CompleteProfile/profile-form-base';
+import ERROR_MESSAGES from '@/helpers/error-messages';
 import type { StoreParticipant } from '@/types/participantStore';
 
 const useStore = create<StoreParticipant>((set, get) => ({
@@ -23,7 +25,6 @@ const useStore = create<StoreParticipant>((set, get) => ({
     const profile: Profile = {
       ...INITIAL_PROFILE,
       // TODO:  remove it
-      id: 'somerandomgeneratedstring',
       email: userProfile?.email || '',
       lastName: userProfile?.family_name || '',
       firstName: userProfile?.given_name || '',
@@ -48,9 +49,8 @@ const useStore = create<StoreParticipant>((set, get) => ({
     try {
       if (auth === null) return;
       await auth?.signoutPopup();
-    } catch (e) {
-      // eslint-disable-next-line no-console
-      console.error(e);
+    } catch (error: any) {
+      toast.error(error?.message || ERROR_MESSAGES.default);
     } finally {
       set({ isAuthenticated: false });
       set({ access_token: '' });
