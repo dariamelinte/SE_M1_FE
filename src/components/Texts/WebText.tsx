@@ -46,7 +46,7 @@ const WebText: React.FC<WebTextProps> = ({ openModel }) => {
             <div className="text-2xl font-bold text-white">Înscrie-te</div>
           </GradientButton>
         )}
-        {profile?.sections?.algo && (
+        {profile?.sections?.web && (
           <GradientButton>
             <div className="text-center text-2xl font-bold text-white">
               V-ati inscris deja la aceasta arie
