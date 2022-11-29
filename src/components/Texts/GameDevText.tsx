@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuth } from 'react-oidc-context';
 
 import { GradientButton } from '@/components/Buttons';
@@ -18,6 +18,10 @@ const GameDevText: React.FC<GameDevTextProps> = ({ openModel }) => {
   const profile = useStore((state) => state.profile);
   const authenticateUser = useStore((state) => state.authenticateUser);
 
+  const [hasArea, setArea] = useState<boolean>(false);
+  useEffect(() => {
+    setArea(profile?.sections?.game === null);
+  }, [profile?.sections?.game]);
   return (
     <>
       <h1 className={styles.areaHeading}>DESPRE ARIA GAMEDEV</h1>
@@ -40,12 +44,12 @@ const GameDevText: React.FC<GameDevTextProps> = ({ openModel }) => {
             </div>
           </GradientButton>
         )}
-        {isAuthenticated && !profile?.sections?.game && (
+        {isAuthenticated && hasArea && (
           <GradientButton onClick={openModel}>
             <div className="text-2xl font-bold text-white">Înscrie-te</div>
           </GradientButton>
         )}
-        {profile?.sections?.game && (
+        {!hasArea && (
           <GradientButton>
             <div className="text-center text-2xl font-bold text-white">
               V-ati inscris deja la aceasta arie

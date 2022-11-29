@@ -48,7 +48,7 @@ const useGetProfile = (refetchParams: any[] = []) => {
           email: profile?.email || response.data.email,
         });
       } catch (error: any) {
-        toast.error(error?.message || ERROR_MESSAGES.default);
+        toast.error(error?.response?.data?.message || ERROR_MESSAGES.default);
       }
       setLoading(false);
     };

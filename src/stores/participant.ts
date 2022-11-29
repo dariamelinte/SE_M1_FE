@@ -50,7 +50,7 @@ const useStore = create<StoreParticipant>((set, get) => ({
       if (auth === null) return;
       await auth?.signoutPopup();
     } catch (error: any) {
-      toast.error(error?.message || ERROR_MESSAGES.default);
+      toast.error(error?.response?.data?.message || ERROR_MESSAGES.default);
     } finally {
       set({ isAuthenticated: false });
       set({ access_token: '' });
