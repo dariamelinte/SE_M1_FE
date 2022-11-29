@@ -14,7 +14,12 @@ const useStore = create<StoreParticipant>((set, get) => ({
   profile: INITIAL_PROFILE,
   isAuthenticated: false,
   justLoggedOut: false,
+  profileError: 0,
 
+  setProfileError: () =>
+    set({
+      profileError: new Date(new Date().getTime() + 1 * 60000).getTime(),
+    }),
   setAccessToken: (access_token: string) => set({ access_token }),
   setUserProfile: (profile: Profile | null) => set({ profile }),
 

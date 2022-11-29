@@ -19,7 +19,14 @@ const CtfText: React.FC<CtfTextProps> = ({ openModel }) => {
   const authenticateUser = useStore((state) => state.authenticateUser);
 
   const [hasArea, setArea] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>('');
+
   useEffect(() => {
+    if (!profile?.sections) {
+      setErrorMessage('Setati-va profilul pentru a va inscrie.');
+    } else {
+      setErrorMessage('V-ati inscris deja la aceasta arie.');
+    }
     setArea(profile?.sections?.ctf === null);
   }, [profile?.sections?.ctf]);
 
@@ -56,7 +63,7 @@ const CtfText: React.FC<CtfTextProps> = ({ openModel }) => {
         {!hasArea && (
           <GradientButton>
             <div className="text-center text-2xl font-bold text-white">
-              V-ati inscris deja la aceasta arie
+              {errorMessage}
             </div>
           </GradientButton>
         )}

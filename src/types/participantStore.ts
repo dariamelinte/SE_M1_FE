@@ -12,8 +12,11 @@ export type Participant = {
 export type StoreParticipant = Participant & {
   isAuthenticated: boolean;
   justLoggedOut: boolean;
+  profileError: number;
 
   loadUser: (user: OIDCUser | null) => void;
+
+  setProfileError: () => void;
   setAccessToken: (access_token: string) => void;
   setUserProfile: (profile: Profile | null) => void;
 

@@ -18,7 +18,8 @@ const useGetProfile = (refetchParams: any[] = []) => {
   const profile = useStore((state) => state.profile);
   const accessToken = useStore((state) => state.access_token);
   const setUserProfile = useStore((state) => state.setUserProfile);
-
+  const profileError = useStore((state) => state.profileError);
+  const setProfileError = useStore((state) => state.setProfileError);
   // console.log(refetchParams);
 
   // console.log("[USE GET PROFILE]", { accessToken });
@@ -48,7 +49,11 @@ const useGetProfile = (refetchParams: any[] = []) => {
           email: profile?.email || response.data.email,
         });
       } catch (error: any) {
-        toast.error(error?.response?.data?.message || ERROR_MESSAGES.default);
+        console.log(profileError);
+        if (profileError <= Date.now()) {
+          toast.error(error?.response?.data?.message || ERROR_MESSAGES.default);
+          setProfileError();
+        }
       }
       setLoading(false);
     };
