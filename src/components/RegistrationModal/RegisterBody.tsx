@@ -35,30 +35,39 @@ export const RegisterBody: React.FC<RegisterBodyType> = ({
           </div>
 
           <div className={styles.sections}>
-            <SectionField
-              section={Sections.algorithmics}
-              onSetSection={onSetSection}
-              selectedSection={selectedSection}
-              title="Algoritmică"
-            />
-            <SectionField
-              section={Sections.web}
-              selectedSection={selectedSection}
-              onSetSection={onSetSection}
-              title="Web"
-            />
-            <SectionField
-              section={Sections.gamedev}
-              onSetSection={onSetSection}
-              selectedSection={selectedSection}
-              title="GameDev"
-            />
-            <SectionField
-              section={Sections.ctf}
-              onSetSection={onSetSection}
-              selectedSection={selectedSection}
-              title="CTF"
-            />
+            {initialSection === Sections.algorithmics && (
+              <SectionField
+                section={Sections.algorithmics}
+                onSetSection={onSetSection}
+                selectedSection={selectedSection}
+                title="Algoritmică"
+              />
+            )}
+            {initialSection === Sections.web && (
+              <SectionField
+                section={Sections.web}
+                selectedSection={selectedSection}
+                onSetSection={onSetSection}
+                title="Web"
+              />
+            )}
+            {initialSection === Sections.gamedev && (
+              <SectionField
+                section={Sections.gamedev}
+                onSetSection={onSetSection}
+                selectedSection={selectedSection}
+                title="GameDev"
+              />
+            )}
+
+            {initialSection === Sections.ctf && (
+              <SectionField
+                section={Sections.ctf}
+                onSetSection={onSetSection}
+                selectedSection={selectedSection}
+                title="CTF"
+              />
+            )}
           </div>
           <ParticipantIdsForm
             selectedSection={selectedSection}
