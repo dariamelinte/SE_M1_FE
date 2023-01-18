@@ -56,7 +56,7 @@ const GameDevText: React.FC<GameDevTextProps> = ({ openModel }) => {
             <div className="text-xl font-bold text-white">Înscrie-te</div>
           </GradientButton>
         )}
-        {!hasArea && (
+        {isAuthenticated && !hasArea && (
           <GradientButton>
             <div className="text-center text-2xl font-bold text-white">
               {errorMessage}
