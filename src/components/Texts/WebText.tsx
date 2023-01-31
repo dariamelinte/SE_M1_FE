@@ -77,16 +77,16 @@ const WebText: React.FC<WebTextProps> = ({ openModel }) => {
         </a>
       </div> */}
       <h1 className={styles.areaHeading}>PREMIILE EDIȚIEI</h1>
-      <h2 className={styles.areaPrize}>
+      {/* <h2 className={styles.areaPrize}>
         Premiile ariei vor fi anuntate in saptamanile ce urmeaza.
-      </h2>
-      {/* <h2 className={styles.areaPrize}>Premiul I: 3750 RON</h2>
-      <h2 className={styles.areaPrize}>Premiul II: 3000 RON</h2>
-      <h2 className={styles.areaPrize}>Premiul III: 2250 RON</h2>
+      </h2> */}
+      <h2 className={styles.areaPrize}>Premiul I: 3000 RON</h2>
+      <h2 className={styles.areaPrize}>Premiul II: 2500 RON</h2>
+      <h2 className={styles.areaPrize}>Premiul III: 2000 RON</h2>
       <p className={styles.areaParagraph}>
         Pe lângă aceste premii, se adaugă și cadouri surpriză din partea
         sponsorilor.
-      </p> */}
+      </p>
       <br />
       <br />
       <h1 className={styles.areaHeading}>DESFĂȘURAREA ARIEI WEB/MOBILE </h1>

@@ -65,18 +65,31 @@ const AlgoText: React.FC<AlgoTextProps> = ({ openModel }) => {
           </GradientButton>
         )}
       </div>
-      <h1 className={styles.areaHeading}>PREMIILE EDIȚIEI</h1>
-      <h2 className={styles.areaPrize}>
+      {/* <h2 className={styles.areaPrize}>
         Premiile ariei vor fi anuntate in saptamanile ce urmeaza.
-      </h2>
-      {/* <h2 className={styles.areaPrize}>Premiul I: 2500 RON</h2>
-      <h2 className={styles.areaPrize}>Premiul II: 2000 RON</h2>
-      <h2 className={styles.areaPrize}>Premiul III: 1500 RON</h2>
-      <h2 className={styles.areaPrize}>4 Mențiuni: 500 RON</h2>
+      </h2> */}
+      <h1 className={styles.areaHeading}>PREMIILE EDIȚIEI</h1>
+      <div className="flex flex-col justify-evenly sm:flex-row">
+        <div>
+          <h1 className={styles.areaHeading}>SECȚIUNEA ELEVI</h1>
+          <h2 className={styles.areaPrize}>Premiul I: 1000 RON</h2>
+          <h2 className={styles.areaPrize}>Premiul II: 750 RON</h2>
+          <h2 className={styles.areaPrize}>Premiul III: 500 RON</h2>
+          <h2 className={styles.areaPrize}>3 Mențiuni: 200 RON</h2>
+        </div>
+
+        <div>
+          <h1 className={styles.areaHeading}>SECȚIUNEA STUDENȚI</h1>
+          <h2 className={styles.areaPrize}>Premiul I: 1000 RON</h2>
+          <h2 className={styles.areaPrize}>Premiul II: 750 RON</h2>
+          <h2 className={styles.areaPrize}>Premiul III: 500 RON</h2>
+          <h2 className={styles.areaPrize}>3 Mențiuni: 200 RON</h2>
+        </div>
+      </div>
       <p className={styles.areaParagraph}>
         Pe lângă aceste premii, se adaugă și cadouri surpriză din partea
         sponsorilor.
-      </p> */}
+      </p>
       <br />
       <br />
       <h1 className={styles.areaHeading}>DESFĂȘURAREA ARIEI DE ALGORITMICĂ </h1>
