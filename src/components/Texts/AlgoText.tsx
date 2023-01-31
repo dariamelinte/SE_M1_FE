@@ -70,7 +70,7 @@ const AlgoText: React.FC<AlgoTextProps> = ({ openModel }) => {
       </h2> */}
       <h1 className={styles.areaHeading}>PREMIILE EDIȚIEI</h1>
       <div className="flex flex-col justify-evenly sm:flex-row">
-        <div>
+        <div className="flex flex-col justify-center justify-items-center text-center">
           <h1 className={styles.areaHeading}>SECȚIUNEA ELEVI</h1>
           <h2 className={styles.areaPrize}>Premiul I: 1000 RON</h2>
           <h2 className={styles.areaPrize}>Premiul II: 750 RON</h2>
@@ -78,7 +78,7 @@ const AlgoText: React.FC<AlgoTextProps> = ({ openModel }) => {
           <h2 className={styles.areaPrize}>3 Mențiuni: 200 RON</h2>
         </div>
 
-        <div>
+        <div className="flex flex-col justify-center justify-items-center text-center">
           <h1 className={styles.areaHeading}>SECȚIUNEA STUDENȚI</h1>
           <h2 className={styles.areaPrize}>Premiul I: 1000 RON</h2>
           <h2 className={styles.areaPrize}>Premiul II: 750 RON</h2>
@@ -86,6 +86,7 @@ const AlgoText: React.FC<AlgoTextProps> = ({ openModel }) => {
           <h2 className={styles.areaPrize}>3 Mențiuni: 200 RON</h2>
         </div>
       </div>
+      <br />
       <p className={styles.areaParagraph}>
         Pe lângă aceste premii, se adaugă și cadouri surpriză din partea
         sponsorilor.
