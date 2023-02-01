@@ -1,6 +1,7 @@
+import Image from 'next/image';
 import React from 'react';
 
-import { BannerCover } from '@/components/icons';
+import banner from '@/assets/images/banner.png';
 import type { BannersType } from '@/constants';
 
 import styles from './Banner.module.css';
@@ -13,7 +14,7 @@ type BannerProps = {
 export const Banner: React.FC<BannerProps> = ({ theme }) => {
   return (
     <div className={styles.banner}>
-      <BannerCover className="mt-1 w-full" />
+      <Image className="mt-1 w-full" alt="FIICode-Banner" src={banner} />
       <BannerOverlay theme={theme} />
     </div>
   );
