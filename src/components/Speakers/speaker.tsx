@@ -39,7 +39,7 @@ const Speaker: React.FC<SpeakerProps> = ({
           <a
             target="_blank"
             rel="noreferrer"
-            href={`//${websiteLink}`}
+            href={`${websiteLink}`}
             className={styles.website}
           >
             {/* <Linkedin /> */}
