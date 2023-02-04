@@ -80,7 +80,7 @@ export function useRegistrationModal({
     setOpen(false);
     setTimeout(() => {
       onClose?.();
-    }, 500);
+    }, 5000);
   };
 
   const onRegisterWithClose = useCallback(async () => {
