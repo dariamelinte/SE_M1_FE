@@ -61,6 +61,7 @@ const ParticipantIdsForm: React.FC<ParticipantIdsFormProps> = ({
             },
             accessToken
           );
+          toast.info('V-ati inscris cu succes la aceasta sectiune!');
         } catch (error: any) {
           toast.error(error?.response?.data?.message || ERROR_MESSAGES.default);
         } finally {
