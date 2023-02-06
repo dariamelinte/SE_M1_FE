@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from 'react-oidc-context';
 
 import { GradientButton } from '@/components/Buttons';
+import { LinksSection } from '@/components/LinksSection/LinksSection';
 import useGetProfile from '@/hooks/useGetProfile';
 import useStore from '@/stores/participant';
 
@@ -28,6 +29,46 @@ const AlgoText: React.FC<AlgoTextProps> = ({ openModel }) => {
     }
     setArea(profile?.sections?.algo === null);
   }, [profile?.sections?.algo]);
+
+  const oldSubjects = {
+    baseLink: 'https://csacademy.com/contest',
+    years: [
+      {
+        year: '2019',
+        links: [
+          { link: 'fii-code-2019-round-1', text: 'Runda 1' },
+          { link: 'fii-code-2019-round-2', text: 'Runda 2' },
+          { link: 'fii-code-2019-round-3', text: 'Runda 3' },
+          { link: 'fii-code-2019-final-round-mirror', text: 'Runda finală' },
+        ],
+      },
+      {
+        year: '2020',
+        links: [
+          { link: 'fii-code-2020-round-1', text: 'Runda 1' },
+          { link: 'fii-code-2020-round-2', text: 'Runda 2' },
+          { link: 'fii-code-2020-round-3', text: 'Runda 3' },
+          { link: 'fii-code-2020-final-round-mirror', text: 'Runda finală' },
+        ],
+      },
+      {
+        year: '2021',
+        links: [
+          { link: 'fii-code-2021-round-1', text: 'Runda 1' },
+          { link: 'fii-code-2021-round-2', text: 'Runda 2' },
+          { link: 'fii-code-2021-round-3', text: 'Runda 3' },
+          { link: 'fii-code-2021-final-round', text: 'Runda finală' },
+        ],
+      },
+      {
+        year: '2022',
+        links: [
+          { link: 'fiicode-2022-round-1', text: 'Runda 1' },
+          { link: 'fiicode-2022-round-2', text: 'Runda 2' },
+        ],
+      },
+    ],
+  };
 
   return (
     <>
@@ -122,6 +163,7 @@ const AlgoText: React.FC<AlgoTextProps> = ({ openModel }) => {
           </GradientButton>
         </a>
       </div>
+      <LinksSection oldSubjects={oldSubjects} />
     </>
   );
 };
