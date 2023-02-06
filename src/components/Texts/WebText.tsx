@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from 'react-oidc-context';
 
 import { GradientButton } from '@/components/Buttons';
+import { LinksSection } from '@/components/LinksSection/LinksSection';
 import useGetProfile from '@/hooks/useGetProfile';
 import useStore from '@/stores/participant';
 
@@ -29,6 +30,17 @@ const WebText: React.FC<WebTextProps> = ({ openModel }) => {
     }
     setArea(profile?.sections?.web === null);
   }, [profile?.sections?.web]);
+
+  const oldSubjects = {
+    baseLink: 'https://fiicode-api.asii.ro/static/',
+    years: [
+      {
+        year: '2022',
+        links: [{ link: 'webdev', text: 'Challenge' }],
+      },
+    ],
+  };
+
   return (
     <>
       <h1 className={styles.areaHeading}>DESPRE ARIA WEB&amp;MOBILE </h1>
@@ -122,6 +134,7 @@ const WebText: React.FC<WebTextProps> = ({ openModel }) => {
           </GradientButton>
         </a>
       </div>
+      <LinksSection oldSubjects={oldSubjects} />
       {/* <ul className={styles.bulletPoints}>
                 <li className={styles.bullet}>One bullet</li>
                 <li className={styles.bullet}>Two bullet</li>
