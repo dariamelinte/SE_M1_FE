@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from 'react-oidc-context';
 
 import { GradientButton } from '@/components/Buttons';
+import { LinksSection } from '@/components/LinksSection/LinksSection';
 import useGetProfile from '@/hooks/useGetProfile';
 import useStore from '@/stores/participant';
 
@@ -29,6 +30,17 @@ const GameDevText: React.FC<GameDevTextProps> = ({ openModel }) => {
     }
     setArea(profile?.sections?.game === null);
   }, [profile?.sections?.game]);
+
+  const oldSubjects = {
+    baseLink: 'https://fiicode-api.asii.ro/static/',
+    years: [
+      {
+        year: '2022',
+        links: [{ link: 'gamedev', text: 'Challenge' }],
+      },
+    ],
+  };
+
   return (
     <>
       <h1 className={styles.areaHeading}>DESPRE ARIA GAMEDEV</h1>
@@ -119,6 +131,7 @@ const GameDevText: React.FC<GameDevTextProps> = ({ openModel }) => {
           </GradientButton>
         </a>
       </div>
+      <LinksSection oldSubjects={oldSubjects} />
     </>
   );
 };

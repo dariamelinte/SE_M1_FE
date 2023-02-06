@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from 'react-oidc-context';
 
 import { GradientButton } from '@/components/Buttons';
+import { LinksSection } from '@/components/LinksSection/LinksSection';
 import useGetProfile from '@/hooks/useGetProfile';
 import useStore from '@/stores/participant';
 
@@ -29,6 +30,11 @@ const CtfText: React.FC<CtfTextProps> = ({ openModel }) => {
     }
     setArea(profile?.sections?.ctf === null);
   }, [profile?.sections?.ctf]);
+
+  const oldSubjects = {
+    baseLink: '',
+    years: [],
+  };
 
   return (
     <>
@@ -156,6 +162,7 @@ const CtfText: React.FC<CtfTextProps> = ({ openModel }) => {
           </GradientButton>
         </a>
       </div>
+      <LinksSection oldSubjects={oldSubjects} />
     </>
   );
 };
