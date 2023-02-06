@@ -24,7 +24,7 @@ const Index = () => {
         </div>
 
         <div className="flex items-center justify-center">
-          <a href="https://discord.gg/8XVSvTFubQ">
+          <a href="https://discord.gg/aebtJ27NNM">
             <GradientButton>
               <div className="text-xl font-bold text-white">Discord</div>
             </GradientButton>

@@ -12,6 +12,7 @@ import { Page } from '@/layouts';
 const GamedevPage: React.FC = () => {
   const { setOpen, open, onRequestClose } = useRegistrationModal({
     onRegister: () => console.log('register ...'),
+    onClose: () => window.location.reload(),
   });
   return (
     <Page theme={Banners.gamedev}>

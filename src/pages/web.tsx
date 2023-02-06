@@ -12,6 +12,7 @@ import { Page } from '@/layouts';
 const WebPage: React.FC = () => {
   const { setOpen, open, onRequestClose } = useRegistrationModal({
     onRegister: () => console.log('register ...'),
+    onClose: () => window.location.reload(),
   });
 
   return (

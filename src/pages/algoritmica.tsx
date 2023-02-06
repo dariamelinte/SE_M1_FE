@@ -10,8 +10,11 @@ import { withScrollTop } from '@/hooks/withScrollTop';
 import { Page } from '@/layouts';
 
 const Algoritmica = () => {
+  // const refresh = () => window.location.reload()
+
   const { setOpen, onRequestClose, open } = useRegistrationModal({
     onRegister: () => console.log('register ...'),
+    onClose: () => window.location.reload(),
   });
 
   return (
