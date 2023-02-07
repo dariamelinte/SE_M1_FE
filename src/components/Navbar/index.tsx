@@ -18,6 +18,7 @@ export const Navbar: React.FC = () => {
   const justLoggedOut = useStore((state) => state.justLoggedOut);
   const isAuthenticated = useStore((state) => state.isAuthenticated);
   const loadUser = useStore((state) => state.loadUser);
+  const setUserProfile = useStore((state) => state.setUserProfile);
   const { loading: profileIsLoading, data: profileData } = useGetProfile();
 
   const authenticateUser = useStore((state) => state.authenticateUser);
@@ -47,8 +48,10 @@ export const Navbar: React.FC = () => {
       // console.log('[HERE]', auth.user?.access_token);
       if (profileIsLoading === false && auth.user) {
         auth.user.profile = { ...auth.user.profile, ...profileData };
-      } else {
-        loadUser(null);
+        setUserProfile({ ...auth.user.profile, ...profileData });
+        loadUser(auth.user);
+      } else if (auth.user) {
+        loadUser(auth.user);
       }
     } else {
       logoutUser(null);

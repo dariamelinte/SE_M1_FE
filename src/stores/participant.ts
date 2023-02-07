@@ -24,7 +24,6 @@ const useStore = create<StoreParticipant>((set, get) => ({
   setUserProfile: (profile: Profile | null) => set({ profile }),
 
   loadUser: (user: OIDCUser | null) => {
-    console.log('Userul a fost reincarcat');
     if (user === null) return;
     set({ access_token: user.access_token });
     const userProfile = user?.profile;
