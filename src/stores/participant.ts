@@ -24,15 +24,21 @@ const useStore = create<StoreParticipant>((set, get) => ({
   setUserProfile: (profile: Profile | null) => set({ profile }),
 
   loadUser: (user: OIDCUser | null) => {
+    console.log('Userul a fost reincarcat');
     if (user === null) return;
     set({ access_token: user.access_token });
     const userProfile = user?.profile;
+
     const profile: Profile = {
       ...INITIAL_PROFILE,
       // TODO:  remove it
       email: userProfile?.email || '',
-      lastName: userProfile?.family_name || '',
-      firstName: userProfile?.given_name || '',
+      lastName:
+        typeof userProfile?.lastName === 'string' ? userProfile?.lastName : '',
+      firstName:
+        typeof userProfile?.firstName === 'string'
+          ? userProfile?.firstName
+          : '',
     };
     set({ profile });
     set({ isAuthenticated: true });

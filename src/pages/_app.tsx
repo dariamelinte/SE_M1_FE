@@ -14,8 +14,8 @@ const replaceState = (_user: any | void): void => {
 const oidConfig = {
   authority: 'https://admin-auth-kc.asii.ro/realms/fiicode/',
   client_id: 'fiicode-main',
-  redirect_uri: 'https://fiicode.asii.ro/',
-  // redirect_uri: 'http://localhost:3000/',
+  // redirect_uri: 'https://fiicode.asii.ro/',
+  redirect_uri: 'http://localhost:3000/',
   metadataUrl:
     'https://admin-auth-kc.asii.ro/realms/fiicode/.well-known/openid-configuration',
   onSigninCallback: replaceState,

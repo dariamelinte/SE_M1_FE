@@ -20,6 +20,8 @@ export type ProfileFormProps = {
 const ProfileForm: React.FC<ProfileFormProps> = ({ onClickClose, data }) => {
   const profile = useStore((state) => state.profile);
   const accessToken = useStore((state) => state.access_token);
+  const setUserProfile = useStore((state) => state.setUserProfile);
+  const authUser = useStore((state) => state.profile);
 
   return (
     <Formik<Profile>
@@ -47,6 +49,19 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ onClickClose, data }) => {
             },
             accessToken
           );
+          if (authUser !== null)
+            setUserProfile({
+              ...authUser,
+              lastName: values.lastName,
+              firstName: values.firstName,
+              phone: values.phone,
+              shirtSize: values.shirtSize,
+              state: values.state,
+              city: values.city,
+              professor: values.professor,
+              csacademy: values.csacademy,
+              institute: values.institute,
+            });
         } catch (error: any) {
           toast.error(error?.response?.data?.message || ERROR_MESSAGES.default);
         } finally {

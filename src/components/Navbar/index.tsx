@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 import { hasAuthParams, useAuth } from 'react-oidc-context';
 
+import useGetProfile from '@/hooks/useGetProfile';
 import useStore from '@/stores/participant';
 
 import { navbarItems } from './navbar';
@@ -17,6 +18,7 @@ export const Navbar: React.FC = () => {
   const justLoggedOut = useStore((state) => state.justLoggedOut);
   const isAuthenticated = useStore((state) => state.isAuthenticated);
   const loadUser = useStore((state) => state.loadUser);
+  const { loading: profileIsLoading, data: profileData } = useGetProfile();
 
   const authenticateUser = useStore((state) => state.authenticateUser);
   const logoutUser = useStore((state) => state.logoutUser);
@@ -43,11 +45,15 @@ export const Navbar: React.FC = () => {
   React.useEffect(() => {
     if (auth.isAuthenticated) {
       // console.log('[HERE]', auth.user?.access_token);
-      loadUser(auth.user || null);
+      if (profileIsLoading === false && auth.user) {
+        auth.user.profile = { ...auth.user.profile, ...profileData };
+      } else {
+        loadUser(null);
+      }
     } else {
       logoutUser(null);
     }
-  }, [auth.isAuthenticated, auth.user]);
+  }, [auth.isAuthenticated, auth.user, profileIsLoading]);
 
   const onBackDropPress = () => {
     setNavState(false);
