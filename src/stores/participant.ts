@@ -26,20 +26,19 @@ const useStore = create<StoreParticipant>((set, get) => ({
   loadUser: (user: OIDCUser | null) => {
     if (user === null) return;
     set({ access_token: user.access_token });
-    const userProfile = user?.profile;
 
-    const profile: Profile = {
-      ...INITIAL_PROFILE,
-      // TODO:  remove it
-      email: userProfile?.email || '',
-      lastName:
-        typeof userProfile?.lastName === 'string' ? userProfile?.lastName : '',
-      firstName:
-        typeof userProfile?.firstName === 'string'
-          ? userProfile?.firstName
-          : '',
-    };
-    set({ profile });
+    // const profile: Profile = {
+    //   ...INITIAL_PROFILE,
+    //   // TODO:  remove it
+    //   email: userProfile?.email || '',
+    //   lastName:
+    //     typeof userProfile?.lastName === 'string' ? userProfile?.lastName : '',
+    //   firstName:
+    //     typeof userProfile?.firstName === 'string'
+    //       ? userProfile?.firstName
+    //       : '',
+    // };
+    // set({ profile });
     set({ isAuthenticated: true });
   },
 
