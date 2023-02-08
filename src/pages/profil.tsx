@@ -19,10 +19,15 @@ const Profile: React.FC = () => {
   const authenticateUser = useStore((state) => state.authenticateUser);
 
   useEffect(() => {
-    if (auth.isAuthenticated && !profile?.identifier && !loading) {
+    if (
+      auth.isAuthenticated &&
+      !auth.user?.profile.identifier &&
+      !profile?.identifier &&
+      !loading
+    ) {
       setEditProfile(true);
     }
-  }, [profile?.identifier, setEditProfile, auth.isAuthenticated, loading]);
+  }, [auth, setEditProfile, auth.isAuthenticated, loading]);
 
   if (loading && auth.isAuthenticated) {
     return (
