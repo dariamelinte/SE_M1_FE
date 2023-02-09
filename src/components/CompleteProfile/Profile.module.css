@@ -1,9 +1,22 @@
 .card {
-  @apply flex flex-col shadow rounded-xl bg-gray-200 p-8;
+  @apply flex flex-col shadow rounded-xl bg-gray-200 p-6 max-w-md;
 }
 
 .text, .textBold {
   @apply tracking-wide text-gray-700 text-sm mb-2;
+}
+
+.idSection {
+  @apply bg-gradient-to-r rounded-2xl from-[#B9154F] to-[#2F04AE];
+  @apply text-white;
+}
+
+.row {
+  @apply flex flex-wrap;
+}
+
+.idText {
+  @apply  text-lg font-semibold p-1;
 }
 
 .textBold {
@@ -11,7 +24,7 @@
 }
 
 .separator {
-  @apply py-2;
+  @apply p-2 flex-1;
 }
 
 .inputRow {

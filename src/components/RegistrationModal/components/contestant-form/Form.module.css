@@ -22,7 +22,7 @@
 }
 
 .separator {
-  @apply py-2;
+  @apply py-2 w-60;
 }
 
 .inputRow {
