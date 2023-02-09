@@ -47,8 +47,17 @@ export const Navbar: React.FC = () => {
     if (auth.isAuthenticated) {
       // console.log('[HERE]', auth.user?.access_token);
       if (profileIsLoading === false && auth.user) {
-        auth.user.profile = { ...auth.user.profile, ...profileData };
-        setUserProfile({ ...auth.user.profile, ...profileData });
+        if (profileData?.email === '') {
+          setUserProfile({
+            ...profileData,
+            ...auth.user.profile,
+            lastName: `${auth.user.profile.family_name}`,
+            firstName: `${auth.user.profile.given_name}`,
+          });
+        } else {
+          auth.user.profile = { ...auth.user.profile, ...profileData };
+          setUserProfile({ ...auth.user.profile, ...profileData });
+        }
         loadUser(auth.user);
       } else if (auth.user) {
         loadUser(auth.user);
