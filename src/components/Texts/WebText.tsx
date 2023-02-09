@@ -126,7 +126,7 @@ const WebText: React.FC<WebTextProps> = ({ openModel }) => {
       <div className="flex items-center justify-center">
         <a
           target={'_blank'}
-          href="https://discord.com/invite/8XVSvTFubQ"
+          href="https://discord.gg/qwzeTf7B"
           rel="noreferrer"
         >
           <GradientButton onClick={openModel}>

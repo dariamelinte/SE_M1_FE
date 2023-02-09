@@ -44,7 +44,7 @@ export const DiscordCodeBody: React.FC<DiscordCodeBodyType> = ({
           <Button underlined>
             {/* TODO: replace the href with the actual link */}
             <a
-              href="https://discord.com/invite/8XVSvTFubQ"
+              href="https://discord.gg/qwzeTf7B"
               target="_blank"
               rel="noreferrer"
             >

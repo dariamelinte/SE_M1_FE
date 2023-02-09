@@ -11,7 +11,7 @@
 }
 
 .speakerCard {
-    @apply box-border flex flex-1 min-w-min flex-col justify-around content-evenly p-4 border-2 rounded-xl bg-white m-2 w-full  sm:min-w-[40%] sm:max-w-[40%] md:min-w-[23%] md:max-w-[23%];
+    @apply box-border flex flex-1 min-w-min max-w-xs flex-col justify-around content-evenly p-4 border-2 rounded-xl bg-white m-2 w-full  sm:min-w-[40%] sm:max-w-[40%] md:min-w-[23%] md:max-w-[23%];
 }
 
 .logoTextContainer {

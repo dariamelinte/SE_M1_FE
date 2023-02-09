@@ -110,9 +110,9 @@ const CtfText: React.FC<CtfTextProps> = ({ openModel }) => {
       <p className={styles.areaParagraph}>
         &emsp; &emsp;Un challenge va fi considerat rezolvat odată cu găsirea{' '}
         unui flag ce are un format specific și introducerea acestuia în locul{' '}
-        destinat de pe platformă. Prima persoană sau echipă care reușește să{' '}
-        găsească flagul primește cele mai multe puncte (First blood), urmând ca{' '}
-        punctajul să scadă treptat, pe măsură ce mai mulți participanți rezolvă{' '}
+        destinat de pe platformă. Prima persoană care reușește să găsească{' '}
+        flagul primește cele mai multe puncte (First blood), urmând ca punctajul{' '}
+        să scadă treptat, pe măsură ce mai mulți participanți rezolvă{' '}
         provocarea. Durata concursului poate varia de la 24 până la 72 de ore.
       </p>
       <p className={styles.areaParagraph}>
@@ -154,7 +154,7 @@ const CtfText: React.FC<CtfTextProps> = ({ openModel }) => {
       <div className="flex items-center justify-center">
         <a
           target={'_blank'}
-          href="https://discord.com/invite/8XVSvTFubQ"
+          href="https://discord.gg/qwzeTf7B"
           rel="noreferrer"
         >
           <GradientButton onClick={openModel}>
