@@ -32,7 +32,7 @@ const WebText: React.FC<WebTextProps> = ({ openModel }) => {
   }, [profile?.sections?.web]);
 
   const oldSubjects = {
-    baseLink: 'https://fiicode-api.asii.ro/static/',
+    baseLink: 'https://fiicode-api.asii.ro/static',
     years: [
       {
         year: '2022',
@@ -126,7 +126,7 @@ const WebText: React.FC<WebTextProps> = ({ openModel }) => {
       <div className="flex items-center justify-center">
         <a
           target={'_blank'}
-          href="https://discord.com/invite/8XVSvTFubQ"
+          href="https://discord.gg/qwzeTf7B"
           rel="noreferrer"
         >
           <GradientButton onClick={openModel}>

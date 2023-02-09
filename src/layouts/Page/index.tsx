@@ -52,6 +52,7 @@ function Page({
           <title>{title === TITLE ? TITLE : `${title} - ${TITLE}`}</title>
         )}
         <meta key="title" property="og:title" content="My page title" />
+        <link rel="shortcut icon" href="/public/favicon.ico" />
       </Head>
       <PageMeta>{content}</PageMeta>
     </>

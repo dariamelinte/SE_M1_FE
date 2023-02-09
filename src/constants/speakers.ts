@@ -3,9 +3,12 @@ import amber_icon from '@/assets/images/amber.png';
 import fiicode_icon from '@/assets/images/asii-coder.png';
 import bit_icon from '@/assets/images/bitdefender.png';
 import bytex_icon from '@/assets/images/bytex.png';
+import heits_icon from '@/assets/images/heits-digital.png';
 import iulius_icon from '@/assets/images/iuliusmall.png';
+import palas_icon from '@/assets/images/palas.png';
 import profidata_icon from '@/assets/images/profidata.png';
 import spectralbit_icon from '@/assets/images/spectralbit.png';
+import thinslices_icon from '@/assets/images/thinslices.png';
 import ziarulDeAsii_icon from '@/assets/images/ziaruldeasii.png';
 
 export type SpeakerType = {
@@ -97,13 +100,41 @@ const ziarulDeAsii: SpeakerType = {
   websiteLink: 'https://ziar.asii.ro',
   icon: ziarulDeAsii_icon,
 };
-export const diamondSpeakers: SpeakerType[] = [amazon, spectralbit];
+
+const palas: SpeakerType = {
+  id: '10',
+  speakerName: 'Palas Mall',
+  iconTitle: '',
+  description: '',
+  websiteLink: 'http://www.palasmall.ro/',
+  icon: palas_icon,
+};
+
+const heits: SpeakerType = {
+  id: '11',
+  speakerName: 'HEITS digital',
+  iconTitle: '',
+  description: '',
+  websiteLink: 'https://heits.digital/',
+  icon: heits_icon,
+};
+
+const thinslices: SpeakerType = {
+  id: '12',
+  speakerName: 'Thinslices',
+  iconTitle: '',
+  description: '',
+  websiteLink: 'https://www.thinslices.com/',
+  icon: thinslices_icon,
+};
+
+export const diamondSpeakers: SpeakerType[] = [amazon, spectralbit, heits];
 
 export const platinumSpeakers: SpeakerType[] = [toBeAnnounced];
 
-export const goldSpeakers: SpeakerType[] = [bytex, profidata];
+export const goldSpeakers: SpeakerType[] = [bytex, profidata, thinslices];
 
-export const communitySpeakers: SpeakerType[] = [amber, iulius];
+export const communitySpeakers: SpeakerType[] = [amber, iulius, palas];
 
 export const mediaSpeakers: SpeakerType[] = [ziarulDeAsii];
 
