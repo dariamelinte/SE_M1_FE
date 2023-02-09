@@ -32,7 +32,7 @@ const WebText: React.FC<WebTextProps> = ({ openModel }) => {
   }, [profile?.sections?.web]);
 
   const oldSubjects = {
-    baseLink: 'https://fiicode-api.asii.ro/static/',
+    baseLink: 'https://fiicode-api.asii.ro/static',
     years: [
       {
         year: '2022',
