@@ -32,7 +32,7 @@ const GameDevText: React.FC<GameDevTextProps> = ({ openModel }) => {
   }, [profile?.sections?.game]);
 
   const oldSubjects = {
-    baseLink: 'https://fiicode-api.asii.ro/static/',
+    baseLink: 'https://fiicode-api.asii.ro/static',
     years: [
       {
         year: '2022',
