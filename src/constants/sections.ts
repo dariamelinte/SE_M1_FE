@@ -13,3 +13,6 @@ export const SectionsIds = {
 };
 
 export type SectionsType = keyof typeof Sections;
+
+export const registerClosedText =
+  'Înscrierile au fost închise pentru aceasta arie.';
