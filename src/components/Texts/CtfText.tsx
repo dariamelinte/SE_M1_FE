@@ -26,7 +26,7 @@ const CtfText: React.FC<CtfTextProps> = ({ openModel }) => {
     if (!profile?.sections) {
       setErrorMessage('Setati-va profilul pentru a va inscrie.');
     } else {
-      setErrorMessage('V-ati inscris deja la aceasta arie.');
+      setErrorMessage('V-ati inscris la aceasta arie.');
     }
     setArea(profile?.sections?.ctf === null);
   }, [profile?.sections?.ctf]);
@@ -95,6 +95,11 @@ const CtfText: React.FC<CtfTextProps> = ({ openModel }) => {
       <p className={styles.areaParagraph}>
         Pe lângă aceste premii, se adaugă și cadouri surpriză din partea
         sponsorilor.
+      </p>
+      <br />
+      <p className={styles.areaParagraph}>
+        (*) Premiile sunt valide pentru elevii și pentru studenții cu vârsta de{' '}
+        până la 26 de ani.
       </p>
       <br />
       <br />

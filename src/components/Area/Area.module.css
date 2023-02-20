@@ -7,7 +7,7 @@
 }
 
 .areaDescription {
-    @apply max-w-4xl pt-10;
+    @apply max-w-5xl pt-10;
 }
 
 .areaSchedule {

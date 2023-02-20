@@ -3,6 +3,7 @@ import { useAuth } from 'react-oidc-context';
 
 import { GradientButton } from '@/components/Buttons';
 import { LinksSection } from '@/components/LinksSection/LinksSection';
+import { registerClosedText } from '@/constants';
 import useGetProfile from '@/hooks/useGetProfile';
 import useStore from '@/stores/participant';
 
@@ -10,9 +11,13 @@ import styles from './Texts.module.css';
 
 type GameDevTextProps = {
   openModel: () => void;
+  registerClosed: boolean;
 };
 
-const GameDevText: React.FC<GameDevTextProps> = ({ openModel }) => {
+const GameDevText: React.FC<GameDevTextProps> = ({
+  openModel,
+  registerClosed,
+}) => {
   const auth = useAuth();
   const isAuthenticated = useStore((state) => state.isAuthenticated);
   useGetProfile();
@@ -24,9 +29,13 @@ const GameDevText: React.FC<GameDevTextProps> = ({ openModel }) => {
 
   useEffect(() => {
     if (!profile?.sections) {
-      setErrorMessage('Setati-va profilul pentru a va inscrie.');
+      if (registerClosed) {
+        setErrorMessage(registerClosedText);
+      } else {
+        setErrorMessage('Setati-va profilul pentru a va inscrie.');
+      }
     } else {
-      setErrorMessage('V-ati inscris deja la aceasta arie.');
+      setErrorMessage('V-ati inscris la aceasta arie.');
     }
     setArea(profile?.sections?.game === null);
   }, [profile?.sections?.game]);
@@ -54,16 +63,19 @@ const GameDevText: React.FC<GameDevTextProps> = ({ openModel }) => {
       <div className="flex items-center justify-center">
         {!isAuthenticated && (
           <GradientButton
+            disabled={registerClosed}
             onClick={() => {
               authenticateUser(auth);
             }}
           >
             <div className="text-center text-xl font-bold text-white">
-              Va rugam sa va autentificati pentru a va putea inscrie
+              {registerClosed
+                ? registerClosedText
+                : 'Va rugam sa va autentificati pentru a va putea inscrie'}
             </div>
           </GradientButton>
         )}
-        {isAuthenticated && hasArea && (
+        {!registerClosed && isAuthenticated && hasArea && (
           <GradientButton onClick={openModel}>
             <div className="text-xl font-bold text-white">Înscrie-te</div>
           </GradientButton>
@@ -97,6 +109,13 @@ const GameDevText: React.FC<GameDevTextProps> = ({ openModel }) => {
       <p className={styles.areaParagraph}>
         Pe lângă aceste premii, se adaugă și cadouri surpriză din partea
         sponsorilor.
+      </p>
+      <br />
+      <p className={styles.areaParagraph}>
+        (*) Premiile sunt valide pentru elevii și pentru studenții cu vârsta de{' '}
+        până la 26 de ani. În cazul echipelor în care măcar un membru nu{' '}
+        respectă aceste condiții, întreaga echipă nu va fi eligibilă pentru{' '}
+        premiu.
       </p>
       <br />
       <br />
