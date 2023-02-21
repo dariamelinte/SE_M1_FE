@@ -25,7 +25,7 @@ const AlgoText: React.FC<AlgoTextProps> = ({ openModel }) => {
     if (!profile?.sections) {
       setErrorMessage('Setati-va profilul pentru a va inscrie.');
     } else {
-      setErrorMessage('V-ati inscris deja la aceasta arie.');
+      setErrorMessage('V-ati inscris la aceasta arie.');
     }
     setArea(profile?.sections?.algo === null);
   }, [profile?.sections?.algo]);
@@ -133,6 +133,11 @@ const AlgoText: React.FC<AlgoTextProps> = ({ openModel }) => {
         sponsorilor.
       </p>
       <br />
+      <p className={styles.areaParagraph}>
+        (*) Premiile sunt valide pentru elevii și pentru studenții cu vârsta de{' '}
+        până la 26 de ani.
+      </p>
+      <br />
       <br />
       <h1 className={styles.areaHeading}>DESFĂȘURAREA ARIEI DE ALGORITMICĂ </h1>
       <p className={styles.areaParagraph}>
@@ -155,7 +160,7 @@ const AlgoText: React.FC<AlgoTextProps> = ({ openModel }) => {
       <div className="flex items-center justify-center">
         <a
           target={'_blank'}
-          href="https://discord.com/invite/8XVSvTFubQ"
+          href="https://discord.gg/qwzeTf7B"
           rel="noreferrer"
         >
           <GradientButton onClick={openModel}>

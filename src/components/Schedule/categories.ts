@@ -18,7 +18,14 @@ export const categories: CategoryType[] = [
         id: 1,
         title: 'Perioada de înscriere',
         subtitle:
-          'Pe data de 28 noiembrie incep inscrierile pentru Aria de Algoritmica!',
+          'Pe data de 28 noiembrie încep înscrierile pentru Aria de Algoritmică!',
+        information: '',
+      },
+      {
+        id: 2,
+        title: 'Perioada de înscriere',
+        subtitle:
+          'Perioada de înscriere pentru Aria de Algoritmică a fost prelungită până la data de 15 martie 2023!',
         information: '',
       },
     ],
@@ -27,7 +34,7 @@ export const categories: CategoryType[] = [
         id: 1,
         title: 'Perioada de înscriere',
         subtitle:
-          'Înscrierile încep pe data de 28 noiembrie 2022 și se termină pe 20 februarie 2023.',
+          'Înscrierile încep pe data de 28 noiembrie 2022 și se termină pe 2̶0̶ ̶f̶e̶b̶r̶u̶a̶r̶i̶e̶ 15 martie 2023.',
         information: '',
       },
       {
@@ -52,6 +59,13 @@ export const categories: CategoryType[] = [
         title: 'Perioada de înscriere',
         subtitle:
           'Pe data de 28 noiembrie incep inscrierile pentru Aria de Web&Mobile!',
+        information: '',
+      },
+      {
+        id: 2,
+        title: 'Perioada de înscriere',
+        subtitle:
+          'Perioada de înscriere pentru Aria de Web&Mobile a fost încheiată!',
         information: '',
       },
     ],
@@ -89,6 +103,13 @@ export const categories: CategoryType[] = [
           'Pe data de 28 noiembrie incep inscrierile pentru Aria de Game Development!',
         information: '',
       },
+      {
+        id: 2,
+        title: 'Perioada de înscriere',
+        subtitle:
+          'Perioada de înscriere pentru Aria de Game Development a fost încheiată!',
+        information: '',
+      },
     ],
     Orar: [
       {
@@ -124,13 +145,20 @@ export const categories: CategoryType[] = [
           'Pe data de 28 noiembrie incep inscrierile pentru Aria de Capture the Flag!',
         information: '',
       },
+      {
+        id: 2,
+        title: 'Perioada de înscriere',
+        subtitle:
+          'Perioada de înscriere pentru Aria de Capture the Flag a fost prelungită până la data de 15 martie 2023!',
+        information: '',
+      },
     ],
     Orar: [
       {
         id: 1,
         title: 'Perioada de înscriere',
         subtitle:
-          'Înscrierile încep pe data de 28 noiembrie 2022 și se termină pe 20 februarie 2023.',
+          'Înscrierile încep pe data de 28 noiembrie 2022 și se termină pe 2̶0̶ ̶f̶e̶b̶r̶u̶a̶r̶i̶e̶ 15 martie 2023.',
         information: '',
       },
       {

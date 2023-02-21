@@ -3,6 +3,7 @@ import { useAuth } from 'react-oidc-context';
 
 import { GradientButton } from '@/components/Buttons';
 import { LinksSection } from '@/components/LinksSection/LinksSection';
+import { registerClosedText } from '@/constants';
 import useGetProfile from '@/hooks/useGetProfile';
 import useStore from '@/stores/participant';
 
@@ -10,9 +11,10 @@ import styles from './Texts.module.css';
 
 type WebTextProps = {
   openModel: () => void;
+  registerClosed: boolean;
 };
 
-const WebText: React.FC<WebTextProps> = ({ openModel }) => {
+const WebText: React.FC<WebTextProps> = ({ openModel, registerClosed }) => {
   const auth = useAuth();
   const isAuthenticated = useStore((state) => state.isAuthenticated);
   useGetProfile();
@@ -24,15 +26,19 @@ const WebText: React.FC<WebTextProps> = ({ openModel }) => {
 
   useEffect(() => {
     if (!profile?.sections) {
-      setErrorMessage('Setati-va profilul pentru a va inscrie.');
+      if (registerClosed) {
+        setErrorMessage(registerClosedText);
+      } else {
+        setErrorMessage('Setati-va profilul pentru a va inscrie.');
+      }
     } else {
-      setErrorMessage('V-ati inscris deja la aceasta arie.');
+      setErrorMessage('V-ati inscris la aceasta arie.');
     }
     setArea(profile?.sections?.web === null);
   }, [profile?.sections?.web]);
 
   const oldSubjects = {
-    baseLink: 'https://fiicode-api.asii.ro/static/',
+    baseLink: 'https://fiicode-api.asii.ro/static',
     years: [
       {
         year: '2022',
@@ -55,16 +61,19 @@ const WebText: React.FC<WebTextProps> = ({ openModel }) => {
       <div className="flex items-center justify-center">
         {!isAuthenticated && (
           <GradientButton
+            disabled={registerClosed}
             onClick={() => {
               authenticateUser(auth);
             }}
           >
             <div className="text-center text-xl font-bold text-white">
-              Va rugam sa va autentificati pentru a va putea inscrie
+              {registerClosed
+                ? registerClosedText
+                : 'Va rugam sa va autentificati pentru a va putea inscrie'}
             </div>
           </GradientButton>
         )}
-        {isAuthenticated && hasArea && (
+        {!registerClosed && isAuthenticated && hasArea && (
           <GradientButton onClick={openModel}>
             <div className="text-xl font-bold text-white">Înscrie-te</div>
           </GradientButton>
@@ -100,6 +109,13 @@ const WebText: React.FC<WebTextProps> = ({ openModel }) => {
         sponsorilor.
       </p>
       <br />
+      <p className={styles.areaParagraph}>
+        (*) Premiile sunt valide pentru elevii și pentru studenții cu vârsta de{' '}
+        până la 26 de ani. În cazul echipelor în care măcar un membru nu{' '}
+        respectă aceste condiții, întreaga echipă nu va fi eligibilă pentru{' '}
+        premiu.
+      </p>
+      <br />
       <br />
       <h1 className={styles.areaHeading}>DESFĂȘURAREA ARIEI WEB/MOBILE </h1>
       <p className={styles.areaParagraph}>
@@ -126,7 +142,7 @@ const WebText: React.FC<WebTextProps> = ({ openModel }) => {
       <div className="flex items-center justify-center">
         <a
           target={'_blank'}
-          href="https://discord.com/invite/8XVSvTFubQ"
+          href="https://discord.gg/qwzeTf7B"
           rel="noreferrer"
         >
           <GradientButton onClick={openModel}>
