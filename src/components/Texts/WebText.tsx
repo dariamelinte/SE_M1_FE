@@ -58,33 +58,48 @@ const WebText: React.FC<WebTextProps> = ({ openModel, registerClosed }) => {
         atât în etapa de calificare cât și în hackathonul etapei finale.
       </p>
       {/* <Closed /> */}
-      <div className="flex items-center justify-center">
-        {!isAuthenticated && (
-          <GradientButton
-            disabled={registerClosed}
-            onClick={() => {
-              authenticateUser(auth);
-            }}
+      <div className="flex flex-wrap justify-center">
+        <div className="flex items-center justify-center">
+          <a
+            href="https://fiicode-api.asii.ro/static/webmobile2023"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <div className="text-center text-xl font-bold text-white">
-              {registerClosed
-                ? registerClosedText
-                : 'Va rugam sa va autentificati pentru a va putea inscrie'}
-            </div>
-          </GradientButton>
-        )}
-        {!registerClosed && isAuthenticated && hasArea && (
-          <GradientButton onClick={openModel}>
-            <div className="text-xl font-bold text-white">Înscrie-te</div>
-          </GradientButton>
-        )}
-        {isAuthenticated && !hasArea && (
-          <GradientButton>
-            <div className="text-center text-2xl font-bold text-white">
-              {errorMessage}
-            </div>
-          </GradientButton>
-        )}
+            <GradientButton onClick={openModel} secondary>
+              <div className="text-center text-xl font-bold text-white">
+                Vizualizează tema de anul acesta aici!
+              </div>
+            </GradientButton>
+          </a>
+        </div>
+        <div className="flex items-center justify-center">
+          {!isAuthenticated && (
+            <GradientButton
+              disabled={registerClosed}
+              onClick={() => {
+                authenticateUser(auth);
+              }}
+            >
+              <div className="text-center text-xl font-bold text-white">
+                {registerClosed
+                  ? registerClosedText
+                  : 'Va rugam sa va autentificati pentru a va putea inscrie'}
+              </div>
+            </GradientButton>
+          )}
+          {!registerClosed && isAuthenticated && hasArea && (
+            <GradientButton onClick={openModel}>
+              <div className="text-xl font-bold text-white">Înscrie-te</div>
+            </GradientButton>
+          )}
+          {isAuthenticated && !hasArea && (
+            <GradientButton>
+              <div className="text-center text-2xl font-bold text-white">
+                {errorMessage}
+              </div>
+            </GradientButton>
+          )}
+        </div>
       </div>
       {/* <div className="flex items-center justify-center pb-12">
         <a
