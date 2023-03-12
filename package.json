@@ -1,5 +1,5 @@
 {
-  "name": "next-fiicode",
+  "name": "m1-auth-fe",
   "version": "2.1.1",
   "scripts": {
     "dev": "next dev",

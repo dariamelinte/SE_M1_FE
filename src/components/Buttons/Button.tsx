@@ -1,11 +1,9 @@
 import cx from 'classnames';
 import React from 'react';
 
-import type { SectionsType } from '@/constants';
-
 import styles from './Button.module.css';
 
-export type ButtonTheme = 'default' | SectionsType;
+export type ButtonTheme = 'default';
 
 export type ButtonSize = 'md' | 'sm' | 'text';
 

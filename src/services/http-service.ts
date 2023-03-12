@@ -1,11 +1,9 @@
 import type { AxiosRequestConfig } from 'axios';
 import axios from 'axios';
 
-import { API_URL } from '@/types/contestant';
-
 const createApiConfig = () => {
   const axiosConfig: AxiosRequestConfig = {
-    baseURL: API_URL,
+    baseURL: 'http://localhost:3000/',
     headers: {
       'Cache-Control': 'no-cache',
       'Access-Control-Allow-Origin': '*',

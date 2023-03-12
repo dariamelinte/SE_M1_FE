@@ -1,3 +1,3 @@
 .container {
-  @apply bg-footer-background h-136;
+  @apply bg-footer-background;
 }

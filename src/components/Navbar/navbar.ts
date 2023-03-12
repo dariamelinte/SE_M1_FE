@@ -5,23 +5,19 @@ type NavBarItem = {
 
 export const navbarItems: NavBarItem[] = [
   {
-    text: 'Acasă',
+    text: 'Home',
     url: '/',
   },
   {
-    text: 'Algoritmică',
-    url: '/algoritmica',
+    text: 'Page 1',
+    url: '/page-1',
   },
   {
-    text: 'Web&Mobile',
-    url: '/web',
+    text: 'Page 2',
+    url: '/page-2',
   },
   {
-    text: 'GameDev',
-    url: '/gamedev',
-  },
-  {
-    text: 'CTF',
-    url: '/ctf',
+    text: 'Page 3',
+    url: '/page-3',
   },
 ];
