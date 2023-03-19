@@ -21,7 +21,6 @@ export function Login() {
       <Form>
         <Field name="email" type="email" />
         <Field name="password" type="password" />
-        <Button onClick={() => console.log('hello world')}>Cancel</Button>
         <Button type="submit">Submit</Button>
       </Form>
     </Formik>
