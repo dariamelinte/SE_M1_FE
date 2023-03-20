@@ -2,4 +2,6 @@
     @apply bg-blue-100 rounded border-blue-100 justify-center;
 }
 
-
+.data{
+    @apply bg-blue-100 rounded border-blue-100 justify-center w-[227px];
+}

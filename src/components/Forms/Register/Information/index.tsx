@@ -32,7 +32,7 @@ export function Information() {
         </div>
         <div className="py-5">
           <p className="text-blue-500">Birth date</p>
-          <Field className={styles.input} name="birthDate" type="date" />
+          <Field className={styles.data} name="birthDate" type="date" />
         </div>
         <div className="pt-5">
           <Button type="submit">Submit information</Button>

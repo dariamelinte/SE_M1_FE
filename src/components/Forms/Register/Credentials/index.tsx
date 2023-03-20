@@ -1,4 +1,5 @@
 import { Field, Form, Formik } from 'formik';
+import Link from 'next/link';
 import React from 'react';
 
 import { Button } from '@/components/Buttons';
@@ -39,7 +40,9 @@ export function Credentials() {
           <Field className={styles.input} name="password" type="password" />
         </div>
         <div className="pt-5">
-          <Button type="submit">Create account</Button>
+          <Link href="/register-information">
+            <Button type="submit">Create account</Button>
+          </Link>
         </div>
       </Form>
     </Formik>

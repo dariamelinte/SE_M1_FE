@@ -24,7 +24,7 @@ const Index = () => {
             <p className="text-sm">2/2 Personal information</p>
           </div>
         </div>
-        <div className="flex items-center justify-center rounded-r rounded-b border-t-[7px] border-blue-500 bg-white p-10">
+        <div className="flex items-center justify-center rounded-l rounded-b border-t-[7px] border-blue-500 bg-white p-10">
           <Information />
         </div>
       </div>
