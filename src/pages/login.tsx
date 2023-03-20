@@ -12,7 +12,7 @@ const Index = () => {
 
   return (
     <Page>
-      <div className="container flex h-screen w-screen flex-col items-center justify-center">
+      <div className="container flex h-screen w-screen flex-col items-center justify-center bg-blue-100">
         <div className="w-1/5">
           <Image src={logo}></Image>
         </div>
