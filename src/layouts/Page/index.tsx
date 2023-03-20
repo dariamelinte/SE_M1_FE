@@ -3,6 +3,7 @@ import type { PropsWithChildren } from 'react';
 import React from 'react';
 
 import { Loading } from '@/components/Loading';
+import { Navbar } from '@/components/Navbar';
 
 const TITLE = 'FiiCode';
 
@@ -21,7 +22,12 @@ function Page({
   title = TITLE,
   loading,
 }: PropsWithChildren<PageProps>) {
-  let content = <>{children}</>;
+  let content = (
+    <>
+      <Navbar />
+      {children}
+    </>
+  );
 
   if (loading) {
     content = <Loading size="large" />;

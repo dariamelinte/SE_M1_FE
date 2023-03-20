@@ -9,15 +9,15 @@ export const navbarItems: NavBarItem[] = [
     url: '/',
   },
   {
-    text: 'Page 1',
-    url: '/page-1',
+    text: 'Login',
+    url: '/login',
   },
   {
-    text: 'Page 2',
-    url: '/page-2',
+    text: 'Register-1',
+    url: '/register-credentials',
   },
   {
-    text: 'Page 3',
-    url: '/page-3',
+    text: 'Register-2',
+    url: '/register-information',
   },
 ];
