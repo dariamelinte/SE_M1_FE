@@ -14,6 +14,11 @@ const initialValues = {
 };
 
 export function Information() {
+  const [checked, setChecked] = React.useState(false);
+
+  const handleChange = () => {
+    setChecked(!checked);
+  };
   return (
     <Formik
       initialValues={initialValues}
@@ -34,8 +39,15 @@ export function Information() {
           <p className="text-blue-500">Birth date</p>
           <Field className={styles.data} name="birthDate" type="date" />
         </div>
+        <div className="py-5">
+          <p className="text-center">
+            <input type="checkbox" checked={checked} onChange={handleChange} />
+            &nbsp;I agree to my <br />
+            data being processed
+          </p>
+        </div>
         <div className="pt-5">
-          <Button type="submit">Submit information</Button>
+          <Button type="submit">Add information</Button>
         </div>
       </Form>
     </Formik>
