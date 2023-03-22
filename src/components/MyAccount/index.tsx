@@ -8,11 +8,6 @@ import { Button } from '@/components/Buttons';
 import styles from './MyAccount.module.css';
 
 // type LoginProps = {};
-/* const married = [
-  { id: 1, name: 'Married', unavailable: false },
-  { id: 2, name: 'Engaged', unavailable: false },
-  { id: 3, name: 'Not married', unavailable: true },
-] */
 
 const initialValues = {
   firstName: '',
@@ -33,7 +28,10 @@ const initialValues = {
 };
 
 export function MyAccount() {
-  // const [selectedOption, setSelectedOption] = useState(married[0]);
+  const married: string[] = ['Not married', 'Engaged', 'Married'];
+  const children: string[] = ['Andreea', 'Mihai'];
+
+  // const number = married.length;
 
   return (
     <Formik
@@ -107,10 +105,26 @@ export function MyAccount() {
             </div>
             <div className="pb-5">
               <p className="text-blue-500">Marital status</p>
+              <select className={styles.data} name="married" id="married">
+                {married.map((status, index) => (
+                  <option key={index} value={status}>
+                    {status}
+                  </option>
+                ))}
+              </select>
             </div>
             <div className="pb-5">
               <p className="text-blue-500">Children</p>
-              <Field className={styles.input} name="children" type="text" />
+              <select className={styles.data} name="children" id="children">
+                <option value="number" selected>
+                  2
+                </option>
+                {children.map((child, index) => (
+                  <option key={index} value={child} disabled>
+                    {child}
+                  </option>
+                ))}
+              </select>
             </div>
             <div className="pb-5">
               <p className="text-blue-500">Emergency contact</p>
