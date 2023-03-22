@@ -3,5 +3,9 @@
 }
 
 .data{
-    @apply bg-white rounded border-blue-100 justify-center w-[225px];
+    @apply bg-white rounded border-blue-100 justify-center w-[226px];
+}
+
+.children{
+    @apply bg-white rounded border-blue-100 justify-center w-[150px] ;
 }

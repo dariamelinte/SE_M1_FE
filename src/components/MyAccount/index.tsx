@@ -115,16 +115,25 @@ export function MyAccount() {
             </div>
             <div className="pb-5">
               <p className="text-blue-500">Children</p>
-              <select className={styles.data} name="children" id="children">
-                <option value="number" selected>
-                  2
-                </option>
-                {children.map((child, index) => (
-                  <option key={index} value={child} disabled>
-                    {child}
+              <div className="flex items-center">
+                <select
+                  className={styles.children}
+                  name="children"
+                  id="children"
+                >
+                  <option value="number" selected>
+                    2
                   </option>
-                ))}
-              </select>
+                  {children.map((child, index) => (
+                    <option key={index} value={child} disabled>
+                      {child}
+                    </option>
+                  ))}
+                </select>
+                <div className="pl-[20px]">
+                  <Button size="sm">Add</Button>
+                </div>
+              </div>
             </div>
             <div className="pb-5">
               <p className="text-blue-500">Emergency contact</p>
