@@ -72,11 +72,14 @@ export function Login() {
             placeholder="Password"
           />
         </div>
-        <div className="py-5">
-          <Link href="/forgot-password" className="text-blue-500">
-            Forgot password?
+        <div className="py-1">
+          <Link href="/register-credentials" className="text-blue-500">
+            Doresti sa iti creezi cont?
           </Link>
         </div>
+        <Link href="/forgot-password" className="text-blue-500">
+          Ai uitat parola?
+        </Link>
         <div className="pt-5">
           <Button type="submit">Submit</Button>
         </div>

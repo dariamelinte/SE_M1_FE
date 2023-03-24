@@ -20,5 +20,5 @@
 }
 
 .error {
-  @apply text-xs text-red-600;
+  @apply text-xs text-red-600 w-52;
 }
