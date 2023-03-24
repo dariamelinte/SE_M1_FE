@@ -13,7 +13,7 @@ const initialValues = {
   firstName: '',
   lastName: '',
   cnp: '',
-  birthDate: '',
+  dateOfBirth: '',
   sex: '',
   citizenship: '',
   country: '',
@@ -65,7 +65,7 @@ export function MyAccount() {
             </div>
             <div className="pb-5">
               <p className="text-blue-500">Birth date</p>
-              <Field className={styles.data} name="birthDate" type="date" />
+              <Field className={styles.data} name="dateOfBirth" type="date" />
             </div>
             <div className="pb-5">
               <p className="text-blue-500">Sex</p>
