@@ -1,14 +1,35 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+
+import { getDoctors } from '@/services/api/doctors';
+import type { CredentialType } from '@/types/credential';
 
 import { Table } from '..';
 import { APPROVE_DOCTOR_COLUMNS } from '../columns/approve-doctor-columns';
-import { data } from './__mock__doctors';
 
 export const ApproveDoctorsTable = () => {
-  const approvedDoctors = useMemo(
-    () => data.filter((doctor) => !doctor.isConfirmed),
-    [data]
-  );
+  const [doctors, setDoctors] = useState<CredentialType[]>([]);
 
-  return <Table data={approvedDoctors} columns={APPROVE_DOCTOR_COLUMNS} />;
+  const fetchDoctors = async () => {
+    try {
+      const { data } = await getDoctors();
+
+      if (!data.success) {
+        throw Error(data.message);
+      }
+
+      const filteredDoctors = data.data.filter((doctor) => !doctor.isConfirmed);
+      setDoctors(filteredDoctors);
+    } catch (err) {
+      toast.error(String(err));
+    }
+  };
+
+  useEffect(() => {
+    fetchDoctors();
+  }, []);
+
+  console.log(doctors);
+
+  return <Table data={doctors} columns={APPROVE_DOCTOR_COLUMNS} />;
 };
