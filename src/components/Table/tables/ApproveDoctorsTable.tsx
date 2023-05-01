@@ -29,7 +29,5 @@ export const ApproveDoctorsTable = () => {
     fetchDoctors();
   }, []);
 
-  console.log(doctors);
-
   return <Table data={doctors} columns={APPROVE_DOCTOR_COLUMNS} />;
 };
