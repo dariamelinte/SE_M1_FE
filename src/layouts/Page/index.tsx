@@ -1,28 +1,45 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import type { PropsWithChildren } from 'react';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { toast } from 'react-toastify';
 
+import { Header } from '@/components/Header';
 import { Loading } from '@/components/Loading';
+import useCredentialStore from '@/stores/credential';
 
-const TITLE = 'FiiCode';
+const TITLE = 'MedConnect';
 
 interface PageProps {
   title?: string;
   loading?: boolean;
   errorMessage?: string;
+  admin?: boolean;
 }
 
 export function PageMeta({ children }: { children: React.ReactNode }) {
-  return <div className="bg-gray-100">{children}</div>;
+  return <div className="min-h-screen bg-gray-100">{children}</div>;
 }
 
 function Page({
   children,
   title = TITLE,
   loading,
+  admin,
 }: PropsWithChildren<PageProps>) {
+  const router = useRouter();
+  const { role } = useCredentialStore((state) => state.credential);
+
+  useEffect(() => {
+    if (admin && role !== 'ADMIN') {
+      toast.error('You do not have enough permission.');
+      router.replace('/');
+    }
+  }, [role, admin]);
+
   let content = (
     <>
+      {admin && <Header />}
       {/* <Navbar /> */}
       {children}
     </>

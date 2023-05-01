@@ -6,7 +6,7 @@ import * as yup from 'yup';
 
 import { Button } from '@/components/Buttons';
 import { register } from '@/services/api/register';
-import useStore from '@/stores/credential';
+import useCredentialStore from '@/stores/credential';
 import type { ErrorResponseType } from '@/types/error';
 import ERROR_MESSAGES from '@/utils/error-messages';
 
@@ -21,7 +21,7 @@ const initialValues = {
   dateOfBirth: new Date(),
 };
 
-const requiredField = 'Câmp obligatoriu';
+const requiredField = 'Required field';
 
 const validationSchema = yup.object().shape({
   firstName: yup.string().required(requiredField),
@@ -43,11 +43,12 @@ const validationSchema = yup.object().shape({
 
 export function Information() {
   const [checked, setChecked] = React.useState(false);
+  const [doctor, setDoctor] = React.useState(false);
   const router = useRouter();
-  const { email, phoneNumber, password } = useStore(
+  const { email, phoneNumber, password } = useCredentialStore(
     (state) => state.credential
   );
-  const setCredential = useStore((state) => state.setCredential);
+  const setCredential = useCredentialStore((state) => state.setCredential);
 
   const handleChange = () => {
     setChecked(!checked);
@@ -65,6 +66,7 @@ export function Information() {
             firstName,
             lastName,
             dateOfBirth,
+            role: doctor ? 'DOCTOR' : 'PATIENT',
           };
           console.log(credential);
           const { data } = await register(credential);
@@ -86,31 +88,42 @@ export function Information() {
     >
       <Form className="flex flex-col items-center">
         <div className="py-5">
-          <p className="text-blue-500">Nume de familie</p>
+          <p className="text-blue-500">Last Name</p>
           <InputField
             className={styles.input}
             name="lastName"
             type="text"
-            placeholder="Nume de familie"
+            placeholder="Last Name"
           />
         </div>
         <div className="pb-5">
-          <p className="text-blue-500">Prenume</p>
+          <p className="text-blue-500">First Name</p>
           <InputField
             className={styles.input}
             name="firstName"
             type="text"
-            placeholder="Prenume"
+            placeholder="First Name"
           />
         </div>
         <div className="py-5">
-          <p className="text-blue-500">Data de nastere</p>
+          <p className="text-blue-500">Birth Date</p>
           <InputField
             className={styles.data}
             name="dateOfBirth"
             type="date"
-            placeholder="Data de nastere"
+            placeholder="Birth Date"
           />
+        </div>
+        <div className="py-5">
+          <p className="text-center">
+            <input
+              type="checkbox"
+              checked={doctor}
+              onChange={() => setDoctor((prev) => !prev)}
+            />
+            &nbsp;I want to be <br />
+            registered as a doctor
+          </p>
         </div>
         <div className="py-5">
           <p className="text-center">

@@ -1,0 +1,10 @@
+.header {
+  @apply w-full bg-white;
+  @apply flex justify-between items-center;
+  @apply px-6;
+  @apply border border-b border-blue-200 shadow;
+}
+
+.logoContainer {
+  @apply w-40;
+}

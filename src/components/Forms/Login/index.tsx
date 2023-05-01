@@ -7,14 +7,14 @@ import * as yup from 'yup';
 
 import { Button } from '@/components/Buttons';
 import { login } from '@/services/api/login';
-import useStore from '@/stores/credential';
+import useCredentialStore from '@/stores/credential';
 import type { ErrorResponseType } from '@/types/error';
 import ERROR_MESSAGES from '@/utils/error-messages';
 
 import { InputField } from '../Inputs';
 import styles from './Login.module.css';
 
-const requiredField = 'Câmp obligatoriu';
+const requiredField = 'Required field';
 
 const initialValues = {
   email: '',
@@ -28,7 +28,7 @@ const validationSchema = yup.object().shape({
 
 export function Login() {
   const router = useRouter();
-  const setCredential = useStore((state) => state.setCredential);
+  const setCredential = useCredentialStore((state) => state.setCredential);
 
   return (
     <Formik
@@ -41,7 +41,9 @@ export function Login() {
           if (data.success) {
             toast.info(data.message);
             setCredential(data.credential);
-            router.push('/user-page');
+            router.push(
+              data.credential.role === 'ADMIN' ? '/admin' : '/my-account'
+            );
           } else {
             throw Error(data.message);
           }
@@ -74,11 +76,11 @@ export function Login() {
         </div>
         <div className="py-1">
           <Link href="/register-credentials" className="text-blue-500">
-            Doresti sa iti creezi cont?
+            Create account
           </Link>
         </div>
         <Link href="/forgot-password" className="text-blue-500">
-          Ai uitat parola?
+          Forgot password?
         </Link>
         <div className="pt-5">
           <Button type="submit">Submit</Button>
