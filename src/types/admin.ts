@@ -8,7 +8,7 @@ export type GetDoctorsResponseType = {
 
 export type ConfirmDoctorRequestType = {
   id: string;
-  isAccepted: string;
+  isAccepted: boolean;
 };
 
 export type ConfirmDoctorResponseType = {
