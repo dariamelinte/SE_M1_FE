@@ -21,7 +21,7 @@ const initialValues = {
   dateOfBirth: new Date(),
 };
 
-const requiredField = 'Câmp obligatoriu';
+const requiredField = 'Required field';
 
 const validationSchema = yup.object().shape({
   firstName: yup.string().required(requiredField),

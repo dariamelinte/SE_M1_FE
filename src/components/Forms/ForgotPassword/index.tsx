@@ -8,7 +8,7 @@ import { Button } from '@/components/Buttons';
 import { InputField } from '../Inputs';
 import styles from './ForgotPassword.module.css';
 
-const requiredField = 'Câmp obligatoriu';
+const requiredField = 'Required field';
 
 const initialValues = {
   email: '',
@@ -46,7 +46,7 @@ export function ForgotPassword() {
         </div>
         <div className="py-1">
           <Link href="/register-credentials" className="text-blue-500">
-            Creare cont
+            Create account
           </Link>
         </div>
         <div className="pt-5">

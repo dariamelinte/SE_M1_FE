@@ -6,10 +6,6 @@ import { withScrollTop } from '@/hooks/withScrollTop';
 import { Page } from '@/layouts';
 
 const Index = () => {
-  // const { open, setOpen, onRequestClose } = useRegistrationModal({
-  //   onRegister: () => console.log('register ...'),
-  // });
-
   return (
     <Page>
       <div className="flex h-screen w-screen flex-col items-center justify-center bg-blue-100">

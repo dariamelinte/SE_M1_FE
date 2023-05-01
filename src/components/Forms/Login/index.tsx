@@ -14,7 +14,7 @@ import ERROR_MESSAGES from '@/utils/error-messages';
 import { InputField } from '../Inputs';
 import styles from './Login.module.css';
 
-const requiredField = 'Câmp obligatoriu';
+const requiredField = 'Required field';
 
 const initialValues = {
   email: '',
@@ -76,11 +76,11 @@ export function Login() {
         </div>
         <div className="py-1">
           <Link href="/register-credentials" className="text-blue-500">
-            Creare cont
+            Create account
           </Link>
         </div>
         <Link href="/forgot-password" className="text-blue-500">
-          Ai uitat parola?
+          Forgot password?
         </Link>
         <div className="pt-5">
           <Button type="submit">Submit</Button>

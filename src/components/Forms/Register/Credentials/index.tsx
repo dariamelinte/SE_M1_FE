@@ -20,7 +20,7 @@ const initialValues = {
   confirmPassword: '',
 };
 
-const requiredField = 'Câmp obligatoriu';
+const requiredField = 'Required field';
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
@@ -30,13 +30,13 @@ const validationSchema = yup.object().shape({
   email: yup.string().email('Email invalid').required(requiredField),
   phoneNumber: yup
     .string()
-    .matches(phoneRegExp, { message: 'Numar de telefon invalid' })
+    .matches(phoneRegExp, { message: 'Invalid phone number' })
     .required(requiredField),
   password: yup
     .string()
     .matches(passwordRules, {
       message:
-        'Introduceti o parola mai puternica (minimum 5 caractere, minim o litera mare, minim o litera mica si minim o cifra).',
+        'Introduce a stronger password (minimum 5 characters, a capital letter, a lower size letter and a digit).',
     })
     .required(requiredField),
   confirmPassword: yup
@@ -74,12 +74,12 @@ export function Credentials() {
           />
         </div>
         <div className="py-5">
-          <p className="text-blue-500">Numar de telefon</p>
+          <p className="text-blue-500">Phone number</p>
           <InputField
             className={styles.input}
             name="phoneNumber"
             type="text"
-            placeholder="Numar de telefon"
+            placeholder="Phone number"
           />
         </div>
         <div className="py-5">
@@ -102,7 +102,7 @@ export function Credentials() {
         </div>
         <div className="py-2">
           <Link href="/login" className="text-blue-500">
-            Ai deja cont?
+            Already have an account?
           </Link>
         </div>
         <div className="pt-5">
