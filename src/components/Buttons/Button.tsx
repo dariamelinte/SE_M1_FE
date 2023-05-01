@@ -3,7 +3,13 @@ import React from 'react';
 
 import styles from './Button.module.css';
 
-export type ButtonTheme = 'default';
+export type ButtonTheme =
+  | 'default'
+  | 'underlined-default'
+  | 'active'
+  | 'underlined-active'
+  | 'negative'
+  | 'underlined-negative';
 
 export type ButtonSize = 'md' | 'sm' | 'text';
 

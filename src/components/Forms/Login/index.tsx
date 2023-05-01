@@ -7,7 +7,7 @@ import * as yup from 'yup';
 
 import { Button } from '@/components/Buttons';
 import { login } from '@/services/api/login';
-import useStore from '@/stores/credential';
+import useCredentialStore from '@/stores/credential';
 import type { ErrorResponseType } from '@/types/error';
 import ERROR_MESSAGES from '@/utils/error-messages';
 
@@ -28,7 +28,7 @@ const validationSchema = yup.object().shape({
 
 export function Login() {
   const router = useRouter();
-  const setCredential = useStore((state) => state.setCredential);
+  const setCredential = useCredentialStore((state) => state.setCredential);
 
   return (
     <Formik
@@ -41,7 +41,9 @@ export function Login() {
           if (data.success) {
             toast.info(data.message);
             setCredential(data.credential);
-            router.push('/user-page');
+            router.push(
+              data.credential.role === 'ADMIN' ? '/admin' : '/user-page'
+            );
           } else {
             throw Error(data.message);
           }
@@ -74,7 +76,7 @@ export function Login() {
         </div>
         <div className="py-1">
           <Link href="/register-credentials" className="text-blue-500">
-            Doresti sa iti creezi cont?
+            Creare cont
           </Link>
         </div>
         <Link href="/forgot-password" className="text-blue-500">

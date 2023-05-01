@@ -26,10 +26,10 @@
   @apply bg-brand-purple text-white;
 }
 
-.algorithmics,
-.algorithmics[type='button'],
-.algorithmics[type='reset'],
-.algorithmics[type='submit'] {
+.active,
+.active[type='button'],
+.active[type='reset'],
+.active[type='submit'] {
   @apply bg-brand-blue text-white;
 }
 
@@ -40,11 +40,11 @@
   @apply bg-brand-green text-gray-600;
 }
 
-.gamedev,
-.gamedev[type='button'],
-.gamedev[type='reset'],
-.gamedev[type='submit'] {
-  @apply bg-brand-orange text-white;
+.negative,
+.negative[type='button'],
+.negative[type='reset'],
+.negative[type='submit'] {
+  @apply bg-red-400 text-white;
 }
 
 .default,
@@ -54,6 +54,14 @@
   @apply bg-blue-500 text-white;
 }
 
+
+.underlined-default,
+.underlined-default[type='button'],
+.underlined-default[type='reset'],
+.underlined-default[type='submit'] {
+  @apply text-blue-500;
+}
+
 .underlined-web,
 .underlined-web[type='button'],
 .underlined-web[type='reset'],
@@ -61,10 +69,10 @@
   @apply text-brand-purple;
 }
 
-.underlined-algorithmics,
-.underlined-algorithmics[type='button'],
-.underlined-algorithmics[type='reset'],
-.underlined-algorithmics[type='submit'] {
+.underlined-active,
+.underlined-active[type='button'],
+.underlined-active[type='reset'],
+.underlined-active[type='submit'] {
   @apply text-brand-blue;
 }
 
@@ -75,11 +83,11 @@
   @apply text-brand-green;
 }
 
-.underlined-gamedev,
-.underlined-gamedev[type='button'],
-.underlined-gamedev[type='reset'],
-.underlined-gamedev[type='submit'] {
-  @apply text-brand-orange;
+.underlined-negative,
+.underlined-negative[type='button'],
+.underlined-negative[type='reset'],
+.underlined-negative[type='submit'] {
+  @apply text-red-400;
 }
 
 /* Sizes */

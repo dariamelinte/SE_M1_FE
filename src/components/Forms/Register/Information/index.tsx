@@ -6,7 +6,7 @@ import * as yup from 'yup';
 
 import { Button } from '@/components/Buttons';
 import { register } from '@/services/api/register';
-import useStore from '@/stores/credential';
+import useCredentialStore from '@/stores/credential';
 import type { ErrorResponseType } from '@/types/error';
 import ERROR_MESSAGES from '@/utils/error-messages';
 
@@ -44,10 +44,10 @@ const validationSchema = yup.object().shape({
 export function Information() {
   const [checked, setChecked] = React.useState(false);
   const router = useRouter();
-  const { email, phoneNumber, password } = useStore(
+  const { email, phoneNumber, password } = useCredentialStore(
     (state) => state.credential
   );
-  const setCredential = useStore((state) => state.setCredential);
+  const setCredential = useCredentialStore((state) => state.setCredential);
 
   const handleChange = () => {
     setChecked(!checked);

@@ -6,7 +6,7 @@ import * as yup from 'yup';
 
 import { Button } from '@/components/Buttons';
 import { InputField } from '@/components/Forms/Inputs';
-import useStore from '@/stores/credential';
+import useCredentialStore from '@/stores/credential';
 import { INITIAL_CREDENTIAL } from '@/utils/initial-values';
 
 import styles from './Credentials.module.css';
@@ -47,7 +47,7 @@ const validationSchema = yup.object().shape({
 
 export function Credentials() {
   const router = useRouter();
-  const setCredential = useStore((state) => state.setCredential);
+  const setCredential = useCredentialStore((state) => state.setCredential);
 
   return (
     <Formik
