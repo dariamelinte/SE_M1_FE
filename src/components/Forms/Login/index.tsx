@@ -42,7 +42,7 @@ export function Login() {
             toast.info(data.message);
             setCredential(data.credential);
             router.push(
-              data.credential.role === 'ADMIN' ? '/admin' : '/user-page'
+              data.credential.role === 'ADMIN' ? '/admin' : '/my-account'
             );
           } else {
             throw Error(data.message);
