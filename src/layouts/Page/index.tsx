@@ -11,7 +11,6 @@ import useCredentialStore from '@/stores/credential';
 const TITLE = 'MedConnect';
 
 interface PageProps {
-  title?: string;
   loading?: boolean;
   errorMessage?: string;
   admin?: boolean;
@@ -21,12 +20,7 @@ export function PageMeta({ children }: { children: React.ReactNode }) {
   return <div className="min-h-screen bg-gray-100">{children}</div>;
 }
 
-function Page({
-  children,
-  title = TITLE,
-  loading,
-  admin,
-}: PropsWithChildren<PageProps>) {
+function Page({ children, loading, admin }: PropsWithChildren<PageProps>) {
   const router = useRouter();
   const { role } = useCredentialStore((state) => state.credential);
 
@@ -52,9 +46,7 @@ function Page({
   return (
     <>
       <Head>
-        {title && (
-          <title>{title === TITLE ? TITLE : `${title} - ${TITLE}`}</title>
-        )}
+        <title>{TITLE}</title>
         <meta key="title" property="og:title" content="My page title" />
         <link rel="shortcut icon" href="/public/favicon.ico" />
       </Head>

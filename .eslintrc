@@ -71,7 +71,10 @@
         "plugin:jest-formatting/recommended",
         "plugin:testing-library/react",
         "plugin:jest-dom/recommended"
-      ]
+      ],
+      "rules": {
+        "global-require": "off"
+      }
     },
     // Configuration for e2e testing (Cypress)
     {
@@ -80,6 +83,9 @@
       "extends": ["plugin:cypress/recommended"],
       "parserOptions": {
         "project": "./cypress/tsconfig.json"
+      },
+      "rules": {
+        "global-require": "off"
       }
     }
   ]

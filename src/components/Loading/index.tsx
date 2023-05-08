@@ -17,7 +17,10 @@ export function Loading({
 }: LoadingProps) {
   return (
     <Delayed>
-      <div className={cx(styles.container, containerClassName)}>
+      <div
+        aria-labelledby="loading"
+        className={cx(styles.container, containerClassName)}
+      >
         <div className={cx(styles.loading, styles[size], className)} />
       </div>
     </Delayed>

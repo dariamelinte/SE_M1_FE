@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import logo from '@/assets/images/logo-mare.png';
-import { ForgotPassword } from '@/components/Forms/ForgotPassword';
+import { ForgotPassword } from '@/components/Forms/ForgotPassword/ForgotPassword';
 import { withScrollTop } from '@/hooks/withScrollTop';
 import { Page } from '@/layouts';
 
