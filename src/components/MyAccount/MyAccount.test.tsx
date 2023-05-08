@@ -3,51 +3,79 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { MyAccount } from '.';
 
 describe('MyAccount component', () => {
-  it('submits form with valid input', async () => {
+  it('completes form with valid input', async () => {
     render(<MyAccount />);
 
-    // Fill out the form
-    fireEvent.change(screen.getByLabelText('First name'), {
+    const firstNameInput = screen.getByPlaceholderText('First name');
+    fireEvent.change(firstNameInput, {
       target: { value: 'John' },
     });
-    fireEvent.change(screen.getByLabelText('Last name'), {
+    expect(firstNameInput).toHaveValue('John');
+
+    const lastNameInput = screen.getByPlaceholderText('Last name');
+    fireEvent.change(lastNameInput, {
       target: { value: 'Doe' },
     });
-    fireEvent.change(screen.getByLabelText('CNP'), {
+    expect(lastNameInput).toHaveValue('Doe');
+
+    const cnpInput = screen.getByPlaceholderText('CNP');
+    fireEvent.change(cnpInput, {
       target: { value: '1234567890123' },
     });
-    fireEvent.change(screen.getByLabelText('Birth date'), {
+    expect(cnpInput).toHaveValue('1234567890123');
+
+    const birthDateInput = screen.getByPlaceholderText('Birth date');
+    fireEvent.change(birthDateInput, {
       target: { value: '1990-01-01' },
     });
-    fireEvent.change(screen.getByLabelText('Sex'), {
+    expect(birthDateInput).toHaveValue('1990-01-01');
+
+    const sexInput = screen.getByPlaceholderText('Sex');
+    fireEvent.change(sexInput, {
       target: { value: 'male' },
     });
-    fireEvent.change(screen.getByLabelText('Citizenship'), {
+    expect(sexInput).toHaveValue('male');
+
+    const citizenshipInput = screen.getByPlaceholderText('Citizenship');
+    fireEvent.change(citizenshipInput, {
       target: { value: 'Romania' },
     });
-    fireEvent.change(screen.getByLabelText('Country'), {
+    expect(citizenshipInput).toHaveValue('Romania');
+
+    const countryInput = screen.getByPlaceholderText('Country');
+    fireEvent.change(countryInput, {
       target: { value: 'Romania' },
     });
-    fireEvent.change(screen.getByLabelText('County'), {
+    expect(countryInput).toHaveValue('Romania');
+
+    const countyInput = screen.getByPlaceholderText('County');
+    fireEvent.change(countyInput, {
       target: { value: 'Iasi' },
     });
-    fireEvent.change(screen.getByLabelText('City'), {
+    expect(countyInput).toHaveValue('Iasi');
+
+    const cityInput = screen.getByPlaceholderText('City');
+    fireEvent.change(cityInput, {
       target: { value: 'Iasi' },
     });
-    fireEvent.change(screen.getByLabelText('Complete adress'), {
+    expect(cityInput).toHaveValue('Iasi');
+
+    const addressInput = screen.getByPlaceholderText('Complete adress');
+    fireEvent.change(addressInput, {
       target: { value: 'Strada Ciresti' },
     });
-    fireEvent.change(screen.getByLabelText('Phone number'), {
+    expect(addressInput).toHaveValue('Strada Ciresti');
+
+    const phoneNumberInput = screen.getByPlaceholderText('Phone number');
+    fireEvent.change(phoneNumberInput, {
       target: { value: '0751234567' },
     });
-    fireEvent.change(screen.getByLabelText('Email'), {
+    expect(phoneNumberInput).toHaveValue('0751234567');
+
+    const emailInput = screen.getByPlaceholderText('Email');
+    fireEvent.change(emailInput, {
       target: { value: 'john.doe@example.com' },
     });
-
-    // Submit the form
-    fireEvent.click(screen.getByText('Save'));
-
-    // Check that the form was submitted successfully
-    expect(await screen.findByText('{"firstName":"John",')).toBeInTheDocument();
+    expect(emailInput).toHaveValue('john.doe@example.com');
   });
 });

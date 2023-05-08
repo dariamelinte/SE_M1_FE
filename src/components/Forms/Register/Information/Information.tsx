@@ -15,7 +15,7 @@ import styles from './Information.module.css';
 
 // type LoginProps = {};
 
-const initialValues = {
+export const initialValues = {
   firstName: '',
   lastName: '',
   dateOfBirth: new Date(),
@@ -23,7 +23,7 @@ const initialValues = {
 
 const requiredField = 'Required field';
 
-const validationSchema = yup.object().shape({
+export const validationSchema = yup.object().shape({
   firstName: yup.string().required(requiredField),
   lastName: yup.string().required(requiredField),
   dateOfBirth: yup
@@ -87,7 +87,7 @@ export function Information() {
       }}
     >
       <Form className="flex flex-col items-center">
-        <div className="py-5">
+        <div className="w-full py-5">
           <p className="text-blue-500">Last Name</p>
           <InputField
             className={styles.input}
@@ -96,7 +96,7 @@ export function Information() {
             placeholder="Last Name"
           />
         </div>
-        <div className="pb-5">
+        <div className="w-full pb-5">
           <p className="text-blue-500">First Name</p>
           <InputField
             className={styles.input}
@@ -114,23 +114,27 @@ export function Information() {
             placeholder="Birth Date"
           />
         </div>
-        <div className="py-5">
-          <p className="text-center">
+        <div className="w-full py-5">
+          <label className="text-center">
             <input
               type="checkbox"
+              name="doctor"
               checked={doctor}
               onChange={() => setDoctor((prev) => !prev)}
-            />
-            &nbsp;I want to be <br />
-            registered as a doctor
-          </p>
+            />{' '}
+            I want to be registered as a doctor
+          </label>
         </div>
-        <div className="py-5">
-          <p className="text-center">
-            <input type="checkbox" checked={checked} onChange={handleChange} />
-            &nbsp;I agree to my <br />
-            data being processed
-          </p>
+        <div className="w-full py-5">
+          <label className="text-center">
+            <input
+              name="processedData"
+              type="checkbox"
+              checked={checked}
+              onChange={handleChange}
+            />{' '}
+            I agree to my data being processed
+          </label>
         </div>
         <div className="pt-5">
           <Button disabled={!checked} type="submit">

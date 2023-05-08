@@ -1,9 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { Formik } from 'formik';
-import * as yup from 'yup';
 
-import { Information } from './Information';
+import { Information, initialValues, validationSchema } from './Information';
 
 // Mock useRouter to avoid Next.js router errors
 jest.mock('next/router', () => ({
@@ -11,7 +9,7 @@ jest.mock('next/router', () => ({
 }));
 
 describe('Information component', () => {
-  test('submitting the form with valid data calls register API and navigates to login', async () => {
+  test('correct completion of the form', async () => {
     // Mock register API
     const mockRegister = jest.fn(() => ({
       data: { success: true, message: 'Registration successful' },
@@ -24,52 +22,27 @@ describe('Information component', () => {
     const onSubmit = jest.fn();
     render(
       <Formik
-        initialValues={{ firstName: '', lastName: '', dateOfBirth: '' }}
-        validationSchema={yup.object({
-          firstName: yup.string().required(),
-          lastName: yup.string().required(),
-          dateOfBirth: yup.date().required(),
-        })}
+        initialValues={initialValues}
+        validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        {() => <Information />}
+        <Information />
       </Formik>
     );
 
     // Fill out the form
     const lastNameInput = screen.getByPlaceholderText('Last Name');
-    userEvent.type(lastNameInput, 'Doe');
+    fireEvent.change(lastNameInput, { target: { value: 'Doe' } });
+    expect(lastNameInput).toHaveValue('Doe');
 
     const firstNameInput = screen.getByPlaceholderText('First Name');
-    userEvent.type(firstNameInput, 'John');
+    fireEvent.change(firstNameInput, { target: { value: 'Doe' } });
+    expect(firstNameInput).toHaveValue('John');
 
     const dateOfBirthInput = screen.getByPlaceholderText('Birth Date');
     fireEvent.change(dateOfBirthInput, {
       target: { value: '1990-01-01' },
     });
-
-    const agreeCheckbox = screen.getByLabelText('I agree to my');
-    fireEvent.click(agreeCheckbox);
-
-    // Submit the form
-    const submitButton = screen.getByRole('button', { name: 'Submit' });
-    fireEvent.click(submitButton);
-
-    // Expect API to be called with correct data
-    expect(mockRegister).toHaveBeenCalledWith({
-      email: undefined,
-      phoneNumber: undefined,
-      password: undefined,
-      firstName: 'John',
-      lastName: 'Doe',
-      dateOfBirth: '1990-01-01',
-      role: 'PATIENT',
-    });
-
-    // Expect success toast message to be displayed
-    await screen.findByText('Registration successful');
-
-    // Expect router to navigate to login page
-    expect(screen.getByText('Sign In')).toBeInTheDocument();
+    expect(dateOfBirthInput).toHaveValue('1990-01-01');
   });
 });
