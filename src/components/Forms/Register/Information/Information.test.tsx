@@ -36,7 +36,7 @@ describe('Information component', () => {
     expect(lastNameInput).toHaveValue('Doe');
 
     const firstNameInput = screen.getByPlaceholderText('First Name');
-    fireEvent.change(firstNameInput, { target: { value: 'Doe' } });
+    fireEvent.change(firstNameInput, { target: { value: 'John' } });
     expect(firstNameInput).toHaveValue('John');
 
     const dateOfBirthInput = screen.getByPlaceholderText('Birth Date');

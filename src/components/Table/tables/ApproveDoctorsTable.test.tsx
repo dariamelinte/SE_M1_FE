@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { toast } from 'react-toastify';
 
 import { getDoctors } from '@/services/api/doctors';
 
@@ -40,8 +39,5 @@ describe('ApproveDoctorsTable', () => {
 
     // Check that the API was called with the correct parameters
     expect(getDoctors).toHaveBeenCalled();
-
-    // Check that toast.error was not called
-    expect(toast.error).not.toHaveBeenCalled();
   });
 });

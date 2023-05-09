@@ -22,7 +22,7 @@ export const Header: React.FC = () => {
   return (
     <div className={styles.header}>
       <div className={styles.logoContainer}>
-        <Image src={logo} className={styles.logo} />
+        <Image src={logo} className={styles.logo} alt="logo" />
       </div>
       <Button onClick={onClickLogout}>Log Out</Button>
     </div>

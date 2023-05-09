@@ -6,6 +6,7 @@ import Page from '.';
 describe('Page component', () => {
   test('renders without crashing', () => {
     render(<Page />);
-    expect(screen.getByText('MedConnect')).toBeInTheDocument();
+    const mainContainer = screen.getByRole('container');
+    expect(mainContainer).toHaveClass('min-h-screen bg-gray-100');
   });
 });

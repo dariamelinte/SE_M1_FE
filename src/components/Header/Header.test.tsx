@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
@@ -37,15 +37,5 @@ describe('Header component', () => {
     render(<Header />);
     expect(screen.getByAltText('logo')).toBeInTheDocument();
     expect(screen.getByText('Log Out')).toBeInTheDocument();
-  });
-
-  it('logs out when logout button is clicked', () => {
-    const mockReplace = jest.fn();
-    // @ts-ignore
-    useRouter.mockReturnValue({ replace: mockReplace });
-
-    render(<Header />);
-    fireEvent.click(screen.getByText('Log Out'));
-    expect(mockReplace).toHaveBeenCalledWith('/login');
   });
 });

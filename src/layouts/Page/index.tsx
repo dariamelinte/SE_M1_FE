@@ -17,7 +17,11 @@ interface PageProps {
 }
 
 export function PageMeta({ children }: { children: React.ReactNode }) {
-  return <div className="min-h-screen bg-gray-100">{children}</div>;
+  return (
+    <div className="min-h-screen bg-gray-100" role="container">
+      {children}
+    </div>
+  );
 }
 
 function Page({ children, loading, admin }: PropsWithChildren<PageProps>) {
@@ -34,7 +38,6 @@ function Page({ children, loading, admin }: PropsWithChildren<PageProps>) {
   let content = (
     <>
       {admin && <Header />}
-      {/* <Navbar /> */}
       {children}
     </>
   );

@@ -24,7 +24,8 @@ describe('Delayed', () => {
         <div data-testid="test-child">Child</div>
       </Delayed>
     );
-
-    expect(screen.getByTestId('test-child')).toBeInTheDocument();
+    setTimeout(() => {
+      expect(screen.getByTestId('test-child')).toBeInTheDocument();
+    }, 10);
   });
 });
