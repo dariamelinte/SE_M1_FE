@@ -53,55 +53,115 @@ export function MyAccount() {
           <div className="flex flex-col items-center justify-center bg-blue-100 p-10">
             <div className="pb-5">
               <p className="text-blue-500">First name</p>
-              <Field className={styles.input} name="firstName" type="text" />
+              <Field
+                className={styles.input}
+                name="firstName"
+                type="text"
+                placeholder="First name"
+              />
             </div>
             <div className="pb-5">
               <p className="text-blue-500">Last name</p>
-              <Field className={styles.input} name="lastName" type="text" />
+              <Field
+                className={styles.input}
+                name="lastName"
+                type="text"
+                placeholder="Last name"
+              />
             </div>
             <div className="pb-5">
               <p className="text-blue-500">CNP</p>
-              <Field className={styles.input} name="cnp" type="text" />
+              <Field
+                className={styles.input}
+                name="cnp"
+                type="text"
+                placeholder="CNP"
+              />
             </div>
             <div className="pb-5">
               <p className="text-blue-500">Birth date</p>
-              <Field className={styles.data} name="dateOfBirth" type="date" />
+              <Field
+                className={styles.data}
+                name="dateOfBirth"
+                type="date"
+                placeholder="Birth date"
+              />
             </div>
             <div className="pb-5">
               <p className="text-blue-500">Sex</p>
-              <Field className={styles.input} name="sex" type="text" />
+              <Field
+                className={styles.input}
+                name="sex"
+                type="text"
+                placeholder="Sex"
+              />
             </div>
           </div>
           <div className="flex flex-col items-center justify-center bg-blue-100 p-10">
             <div className="pb-5">
               <p className="text-blue-500">Citizenship</p>
-              <Field className={styles.input} name="citizenship" type="text" />
+              <Field
+                className={styles.input}
+                name="citizenship"
+                type="text"
+                placeholder="Citizenship"
+              />
             </div>
             <div className="pb-5">
               <p className="text-blue-500">Country</p>
-              <Field className={styles.input} name="country" type="text" />
+              <Field
+                className={styles.input}
+                name="country"
+                type="text"
+                placeholder="Country"
+              />
             </div>
             <div className="pb-5">
               <p className="text-blue-500">County</p>
-              <Field className={styles.input} name="county" type="text" />
+              <Field
+                className={styles.input}
+                name="county"
+                type="text"
+                placeholder="County"
+              />
             </div>
             <div className="pb-5">
               <p className="text-blue-500">City</p>
-              <Field className={styles.input} name="city" type="text" />
+              <Field
+                className={styles.input}
+                name="city"
+                type="text"
+                placeholder="City"
+              />
             </div>
             <div className="pb-5">
               <p className="text-blue-500">Complete adress</p>
-              <Field className={styles.input} name="adress" type="text" />
+              <Field
+                className={styles.input}
+                name="adress"
+                type="text"
+                placeholder="Complete adress"
+              />
             </div>
           </div>
           <div className="flex flex-col items-center justify-center bg-blue-100 p-10">
             <div className="pb-5">
               <p className="text-blue-500">Phone number</p>
-              <Field className={styles.input} name="phoneNumber" type="text" />
+              <Field
+                className={styles.input}
+                name="phoneNumber"
+                type="text"
+                placeholder="Phone number"
+              />
             </div>
             <div className="pb-5">
               <p className="text-blue-500">Email</p>
-              <Field className={styles.input} name="email" type="email" />
+              <Field
+                className={styles.input}
+                name="email"
+                type="email"
+                placeholder="Email"
+              />
             </div>
             <div className="pb-5">
               <p className="text-blue-500">Marital status</p>
@@ -141,6 +201,7 @@ export function MyAccount() {
                 className={styles.input}
                 name="emergencyContact"
                 type="text"
+                placeholder="Emergency contact"
               />
             </div>
           </div>

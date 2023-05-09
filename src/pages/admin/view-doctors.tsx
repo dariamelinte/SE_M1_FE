@@ -1,4 +1,4 @@
-import { AdminMenu } from '@/components/Admin/Menu';
+import { AdminMenu } from '@/components/Admin/Menu/AdminMenu';
 import { ViewDoctorsTable } from '@/components/Table/tables/ViewDoctors';
 import { withScrollTop } from '@/hooks/withScrollTop';
 import { Page } from '@/layouts';
