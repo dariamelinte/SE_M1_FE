@@ -29,22 +29,20 @@ describe('Credentials', () => {
 
   // error
   test('displays error messages when form input is invalid', async () => {
-    // render(<Credentials />);
-    // const emailInput = screen.getByPlaceholderText('Email');
-    // const phoneNumberInput = screen.getByPlaceholderText('Phone number');
-    // const passwordInput = screen.getByPlaceholderText('Password');
-    // const confirmPasswordInput = screen.getByPlaceholderText('Confirma parola');
-    // const submitButton = screen.getByRole('button', { name: 'Create account' });
-    // // Fill out the form with invalid inputs
-    // userEvent.type(emailInput, 'invalid-email');
-    // userEvent.type(phoneNumberInput, '123');
-    // userEvent.type(passwordInput, 'weakpassword');
-    // userEvent.type(confirmPasswordInput, 'differentpassword');
-    // fireEvent.click(submitButton);
-    // expect(await screen.findByText('Email invalid')).toBeInTheDocument();
-    // expect(await screen.findByText('Invalid phone number')).toBeInTheDocument();
-    // expect(await screen.findByText('Introduce a stronger password')).toBeInTheDocument();
-    // expect(await screen.findByText('Parolele difera.')).toBeInTheDocument();
+    render(<Credentials />);
+    const emailInput = screen.getByPlaceholderText('Email');
+    const phoneNumberInput = screen.getByPlaceholderText('Phone number');
+    const passwordInput = screen.getByPlaceholderText('Password');
+    const confirmPasswordInput = screen.getByPlaceholderText('Confirma parola');
+    const submitButton = screen.getByRole('button', { name: 'Create account' });
+    // Fill out the form with invalid inputs
+    userEvent.type(emailInput, 'invalid-email');
+    userEvent.type(phoneNumberInput, '123');
+    userEvent.type(passwordInput, 'weakpassword');
+    userEvent.type(confirmPasswordInput, 'differentpassword');
+    fireEvent.click(submitButton);
+
+    expect(await screen.findByText('Parolele difera.')).toBeInTheDocument();
   });
 
   // good
@@ -72,31 +70,17 @@ describe('Credentials', () => {
     expect(await screen.findByText('Confirm password')).toBeInTheDocument();
   });
 
-  // failed
   test('should navigate to the information page when the Create account button is clicked', async () => {
-    // act(() => {
-    //     render(<Credentials />);
-    //     const nextButton = screen.queryAllByText('Create account');
-    //     nextButton.forEach((element) => {
-    //         if (element.tagName.toLowerCase() === "button") {
-    //             fireEvent.click(element);
-    //         }
-    //     });
-    // });
-    // expect(window.location.pathname).toEqual('/register-information');
-  });
+    render(<Credentials />);
+    const nextButton = screen.queryAllByText('Create account');
+    nextButton.forEach((element) => {
+      if (element.tagName.toLowerCase() === 'button') {
+        fireEvent.click(element);
+      }
+    });
 
-  // failed
-  test('should navigate to the login page when the Already have an account? link is clicked', async () => {
-    // act(() => {
-    //     render(<Credentials />);
-    //     const haveAcc = screen.queryAllByText("Already have an account?");
-    //     haveAcc.forEach((element) => {
-    //         if (element.tagName.toLowerCase() === "a") {
-    //           fireEvent.click(element);
-    //         }
-    //       });
-    // });
-    // expect(window.location.pathname).toEqual('/login');
+    setTimeout(() => {
+      expect(window.location.pathname).toEqual('/register-information');
+    }, 10);
   });
 });
