@@ -4,12 +4,8 @@ import { withScrollTop } from '@/hooks/withScrollTop';
 import { Page } from '@/layouts';
 
 const ViewDoctors = () => {
-  // const { open, setOpen, onRequestClose } = useRegistrationModal({
-  //   onRegister: () => console.log('register ...'),
-  // });
-
   return (
-    <Page admin>
+    <Page admin ariaLabel="view-doctors-page">
       <AdminMenu />
       <ViewDoctorsTable />
     </Page>

@@ -9,7 +9,7 @@ import { Page } from '@/layouts';
 const Index = () => {
   const router = useRouter();
   return (
-    <Page>
+    <Page ariaLabel="home-page">
       <div className="flex h-screen w-screen flex-col items-center justify-center bg-blue-100">
         <div className="w-1/5">
           <Image alt="logo" src={logo} />

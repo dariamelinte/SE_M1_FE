@@ -5,16 +5,12 @@ import { Information } from '@/components/Forms/Register/Information/Information
 import { withScrollTop } from '@/hooks/withScrollTop';
 import { Page } from '@/layouts';
 
-const Index = () => {
-  // const { open, setOpen, onRequestClose } = useRegistrationModal({
-  //   onRegister: () => console.log('register ...'),
-  // });
-
+const RegisterInformationPage = () => {
   return (
-    <Page>
+    <Page ariaLabel="register-information-page">
       <div className="w-fill flex h-[800px] flex-col items-center justify-center bg-blue-100">
         <div className="w-1/5">
-          <Image src={logo}></Image>
+          <Image src={logo} alt="logo" />
         </div>
         <div>
           <div className="flex justify-between">
@@ -34,4 +30,4 @@ const Index = () => {
   );
 };
 
-export default withScrollTop(Index);
+export default withScrollTop(RegisterInformationPage);

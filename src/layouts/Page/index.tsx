@@ -14,17 +14,33 @@ interface PageProps {
   loading?: boolean;
   errorMessage?: string;
   admin?: boolean;
+  ariaLabel?: string;
 }
 
-export function PageMeta({ children }: { children: React.ReactNode }) {
+export function PageMeta({
+  ariaLabel,
+  children,
+}: {
+  ariaLabel?: string;
+  children: React.ReactNode;
+}) {
   return (
-    <div className="min-h-screen bg-gray-100" role="container">
+    <div
+      aria-label={ariaLabel}
+      className="min-h-screen bg-gray-100"
+      role="container"
+    >
       {children}
     </div>
   );
 }
 
-function Page({ children, loading, admin }: PropsWithChildren<PageProps>) {
+function Page({
+  children,
+  loading,
+  admin,
+  ariaLabel,
+}: PropsWithChildren<PageProps>) {
   const router = useRouter();
   const { role } = useCredentialStore((state) => state.credential);
 
@@ -53,7 +69,7 @@ function Page({ children, loading, admin }: PropsWithChildren<PageProps>) {
         <meta key="title" property="og:title" content="My page title" />
         <link rel="shortcut icon" href="/public/favicon.ico" />
       </Head>
-      <PageMeta>{content}</PageMeta>
+      <PageMeta ariaLabel={ariaLabel}>{content}</PageMeta>
     </>
   );
 }

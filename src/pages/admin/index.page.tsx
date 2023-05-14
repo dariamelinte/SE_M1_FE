@@ -5,7 +5,7 @@ import { Page } from '@/layouts';
 
 const Admin = () => {
   return (
-    <Page admin>
+    <Page admin ariaLabel="admin-page">
       <AdminMenu />
       <ApproveDoctorsTable />
     </Page>
