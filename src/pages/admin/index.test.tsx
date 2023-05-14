@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 
 import useCredentialStore from '@/stores/credential';
 
-import Page from '.';
+import AdminPage from './index.page';
 
 jest.mock('@/stores/credential');
 jest.mock('react-toastify', () => ({
@@ -17,48 +17,28 @@ jest.mock('next/router', () => ({
   useRouter: jest.fn(),
 }));
 
-describe('Page component', () => {
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
-
-  it('renders children', () => {
-    (useCredentialStore as any).mockReturnValue({
-      credential: { role: 'USER' },
-    });
-    (useRouter as any).mockReturnValue({
-      replace: jest.fn(),
-    });
-    render(
-      <Page>
-        <div>Test children</div>
-      </Page>
-    );
-    expect(screen.getByText('Test children')).toBeInTheDocument();
-  });
-
-  it('renders Header component if admin prop is true', () => {
+describe('AdminPage', () => {
+  it('renders the Admin page', () => {
     (useCredentialStore as any).mockReturnValue({
       credential: { role: 'ADMIN' },
     });
     (useRouter as any).mockReturnValue({
       replace: jest.fn(),
     });
-
-    render(<Page admin={true} />);
+    render(<AdminPage />);
     expect(
-      screen.getByRole('container', { name: 'admin-header' })
+      screen.getByRole('container', { name: 'admin-page' })
     ).toBeInTheDocument();
   });
 
-  it('redirects to home page if admin prop is true and role is not ADMIN', () => {
+  it("redirects to home page if user's role is not ADMIN", () => {
     (useCredentialStore as any).mockReturnValue({
       credential: { role: 'USER' },
     });
     (useRouter as any).mockReturnValue({
       replace: jest.fn(),
     });
-    render(<Page admin={true} />);
+    render(<AdminPage />);
     expect(toast.error).toHaveBeenCalledWith(
       'You do not have enough permission.'
     );

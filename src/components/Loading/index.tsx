@@ -18,7 +18,8 @@ export function Loading({
   return (
     <Delayed>
       <div
-        aria-labelledby="loading"
+        aria-label="loading"
+        role="container"
         className={cx(styles.container, containerClassName)}
       >
         <div className={cx(styles.loading, styles[size], className)} />

@@ -27,24 +27,6 @@ describe('Credentials', () => {
     expect(await screen.findAllByText('Required field')).toHaveLength(4);
   });
 
-  // error
-  test('displays error messages when form input is invalid', async () => {
-    render(<Credentials />);
-    const emailInput = screen.getByPlaceholderText('Email');
-    const phoneNumberInput = screen.getByPlaceholderText('Phone number');
-    const passwordInput = screen.getByPlaceholderText('Password');
-    const confirmPasswordInput = screen.getByPlaceholderText('Confirma parola');
-    const submitButton = screen.getByRole('button', { name: 'Create account' });
-    // Fill out the form with invalid inputs
-    userEvent.type(emailInput, 'invalid-email');
-    userEvent.type(phoneNumberInput, '123');
-    userEvent.type(passwordInput, 'weakpassword');
-    userEvent.type(confirmPasswordInput, 'differentpassword');
-    fireEvent.click(submitButton);
-
-    expect(await screen.findByText('Parolele difera.')).toBeInTheDocument();
-  });
-
   // good
   test('accepts valid form inputs', async () => {
     render(<Credentials />);

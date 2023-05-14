@@ -13,6 +13,7 @@
     "lint:fix": "next lint --fix",
     "check-types": "tsc --noEmit --pretty",
     "test": "jest",
+    "coverage": "jest --coverage",
     "cypress": "cypress open",
     "cypress:headless": "cypress run",
     "e2e": "start-server-and-test dev http://localhost:3000 cypress",
