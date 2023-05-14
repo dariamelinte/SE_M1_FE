@@ -28,13 +28,16 @@ describe('Header component', () => {
     jest.clearAllMocks();
 
     // @ts-ignore
-    useRouter.mockReturnValue({ replace });
+    (useRouter as any).mockReturnValue({ replace });
     // @ts-ignore
-    useCredentialStore.mockReturnValue({ setCredential });
+    (useCredentialStore as any).mockReturnValue({ setCredential });
   });
 
   it('renders logo and logout button', () => {
     render(<Header />);
+    expect(
+      screen.getByRole('container', { name: 'admin-header' })
+    ).toBeInTheDocument();
     expect(screen.getByAltText('logo')).toBeInTheDocument();
     expect(screen.getByText('Log Out')).toBeInTheDocument();
   });
