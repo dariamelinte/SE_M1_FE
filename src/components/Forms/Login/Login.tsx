@@ -41,7 +41,22 @@ export function Login() {
           if (data.success) {
             toast.info(data.message);
             setUser(data.user);
-            router.push(data.user.role === 'ADMIN' ? '/admin' : '/my-account');
+
+            const { role, jwt } = data.user || {};
+
+            switch (role) {
+              case 'ADMIN':
+                router.push('/admin');
+                break;
+              case 'PATIENT':
+                router.push(`http://localhost:3003/auth-redirect/${jwt}`);
+                break;
+              case 'DOCTOR':
+                router.push(`http://localhost:3004/auth-redirect/${jwt}`);
+                break;
+              default:
+                break;
+            }
           } else {
             throw Error(data.message);
           }
