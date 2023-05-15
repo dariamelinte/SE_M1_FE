@@ -1,4 +1,4 @@
-export type CredentialType = {
+export type UserType = {
   id: string;
   email: string;
   phoneNumber: string;
@@ -7,4 +7,5 @@ export type CredentialType = {
   isConfirmed: boolean;
   password: string;
   role: string;
+  jwt: string;
 };

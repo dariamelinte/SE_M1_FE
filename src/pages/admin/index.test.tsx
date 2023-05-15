@@ -3,11 +3,11 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { toast } from 'react-toastify';
 
-import useCredentialStore from '@/stores/credential';
+import useUserStore from '@/stores/users';
 
 import AdminPage from './index.page';
 
-jest.mock('@/stores/credential');
+jest.mock('@/stores/users');
 jest.mock('react-toastify', () => ({
   toast: {
     error: jest.fn(),
@@ -19,8 +19,8 @@ jest.mock('next/router', () => ({
 
 describe('AdminPage', () => {
   it('renders the Admin page', () => {
-    (useCredentialStore as any).mockReturnValue({
-      credential: { role: 'ADMIN' },
+    (useUserStore as any).mockReturnValue({
+      user: { role: 'ADMIN' },
     });
     (useRouter as any).mockReturnValue({
       replace: jest.fn(),
@@ -32,8 +32,8 @@ describe('AdminPage', () => {
   });
 
   it("redirects to home page if user's role is not ADMIN", () => {
-    (useCredentialStore as any).mockReturnValue({
-      credential: { role: 'USER' },
+    (useUserStore as any).mockReturnValue({
+      user: { role: 'USER' },
     });
     (useRouter as any).mockReturnValue({
       replace: jest.fn(),

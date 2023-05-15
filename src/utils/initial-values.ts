@@ -1,4 +1,4 @@
-export const INITIAL_CREDENTIAL = {
+export const INITIAL_USER = {
   id: '',
   email: '',
   phoneNumber: '',
@@ -7,4 +7,5 @@ export const INITIAL_CREDENTIAL = {
   isConfirmed: false,
   password: '',
   role: '',
+  jwt: '',
 };

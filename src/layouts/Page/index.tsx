@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 import { Header } from '@/components/Header';
 import { Loading } from '@/components/Loading';
-import useCredentialStore from '@/stores/credential';
+import useUserStore from '@/stores/users';
 
 const TITLE = 'MedConnect';
 
@@ -42,7 +42,7 @@ function Page({
   ariaLabel,
 }: PropsWithChildren<PageProps>) {
   const router = useRouter();
-  const { role } = useCredentialStore((state) => state.credential);
+  const { role } = useUserStore((state) => state.user);
 
   useEffect(() => {
     if (admin && role !== 'ADMIN') {

@@ -1,9 +1,9 @@
-import type { CredentialType } from './credential';
+import type { UserType } from './user';
 
 export type GetDoctorsResponseType = {
   success: boolean;
   message: string;
-  data: CredentialType[];
+  data: UserType[];
 };
 
 export type ConfirmDoctorRequestType = {
@@ -14,11 +14,11 @@ export type ConfirmDoctorRequestType = {
 export type ConfirmDoctorResponseType = {
   success: boolean;
   message: string;
-  account: CredentialType;
+  account: UserType;
 };
 
 export type GetPatientsResponseType = {
   success: boolean;
   message: string;
-  data: CredentialType[];
+  data: UserType[];
 };

@@ -6,7 +6,7 @@ import * as yup from 'yup';
 
 import { Button } from '@/components/Buttons';
 import { register } from '@/services/api/register';
-import useCredentialStore from '@/stores/credential';
+import useUserStore from '@/stores/users';
 import type { ErrorResponseType } from '@/types/error';
 import ERROR_MESSAGES from '@/utils/error-messages';
 
@@ -45,10 +45,8 @@ export function Information() {
   const [checked, setChecked] = React.useState(false);
   const [doctor, setDoctor] = React.useState(false);
   const router = useRouter();
-  const { email, phoneNumber, password } = useCredentialStore(
-    (state) => state.credential
-  );
-  const setCredential = useCredentialStore((state) => state.setCredential);
+  const { email, phoneNumber, password } = useUserStore((state) => state.user);
+  const setUser = useUserStore((state) => state.setUser);
 
   const handleChange = () => {
     setChecked(!checked);
@@ -59,7 +57,7 @@ export function Information() {
       validationSchema={validationSchema}
       onSubmit={async ({ firstName, lastName, dateOfBirth }) => {
         try {
-          const credential = {
+          const user = {
             email,
             phoneNumber,
             password,
@@ -68,12 +66,11 @@ export function Information() {
             dateOfBirth,
             role: doctor ? 'DOCTOR' : 'PATIENT',
           };
-          console.log(credential);
-          const { data } = await register(credential);
+          const { data } = await register(user);
 
           if (data.success) {
             toast.info(data.message);
-            setCredential(data.credential);
+            setUser(data.user);
             router.push('/login');
           } else {
             throw Error(data.message);

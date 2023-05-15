@@ -12,7 +12,7 @@ describe('authService', () => {
     expect(response.status).toBe(200);
     expect(response.data).toBeDefined();
     expect(response.data.success).toBe(true);
-    expect(response.data.credential).toBeDefined();
+    expect(response.data.user).toBeDefined();
   });
 
   it('should not be able to log in with invalid credentials', async () => {
@@ -26,6 +26,6 @@ describe('authService', () => {
     expect(response.status).toBe(200);
     expect(response.data).toBeDefined();
     expect(response.data.success).toBe(false);
-    expect(response.data.message).toBe('Credentials not found.');
+    expect(response.data.message).toBe('Email or password incorrect.');
   });
 });

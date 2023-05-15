@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { getDoctors } from '@/services/api/doctors';
-import type { CredentialType } from '@/types/credential';
+import type { UserType } from '@/types/user';
 
 import { Table } from '..';
 import { APPROVE_DOCTOR_COLUMNS } from '../columns/approve-doctor-columns';
 
 export const ApproveDoctorsTable = () => {
-  const [doctors, setDoctors] = useState<CredentialType[]>([]);
+  const [doctors, setDoctors] = useState<UserType[]>([]);
 
   const fetchDoctors = async () => {
     try {

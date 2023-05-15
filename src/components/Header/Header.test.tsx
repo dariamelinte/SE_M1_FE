@@ -2,14 +2,14 @@ import { render, screen } from '@testing-library/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-import useCredentialStore from '@/stores/credential';
+import useUserStore from '@/stores/users';
 
 import { Header } from '.';
 
-jest.mock('@/stores/credential', () => ({
+jest.mock('@/stores/users', () => ({
   __esModule: true,
   default: jest.fn(),
-  useCredentialStore: jest.fn(),
+  useUserStore: jest.fn(),
 }));
 
 jest.mock('next/router', () => ({
@@ -21,7 +21,7 @@ jest.mock('next/router', () => ({
 }));
 
 describe('Header component', () => {
-  const setCredential = jest.fn();
+  const setUser = jest.fn();
   const replace = jest.fn();
 
   beforeEach(() => {
@@ -30,7 +30,7 @@ describe('Header component', () => {
     // @ts-ignore
     (useRouter as any).mockReturnValue({ replace });
     // @ts-ignore
-    (useCredentialStore as any).mockReturnValue({ setCredential });
+    (useUserStore as any).mockReturnValue({ setUser });
   });
 
   it('renders logo and logout button', () => {

@@ -19,7 +19,7 @@ describe('authService', () => {
     expect(response.status).toBe(200);
     expect(response.data).toBeDefined();
     expect(response.data.success).toBe(true);
-    expect(response.data.credential).toBeDefined();
+    expect(response.data.user).toBeDefined();
   });
 
   it('should be able to register as doctor', async () => {
@@ -40,7 +40,7 @@ describe('authService', () => {
     expect(response.status).toBe(200);
     expect(response.data).toBeDefined();
     expect(response.data.success).toBe(true);
-    expect(response.data.credential).toBeDefined();
+    expect(response.data.user).toBeDefined();
   });
 
   it('should not be able to register an user with already existing email', async () => {
