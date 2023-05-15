@@ -4,7 +4,7 @@ describe('authService', () => {
   it('should be able to register as patient', async () => {
     // Create a user with valid credentials
     const user = {
-      email: 'test-patient2@medconnect.com',
+      email: 'test-patient3@medconnect.com',
       phoneNumber: '0749639919',
       firstName: 'Test',
       lastName: 'Test',
@@ -25,7 +25,7 @@ describe('authService', () => {
   it('should be able to register as doctor', async () => {
     // Create a user with valid credentials
     const user = {
-      email: 'test-medic2@medconnect.com',
+      email: 'test-medic3@medconnect.com',
       phoneNumber: '0749639919',
       firstName: 'Test',
       lastName: 'Test',
@@ -46,7 +46,7 @@ describe('authService', () => {
   it('should not be able to register an user with already existing email', async () => {
     // Create a user with valid credentials
     const user = {
-      email: 'test-patient2@medconnect.com',
+      email: 'test-patient3@medconnect.com',
       phoneNumber: '0749639919',
       firstName: 'Test',
       lastName: 'Test',
