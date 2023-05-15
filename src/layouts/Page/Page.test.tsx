@@ -3,11 +3,11 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { toast } from 'react-toastify';
 
-import useCredentialStore from '@/stores/credential';
+import useUserStore from '@/stores/users';
 
 import Page from '.';
 
-jest.mock('@/stores/credential');
+jest.mock('@/stores/users');
 jest.mock('react-toastify', () => ({
   toast: {
     error: jest.fn(),
@@ -23,8 +23,8 @@ describe('Page component', () => {
   });
 
   it('renders children', () => {
-    (useCredentialStore as any).mockReturnValue({
-      credential: { role: 'USER' },
+    (useUserStore as any).mockReturnValue({
+      user: { role: 'USER' },
     });
     (useRouter as any).mockReturnValue({
       replace: jest.fn(),
@@ -38,8 +38,8 @@ describe('Page component', () => {
   });
 
   it('renders Header component if admin prop is true', () => {
-    (useCredentialStore as any).mockReturnValue({
-      credential: { role: 'ADMIN' },
+    (useUserStore as any).mockReturnValue({
+      user: { role: 'ADMIN' },
     });
     (useRouter as any).mockReturnValue({
       replace: jest.fn(),
@@ -52,8 +52,8 @@ describe('Page component', () => {
   });
 
   it('redirects to home page if admin prop is true and role is not ADMIN', () => {
-    (useCredentialStore as any).mockReturnValue({
-      credential: { role: 'USER' },
+    (useUserStore as any).mockReturnValue({
+      user: { role: 'USER' },
     });
     (useRouter as any).mockReturnValue({
       replace: jest.fn(),

@@ -7,7 +7,7 @@ import * as yup from 'yup';
 
 import { Button } from '@/components/Buttons';
 import { login } from '@/services/api/login';
-import useCredentialStore from '@/stores/credential';
+import useUserStore from '@/stores/users';
 import type { ErrorResponseType } from '@/types/error';
 import ERROR_MESSAGES from '@/utils/error-messages';
 
@@ -28,7 +28,7 @@ const validationSchema = yup.object().shape({
 
 export function Login() {
   const router = useRouter();
-  const setCredential = useCredentialStore((state) => state.setCredential);
+  const setUser = useUserStore((state) => state.setUser);
 
   return (
     <Formik
@@ -40,10 +40,8 @@ export function Login() {
 
           if (data.success) {
             toast.info(data.message);
-            setCredential(data.credential);
-            router.push(
-              data.credential.role === 'ADMIN' ? '/admin' : '/my-account'
-            );
+            setUser(data.user);
+            router.push(data.user.role === 'ADMIN' ? '/admin' : '/my-account');
           } else {
             throw Error(data.message);
           }

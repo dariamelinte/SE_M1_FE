@@ -4,18 +4,18 @@ import React from 'react';
 
 import logo from '@/assets/images/logo-mare.png';
 import { Button } from '@/components/Buttons';
-import useCredentialStore from '@/stores/credential';
-import { INITIAL_CREDENTIAL } from '@/utils/initial-values';
+import useUserStore from '@/stores/users';
+import { INITIAL_USER } from '@/utils/initial-values';
 
 import styles from './Header.module.css';
 
 export const Header: React.FC = () => {
   const router = useRouter();
-  const setCredential = useCredentialStore((state) => state.setCredential);
+  const setUser = useUserStore((state) => state.setUser);
   // hello
 
   const onClickLogout = () => {
-    setCredential(INITIAL_CREDENTIAL);
+    setUser(INITIAL_USER);
     router.replace('/login');
   };
 

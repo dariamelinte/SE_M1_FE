@@ -1,9 +1,9 @@
-import type { CredentialType } from '@/types/credential';
+import type { UserType } from '@/types/user';
 
-export type CredentialStoreType = {
-  credential: CredentialType;
-  setCredential: (credential: CredentialType) => void;
-  getCredential: () => CredentialType;
+export type UserStoreType = {
+  user: UserType;
+  setUser: (user: UserType) => void;
+  getUser: () => UserType;
 };
 
 export type AdminStoreType = {

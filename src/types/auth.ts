@@ -1,4 +1,4 @@
-import type { CredentialType } from './credential';
+import type { UserType } from './user';
 
 export type AuthType = {
   email: string;
@@ -8,5 +8,5 @@ export type AuthType = {
 export type LoginResponseType = {
   success: boolean;
   message: string;
-  credential: CredentialType;
+  user: UserType;
 };

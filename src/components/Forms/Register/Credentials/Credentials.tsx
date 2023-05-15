@@ -6,8 +6,8 @@ import * as yup from 'yup';
 
 import { Button } from '@/components/Buttons';
 import { InputField } from '@/components/Forms/Inputs';
-import useCredentialStore from '@/stores/credential';
-import { INITIAL_CREDENTIAL } from '@/utils/initial-values';
+import useUserStore from '@/stores/users';
+import { INITIAL_USER } from '@/utils/initial-values';
 
 import styles from './Credentials.module.css';
 
@@ -47,15 +47,15 @@ const validationSchema = yup.object().shape({
 
 export function Credentials() {
   const router = useRouter();
-  const setCredential = useCredentialStore((state) => state.setCredential);
+  const setUser = useUserStore((state) => state.setUser);
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={async ({ email, phoneNumber, password }) => {
-        await setCredential({
-          ...INITIAL_CREDENTIAL,
+        await setUser({
+          ...INITIAL_USER,
           email,
           phoneNumber,
           password,
