@@ -17,6 +17,12 @@ export const APPROVE_DOCTOR_COLUMNS = [
     accessorKey: 'email',
   },
   {
+    header: 'Specialisation',
+    accessorKey: 'specialisation.name',
+    cell: ({ row }: any) =>
+      row?.original?.specialisation?.name || 'No specialisation chosen.',
+  },
+  {
     header: 'Corfirmation',
     accessorKey: 'isConfirmed',
     cell: ({ row }: any) => {

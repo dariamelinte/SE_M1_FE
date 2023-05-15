@@ -1,4 +1,6 @@
-export const INITIAL_USER = {
+import type { UserType } from '@/types/user';
+
+export const INITIAL_USER: UserType = {
   id: '',
   email: '',
   phoneNumber: '',
@@ -8,4 +10,5 @@ export const INITIAL_USER = {
   password: '',
   role: '',
   jwt: '',
+  specialisation: null,
 };

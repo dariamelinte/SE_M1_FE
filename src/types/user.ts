@@ -8,4 +8,7 @@ export type UserType = {
   password: string;
   role: string;
   jwt: string;
+  specialisation: {
+    name: string;
+  } | null;
 };

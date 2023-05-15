@@ -14,6 +14,12 @@ export const VIEW_DOCTOR_COLUMNS = [
     accessorKey: 'email',
   },
   {
+    header: 'Specialisation',
+    accessorKey: 'specialisation.name',
+    cell: ({ row }: any) =>
+      row?.original?.specialisation?.name || 'No specialisation chosen.',
+  },
+  {
     header: 'Status',
     accessorKey: 'isConfirmed',
     cell: ({ getValue }: any) => {

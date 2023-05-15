@@ -22,6 +22,7 @@ describe('APPROVE_DOCTOR_COLUMNS', () => {
     expect(screen.getByText('Last Name')).toBeInTheDocument();
     expect(screen.getByText('First Name')).toBeInTheDocument();
     expect(screen.getByText('Email')).toBeInTheDocument();
+    expect(screen.getByText('Specialisation')).toBeInTheDocument();
     expect(screen.getByText('Corfirmation')).toBeInTheDocument();
   });
 });
